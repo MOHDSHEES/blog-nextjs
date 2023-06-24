@@ -1,0 +1,41 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+.carousel-img img {
+  height: 520px;
+  object-fit: cover;
+}
+.carouselSideCard img {
+  height: 245px;
+  object-fit: cover;
+}
+.categorySmall2 img {
+  height: 80px;
+  object-fit: cover;
+}
+
+.catSmallCard img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+.carouselSmall img {
+  height: 290px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .carousel-img img {
+    height: 420px;
+  }
+  .carouselSideCard img {
+    height: 300px;
+  }
+  .carouselSmall img {
+    height: 380px;
+  }
+}
+@media (max-width: 480px) {
+  .carousel-img img {
+    height: 340px;
+  }
+}
