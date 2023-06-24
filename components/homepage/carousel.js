@@ -53,7 +53,7 @@ const Carousel = ({ trending }) => {
                         data-delay=".6s"
                         data-duration="1000ms"
                       >
-                        {blog.createdDate}
+                        {blog.createdDate} | Views: {blog.views}
                       </p>
                     </div>
                   </div>

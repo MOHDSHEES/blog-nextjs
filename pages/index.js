@@ -21,8 +21,8 @@ export async function getStaticProps() {
   let data = homePagedata.toObject();
   const resu = await blogModel
     .find({ status: "Active" })
+    .sort({ views: -1 })
     .limit(6)
-    .sort({ $natural: -1 })
     .lean();
 
   // const trending = resu.toObject();
