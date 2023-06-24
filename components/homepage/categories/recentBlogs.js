@@ -5,7 +5,10 @@ import CategorySmall2 from "./categorySmall2";
 
 const RecentBlogs = ({ recent }) => {
   return (
-    <div className="most-recent-area" style={{ paddingBottom: "10px" }}>
+    <div
+      className="most-recent-area"
+      style={{ paddingBottom: "10px", paddingTop: "10px" }}
+    >
       {/* Section Tittle */}
       <div className="small-tittle mb-20">
         <h4>Most Recent</h4>

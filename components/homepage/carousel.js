@@ -9,7 +9,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
-const Carousel = ({ recent }) => {
+const Carousel = ({ trending }) => {
   return (
     <div className="slider-active nav-a">
       <OwlCarousel
@@ -22,7 +22,7 @@ const Carousel = ({ recent }) => {
         autoplayTimeout={3000}
         autoplayHoverPause
       >
-        {recent.map((blog) => {
+        {trending.map((blog) => {
           return (
             <div class="item" key={blog._id}>
               <div className="single-slider">

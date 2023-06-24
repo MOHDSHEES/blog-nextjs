@@ -13,6 +13,11 @@
   height: 80px;
   object-fit: cover;
 }
+.card4-img img {
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+}
 
 .catSmallCard img {
   height: 100px;
@@ -44,4 +49,13 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.break-line-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.hover-red:hover {
+  color: #ff2143;
 }

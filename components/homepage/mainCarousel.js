@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "./carousel";
 import CarouselSideCard from "./carouselSideCard";
 
-const MainCarousel = ({ data }) => {
+const MainCarousel = ({ data, trending }) => {
   // console.log(data);
   return (
     <div className="trending-area fix pt-25 gray-bg">
@@ -11,7 +11,7 @@ const MainCarousel = ({ data }) => {
           <div className="row">
             <div className="col-lg-8">
               {/* Trending Top */}
-              {data && data.recent && <Carousel recent={data.recent} />}
+              {data && data.recent && <Carousel trending={trending} />}
             </div>
             {/* Right content */}
             {/* <div className=""> */}

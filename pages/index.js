@@ -10,20 +10,34 @@ import MidBar from "../components/navbar/midBar";
 import MainNavbar from "../components/navbar/mainNavbar";
 import dbConnect from "../lib/mongoose";
 import HomepageDataModel from "../models/homepageDataModel";
+import CarouselLast from "../components/homepage/carouselLast";
+import blogModel from "../models/blogModel";
+import MainFooter from "../components/footer/mainFooter";
 
 export async function getStaticProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   let data = homePagedata.toObject();
+  const resu = await blogModel
+    .find({ status: "Active" })
+    .limit(6)
+    .sort({ $natural: -1 })
+    .lean();
+
+  // const trending = resu.toObject();
+  const trending = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
+  // console.log(trending);
 
   return {
     props: {
       data,
+      trending,
     },
   };
 }
-export default function Home({ data }) {
+export default function Home({ data, trending }) {
+  // console.log(trending);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
@@ -44,8 +58,10 @@ export default function Home({ data }) {
           </div>
         </div>
       </header>
-      <MainCarousel data={data} />
+      <MainCarousel data={data} trending={trending} />
       <CategoryTab data={data} />
+      <CarouselLast trending={trending} />
+      <MainFooter data={data} />
     </div>
   );
 }

@@ -16,7 +16,7 @@ const categoryTab = ({ data }) => {
     setPrevActive(id);
   }
   return (
-    <section className="whats-news-area pt-50 pb-20 gray-bg">
+    <section className="whats-news-area pt-10 pb-20 gray-bg">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
@@ -86,7 +86,7 @@ const categoryTab = ({ data }) => {
                               <CatMainCard data={data[1][0]} />
                               <div className="col-xl-6 col-lg-12">
                                 <div className="row">
-                                  {data[1].slice(1).map((blog) => {
+                                  {data[1].slice(1, 5).map((blog) => {
                                     return <CatSmallCard data={blog} />;
                                   })}
                                 </div>

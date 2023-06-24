@@ -2,7 +2,7 @@ import React from "react";
 
 const SocialFollow = () => {
   return (
-    <div className="single-follow mb-45">
+    <div className="single-follow mb-30">
       <div className="single-box">
         <div className="follow-us d-flex align-items-center">
           <div className="follow-social">
