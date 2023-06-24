@@ -58,6 +58,7 @@ export default function Home({ data, trending }) {
         </div>
       </header>
       <MainCarousel data={data} trending={trending} />
+
       <CategoryTab data={data} />
       <CarouselLast trending={trending} />
       <MainFooter data={data} />

@@ -5,7 +5,7 @@ import PopularPost from "./popularPost";
 
 const MainFooter = ({ data }) => {
   return (
-    <div className="footer-main footer-bg">
+    <div className="footer-main footer-bg pt-100">
       <div className="footer-area footer-padding">
         <div className="container">
           <div className="row d-flex justify-content-between">

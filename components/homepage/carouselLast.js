@@ -12,7 +12,7 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 const CarouselLast = ({ trending }) => {
   // console.log(trending);
   return (
-    <div className="weekly3-news-area pt-80 pb-130">
+    <div className="weekly3-news-area pt-30 pb-20">
       <div className="container">
         <div className="weekly3-wrapper">
           <div className="row">
