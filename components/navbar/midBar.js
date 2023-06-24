@@ -6,9 +6,16 @@ const MidBar = () => {
       <div className="container">
         <div className="row d-flex align-items-center">
           <div className="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
-            <div className="logo">
+            <div className="logo nav-a">
               <a href="index.html">
-                <img src="images/img/logo/logo.png" alt="" />
+                <h2
+                  class="mb-2 mt-n2  text-uppercase "
+                  style={{ color: "black", fontWeight: 700 }}
+                >
+                  <span style={{ color: "red" }}>OFF</span>THE
+                  <span style={{ color: "red" }}>WEB</span>
+                </h2>
+                {/* <img src="images/img/logo/logo.png" alt="" /> */}
               </a>
             </div>
           </div>

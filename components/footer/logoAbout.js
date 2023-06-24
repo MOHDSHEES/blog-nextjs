@@ -6,23 +6,30 @@ const LogoAbout = () => {
       <div className="single-footer-caption mb-50">
         <div className="single-footer-caption mb-30">
           {/* logo */}
-          <div className="footer-logo">
+          <div className="footer-logo nav-a">
             <a href="index.html">
-              <img src="images/img/logo/logo2_footer.png" alt="" />
+              <h2
+                class="mb-2 mt-n2  text-uppercase "
+                style={{ color: "white" }}
+              >
+                <span style={{ color: "red" }}>OFF</span>THE
+                <span style={{ color: "red" }}>WEB</span>
+              </h2>
+              {/* <img src="images/img/logo/logo2_footer.png" alt="" /> */}
             </a>
           </div>
           <div className="footer-tittle">
             <div className="footer-pera">
-              <p className="info1">
-                Lorem ipsum dolor sit amet, nsectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore.
+              <p className="info1" style={{ color: "white" }}>
+                Stay ahead of the curve with OFFTHEWEB - your source for the
+                latest in tech and beyond.
               </p>
-              <p className="info2">
+              {/* <p className="info2">
                 198 West 21th Street, Suite 721 New York,NY 10010
               </p>
               <p className="info2">
                 Phone: +95 (0) 123 456 789 Cell: +95 (0) 123 456 789
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

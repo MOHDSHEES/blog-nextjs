@@ -13,7 +13,7 @@ import CarouselLast from "../components/homepage/carouselLast";
 import blogModel from "../models/blogModel";
 import MainFooter from "../components/footer/mainFooter";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
