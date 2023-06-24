@@ -4,7 +4,6 @@ import LogoAbout from "./logoAbout";
 import PopularPost from "./popularPost";
 
 const MainFooter = ({ data }) => {
-  console.log(data);
   return (
     <div className="footer-main footer-bg">
       <div className="footer-area footer-padding">

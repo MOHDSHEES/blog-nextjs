@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
 // import { getSortedPostsData } from "../lib/posts";
 
 import MainCarousel from "../components/homepage/mainCarousel";
@@ -52,7 +51,7 @@ export default function Home({ data, trending }) {
       <header>
         <div className="header-area">
           <div className="main-header">
-            <TopBar />
+            <TopBar trending={trending} />
             <MidBar />
             <MainNavbar />
           </div>

@@ -56,6 +56,38 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+.break-line-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .hover-red:hover {
   color: #ff2143;
+}
+.topbar-flex {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.top-mid-carousel {
+  /* margin-top: 3px; */
+  /* width: 50%; */
+  flex-grow: 1;
+  max-width: 70%;
+}
+.topbar-top-heading p {
+  color: white;
+  margin-bottom: 0;
+  margin-right: 20px;
+  padding: 5px 10px;
+  background-color: red;
+}
+.topbar-time {
+  margin-left: auto;
+}
+@media (max-width: 768px) {
+  .topbar-time {
+    display: none;
+  }
 }

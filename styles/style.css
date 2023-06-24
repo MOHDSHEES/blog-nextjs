@@ -2284,21 +2284,21 @@ hr {
   margin-right: 0;
   padding-right: 0px;
 }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+/* @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-area .header-top .header-info-left ul li:last-child {
     display: none;
   }
-}
-@media only screen and (min-width: 576px) and (max-width: 767px) {
+} */
+/* @media only screen and (min-width: 576px) and (max-width: 767px) {
   .header-area .header-top .header-info-left ul li:last-child {
     display: none;
   }
-}
-@media (max-width: 575px) {
+} */
+/* @media (max-width: 575px) {
   .header-area .header-top .header-info-left ul li:last-child {
     display: none;
   }
-}
+} */
 .header-area .header-top .header-info-left ul li span {
   margin-right: 8px;
   color: #ff2143;
