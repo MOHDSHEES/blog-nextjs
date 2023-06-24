@@ -14,7 +14,7 @@ const CatMainCard = ({ data }) => {
             <a href="latest_news.html">{data.title}</a>
           </h4>
           <span>{data.createdDate}</span>
-          <p>{parse(data.blog[0].text)}</p>
+          <p className="break-line-3">{parse(data.blog[0].text)}</p>
         </div>
       </div>
     </div>

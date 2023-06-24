@@ -24,7 +24,7 @@ export async function getStaticProps() {
   };
 }
 export default function Home({ data }) {
-  console.log(data);
+  // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
   //   console.log("in");
