@@ -1,43 +1,41 @@
 import Head from "next/head";
-// import { getSortedPostsData } from "../lib/posts";
-
 import MainCarousel from "../components/homepage/mainCarousel";
 import CategoryTab from "../components/homepage/categories/categoryTab";
 import { useContext, useEffect } from "react";
-import TopBar from "../components/navbar/topBar";
-import MidBar from "../components/navbar/midBar";
-import MainNavbar from "../components/navbar/mainNavbar";
-import dbConnect from "../lib/mongoose";
 import HomepageDataModel from "../models/homepageDataModel";
 import CarouselLast from "../components/homepage/carouselLast";
 import blogModel from "../models/blogModel";
 import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
+import dbConnect from "../lib/mongoose";
 
 export async function getServerSideProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   let data = homePagedata.toObject();
-  // const resu = await blogModel
-  //   .find({ status: "Active" })
-  //   .sort({ views: -1 })
-  //   .limit(6)
-  //   .lean();
+  const resu = await blogModel
+    .find({ status: "Active" })
+    .sort({ views: -1 })
+    .limit(6)
+    .lean();
 
-  // // const trending = resu.toObject();
-  // const trending = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
+  // const trending = resu.toObject();
+  const trending = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
   // console.log(trending);
 
   return {
     props: {
       data,
-      // trending,
+      trending,
     },
   };
 }
-export default function Home({ data }) {
-  // console.log(trending);
+export default function Home({ data, trending }) {
+  const { trending: trend, setTrending } = useContext(MyContext);
+  useEffect(() => {
+    setTrending(trending);
+  }, [trending]);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
@@ -58,15 +56,6 @@ export default function Home({ data }) {
           data-rh="true"
         />
       </Head>
-      {/* <header>
-        <div className="header-area">
-          <div className="main-header">
-            <TopBar trending={trending} />
-            <MidBar />
-            <MainNavbar />
-          </div>
-        </div>
-      </header> */}
       <MainCarousel data={data} />
       <CategoryTab data={data} />
       <CarouselLast />

@@ -4,8 +4,8 @@ import React, { createContext, useState } from "react";
 const MyContext = createContext();
 
 // Create a provider component
-const MyProvider = ({ children, initialData }) => {
-  const [trending, setTrending] = useState(initialData);
+const MyProvider = ({ children }) => {
+  const [trending, setTrending] = useState([]);
   //   const [value2, setValue2] = useState("Initial value 2");
 
   return (

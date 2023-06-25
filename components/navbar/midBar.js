@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const MidBar = () => {
@@ -7,7 +8,7 @@ const MidBar = () => {
         <div className="row d-flex align-items-center">
           <div className="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
             <div className="logo nav-a">
-              <a href="index.html">
+              <Link href="/">
                 <h2
                   class="mb-2 mt-n2  text-uppercase "
                   style={{ color: "black", fontWeight: 700 }}
@@ -16,7 +17,7 @@ const MidBar = () => {
                   <span style={{ color: "red" }}>WEB</span>
                 </h2>
                 {/* <img src="images/img/logo/logo.png" alt="" /> */}
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-xl-9 col-lg-9 col-md-9">

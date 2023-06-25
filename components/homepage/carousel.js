@@ -7,6 +7,7 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const Carousel = ({ data }) => {
@@ -39,14 +40,14 @@ const Carousel = ({ data }) => {
                         {blog.category}
                       </span>
                       <h2>
-                        <a
-                          href="latest_news.html"
+                        <Link
+                          href="/blog/qwe"
                           data-animation="fadeInUp"
                           data-delay=".4s"
                           data-duration="1000ms"
                         >
                           {blog.title}
-                        </a>
+                        </Link>
                       </h2>
                       <p
                         data-animation="fadeInUp"
