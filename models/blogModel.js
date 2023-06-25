@@ -22,6 +22,6 @@ let blogModel;
 try {
   blogModel = mongoose.model("Blogs");
 } catch {
-  blogModel = mongoose.model("Blogs", navbarSchema);
+  blogModel = mongoose.model("Blogs", blogSchema);
 }
 export default blogModel;
