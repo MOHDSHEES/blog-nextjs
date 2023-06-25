@@ -17,5 +17,11 @@ const blogSchema = new mongoose.Schema({
 });
 
 // productsSchema.index({ name: "text", category: "text" });
-const blogModel = mongoose.models.Blogs || mongoose.model("Blogs", blogSchema);
+let blogModel;
+// const blogModel = mongoose.models.Blogs || mongoose.model("Blogs", blogSchema);
+try {
+  blogModel = mongoose.model("Blogs");
+} catch {
+  blogModel = mongoose.model("Blogs", navbarSchema);
+}
 export default blogModel;

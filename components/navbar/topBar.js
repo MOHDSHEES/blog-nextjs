@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
   window.$ = window.jQuery = require("jquery");
@@ -6,9 +6,16 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { MyContext } from "../context";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
-const TopBar = ({ trending }) => {
+const TopBar = () => {
+  const { trending } = useContext(MyContext);
+
+  // // Set the initial data in the context if it hasn't been set yet
+  // if (!trending && trend) {
+  //   setTrending(trend);
+  // }
   return (
     <div className="header-top black-bg ">
       <div className="container">

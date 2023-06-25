@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // import OwlCarousel from "react-owl-carousel";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -7,9 +7,11 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { MyContext } from "../context";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
-const Carousel = ({ trending }) => {
+const Carousel = () => {
+  const { trending } = useContext(MyContext);
   return (
     <div className="slider-active nav-a">
       <OwlCarousel
