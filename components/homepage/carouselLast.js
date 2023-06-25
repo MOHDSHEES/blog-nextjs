@@ -21,33 +21,33 @@ const CarouselLast = () => {
             <div className="col-lg-12">
               <div className="slider-wrapper">
                 {/* Slider */}
-                <OwlCarousel
-                  className="owl-theme"
-                  loop
-                  autoplayHoverPause
-                  autoplayTimeout={2000}
-                  autoplay
-                  margin={10}
-                  responsive={{
-                    0: {
-                      items: 1,
-                    },
-                    480: {
-                      items: 1,
-                    },
-                    767: {
-                      items: 3,
-                    },
-                    992: {
-                      items: 3,
-                    },
-                    1280: {
-                      items: 4,
-                    },
-                  }}
-                >
-                  {trending &&
-                    trending.map((blog) => {
+                {trending.length !== 0 && (
+                  <OwlCarousel
+                    className="owl-theme"
+                    loop
+                    autoplayHoverPause
+                    autoplayTimeout={2000}
+                    autoplay
+                    margin={10}
+                    responsive={{
+                      0: {
+                        items: 1,
+                      },
+                      480: {
+                        items: 1,
+                      },
+                      767: {
+                        items: 3,
+                      },
+                      992: {
+                        items: 3,
+                      },
+                      1280: {
+                        items: 4,
+                      },
+                    }}
+                  >
+                    {trending.map((blog) => {
                       return (
                         <div key={blog._id} class="item">
                           <Card2 data={blog} />
@@ -55,7 +55,7 @@ const CarouselLast = () => {
                       );
                     })}
 
-                  {/* <div class="item">
+                    {/* <div class="item">
                     <Card2 />
                   </div>
                   <div class="item">
@@ -67,7 +67,8 @@ const CarouselLast = () => {
                   <div class="item">
                     <Card2 />
                   </div> */}
-                </OwlCarousel>
+                  </OwlCarousel>
+                )}
               </div>
             </div>
           </div>

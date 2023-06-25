@@ -9,9 +9,10 @@ import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 
-export async function getInitialProps() {
+Home.getInitialProps = async () => {
   // let homepageData;
   await dbConnect();
+  console.log("in");
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   let data = homePagedata.toObject();
   const resu = await blogModel
@@ -24,14 +25,10 @@ export async function getInitialProps() {
   const trending = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
   // console.log(trending);
 
-  return {
-    props: {
-      data,
-      trending,
-    },
-  };
-}
+  return { data, trending };
+};
 export default function Home({ data, trending }) {
+  // console.log(trending);
   const { setTrending, setData } = useContext(MyContext);
   useEffect(() => {
     setTrending(trending);
