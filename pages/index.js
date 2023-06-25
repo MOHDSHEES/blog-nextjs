@@ -9,7 +9,7 @@ import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 
-export async function getServerSideProps() {
+export async function getInitialProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
