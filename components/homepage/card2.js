@@ -7,7 +7,7 @@ const Card2 = ({ data }) => {
       style={{ marginLeft: "15px", marginRight: "15px" }}
     >
       <div classname="weekly2-img" style={{ marginBottom: "20px" }}>
-        <img src={data.mainImg} alt={data.category} style={{ width: "100%" }} />
+        <img className="card2-img" src={data.mainImg} alt={data.category} />
       </div>
       <div classname="weekly2-caption ">
         <h4 className="nav-a">
