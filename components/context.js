@@ -6,10 +6,10 @@ const MyContext = createContext();
 // Create a provider component
 const MyProvider = ({ children }) => {
   const [trending, setTrending] = useState([]);
-  //   const [value2, setValue2] = useState("Initial value 2");
+  const [data, setData] = useState([]);
 
   return (
-    <MyContext.Provider value={{ trending, setTrending }}>
+    <MyContext.Provider value={{ trending, setTrending, data, setData }}>
       {children}
     </MyContext.Provider>
   );

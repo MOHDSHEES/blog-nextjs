@@ -32,10 +32,11 @@ export async function getServerSideProps() {
   };
 }
 export default function Home({ data, trending }) {
-  const { setTrending } = useContext(MyContext);
+  const { setTrending, setData } = useContext(MyContext);
   useEffect(() => {
     setTrending(trending);
-  }, [trending]);
+    setData(data);
+  }, [trending, data]);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
@@ -56,10 +57,10 @@ export default function Home({ data, trending }) {
           data-rh="true"
         />
       </Head>
-      <MainCarousel data={data} />
-      <CategoryTab data={data} />
+      {/* <MainCarousel data={data} /> */}
+      {/* <CategoryTab data={data} /> */}
       <CarouselLast />
-      <MainFooter data={data} />
+      {/* <MainFooter data={data} /> */}
     </div>
   );
 }
