@@ -68,7 +68,6 @@ export default function Home({ data }) {
         </div>
       </header> */}
       <MainCarousel data={data} />
-
       <CategoryTab data={data} />
       <CarouselLast />
       <MainFooter data={data} />

@@ -5,7 +5,7 @@ import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
 
 const categoryTab = ({ data }) => {
-  const [categoryData, setCategoryData] = useState(
+  const [categoryData] = useState(
     data && data.categoryData ? data.categoryData : []
   );
   const [prevActive, setPrevActive] = useState(0);
@@ -108,7 +108,7 @@ const categoryTab = ({ data }) => {
             {/* Flow Socail */}
             <SocialFollow />
             {/* Most Recent Area */}
-            <RecentBlogs recent={data.recent} />
+            <RecentBlogs />
           </div>
         </div>
       </div>

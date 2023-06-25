@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 // import OwlCarousel from "react-owl-carousel";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -7,11 +7,9 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { MyContext } from "../context";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
-const Carousel = () => {
-  const { trending } = useContext(MyContext);
+const Carousel = ({ data }) => {
   return (
     <div className="slider-active nav-a">
       <OwlCarousel
@@ -24,7 +22,7 @@ const Carousel = () => {
         autoplayTimeout={3000}
         autoplayHoverPause
       >
-        {trending.map((blog) => {
+        {data.map((blog) => {
           return (
             <div class="item" key={blog._id}>
               <div className="single-slider">
@@ -55,7 +53,7 @@ const Carousel = () => {
                         data-delay=".6s"
                         data-duration="1000ms"
                       >
-                        {blog.createdDate} | Views: {blog.views}
+                        {blog.createdDate}
                       </p>
                     </div>
                   </div>

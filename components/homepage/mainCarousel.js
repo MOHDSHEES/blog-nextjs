@@ -11,14 +11,14 @@ const MainCarousel = ({ data }) => {
           <div className="row">
             <div className="col-lg-8">
               {/* Trending Top */}
-              <Carousel />
+              <Carousel data={data.recent} />
             </div>
             {/* Right content */}
             {/* <div className=""> */}
             <div className="col-lg-4 carouselSideCard">
               {data && data.categoryData && (
                 <div className="row">
-                  <CarouselSideCard data={data.categoryData.Technology[0]} />
+                  <CarouselSideCard data={data.categoryData.Business[0]} />
                   <CarouselSideCard data={data.categoryData.Sports[0]} />
                 </div>
               )}

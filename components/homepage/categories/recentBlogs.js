@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyContext } from "../../context";
 import CarouselSmall from "./carouselSmall";
 import CategorySmall2 from "./categorySmall2";
 // import Card4 from "../card4";
 
-const RecentBlogs = ({ recent }) => {
+const RecentBlogs = () => {
+  const { trending } = useContext(MyContext);
   return (
     <div
       className="most-recent-area"
@@ -11,7 +13,7 @@ const RecentBlogs = ({ recent }) => {
     >
       {/* Section Tittle */}
       <div className="small-tittle mb-20">
-        <h4>Most Recent</h4>
+        <h4>Trending Topics</h4>
       </div>
       {/* Details */}
       {/* <div className="most-recent mb-40">
@@ -32,10 +34,10 @@ const RecentBlogs = ({ recent }) => {
 
       <div className="trending-area fix gray-bg mb-20">
         <div className="trending-main">
-          <CarouselSmall data={recent.slice(0, -2)} />
+          <CarouselSmall trending={trending.slice(0, -2)} />
         </div>
       </div>
-      {recent.slice(-2).map((blog) => {
+      {trending.slice(-2).map((blog) => {
         return <CategorySmall2 data={blog} />;
       })}
 

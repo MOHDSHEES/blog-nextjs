@@ -10,7 +10,9 @@ const CategorySmall2 = ({ data }) => {
         <h4>
           <a href="latest_news.html">{data.title}</a>
         </h4>
-        <p>{data.createdDate}</p>
+        <p>
+          {data.createdDate} | Views: {data.views}
+        </p>
       </div>
     </div>
   );
