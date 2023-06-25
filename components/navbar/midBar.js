@@ -8,7 +8,7 @@ const MidBar = () => {
         <div className="row d-flex align-items-center">
           <div className="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
             <div className="logo nav-a">
-              <Link href="/">
+              <Link href="/" shallow={true}>
                 <h2
                   class="mb-2 mt-n2  text-uppercase "
                   style={{ color: "black", fontWeight: 700 }}

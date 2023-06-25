@@ -18,8 +18,15 @@ const MainCarousel = ({ data }) => {
             <div className="col-lg-4 carouselSideCard">
               {data && data.categoryData && (
                 <div className="row">
-                  <CarouselSideCard data={data.categoryData.Business[0]} />
-                  <CarouselSideCard data={data.categoryData.Sports[0]} />
+                  <CarouselSideCard
+                    data={
+                      data.categoryData.Business &&
+                      data.categoryData.Business[0]
+                    }
+                  />
+                  {data && data.categoryData.Sports && (
+                    <CarouselSideCard data={data.categoryData.Sports[0]} />
+                  )}
                 </div>
               )}
             </div>

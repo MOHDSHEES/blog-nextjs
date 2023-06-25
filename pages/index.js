@@ -32,7 +32,7 @@ export async function getServerSideProps() {
   };
 }
 export default function Home({ data, trending }) {
-  const { trending: trend, setTrending } = useContext(MyContext);
+  const { setTrending } = useContext(MyContext);
   useEffect(() => {
     setTrending(trending);
   }, [trending]);
