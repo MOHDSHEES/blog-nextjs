@@ -26,7 +26,7 @@ const CarouselSmall = ({ trending }) => {
         autoplayTimeout={3000}
         autoplayHoverPause
       >
-        {trending.map((blog) => {
+        {data.map((blog) => {
           return (
             <div class="item" key={blog._id}>
               <div className="single-slider">
