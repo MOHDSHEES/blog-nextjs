@@ -13,6 +13,7 @@ const CarouselSmall = ({ trending }) => {
   console.log(trending);
   return (
     <div className="slider-active nav-a">
+      {trending[0].views}
       <OwlCarousel
         className="owl-theme"
         loop

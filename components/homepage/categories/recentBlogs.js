@@ -36,7 +36,7 @@ const RecentBlogs = () => {
 
       <div className="trending-area fix gray-bg mb-20">
         <div className="trending-main">
-          {data && <CarouselSmall trending={trending.slice(0, -2)} />}
+          <CarouselSmall trending={trending.slice(0, -2)} />
         </div>
       </div>
       {trending.slice(-2).map((blog) => {
