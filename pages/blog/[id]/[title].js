@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
     props: { data, title },
   };
 }
-const BlogDetail = ({ data }) => {
+const BlogDetail = ({ data, title }) => {
   console.log(title);
   console.log(data);
   const { trending } = useContext(MyContext);
