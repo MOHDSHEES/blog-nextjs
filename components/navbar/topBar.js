@@ -17,6 +17,7 @@ const TopBar = () => {
   const { data } = useFetch("recent", true);
 
   // console.log(data);
+  console.log(data);
   // const { data} = useSWR("/api/recent", fetcher);
   useEffect(() => {
     // console.log(trending);
