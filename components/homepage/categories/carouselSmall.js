@@ -9,17 +9,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
-  const [data, setData] = useState(trending);
-  console.log("trending");
-  console.log(trending);
-  console.log("data");
-  console.log(data);
-  useEffect(() => {
-    setData(trending);
-  }, [trending]);
   return (
     <div className="slider-active nav-a">
-      {data && (
+      {trending && (
         <OwlCarousel
           className="owl-theme"
           loop
@@ -30,7 +22,7 @@ const CarouselSmall = ({ trending }) => {
           autoplayTimeout={3000}
           autoplayHoverPause
         >
-          {data.map((blog) => {
+          {trending.map((blog) => {
             return (
               <div class="item" key={blog._id}>
                 <div className="single-slider">
