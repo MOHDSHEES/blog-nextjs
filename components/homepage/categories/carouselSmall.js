@@ -10,8 +10,10 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
   const [data, setData] = useState(trending);
-  console.log("trending" + trending);
-  console.log("data" + data);
+  console.log("trending");
+  console.log(trending);
+  console.log("data");
+  console.log(data);
   useEffect(() => {
     setData(trending);
   }, [trending]);
