@@ -17,15 +17,15 @@ const TopBar = () => {
   const { data } = useFetch("trending", true);
 
   // console.log(data);
-  console.log(data);
+  // console.log(data);
   // const { data} = useSWR("/api/recent", fetcher);
   useEffect(() => {
     // console.log(trending);
+    setTrend(trending);
     if (data) {
       setTrend(data);
       setTrending(data);
     }
-    setTrend(trending);
   }, [trending, data]);
 
   // console.log(trending);
