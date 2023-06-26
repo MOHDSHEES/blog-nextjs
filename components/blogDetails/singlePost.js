@@ -16,7 +16,7 @@ const SinglePost = ({ data }) => {
           />
         </div>
         <div className="blog_details">
-          <h2>{data.title}</h2>
+          <h1>{data.title}</h1>
           <ul className="blog-info-link mt-2 mb-4">
             <li>
               <a href="#">
