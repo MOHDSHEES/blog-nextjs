@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card2 from "./card2";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -12,6 +12,10 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselLast = () => {
   const { trending } = useContext(MyContext);
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    setData(trending);
+  }, [trending]);
   // console.log(trending);
   return (
     <div className="weekly3-news-area pt-30 pb-20">
