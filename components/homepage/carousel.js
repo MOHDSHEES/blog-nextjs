@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import OwlCarousel from "react-owl-carousel";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
@@ -11,59 +11,65 @@ import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const Carousel = ({ data }) => {
+  const [da, setDa] = useState(null);
+  useEffect(() => {
+    setDa(data);
+  }, [data]);
   return (
     <div className="slider-active nav-a">
-      <OwlCarousel
-        className="owl-theme"
-        loop
-        items={1}
-        dots={false}
-        margin={10}
-        autoplay
-        autoplayTimeout={3000}
-        autoplayHoverPause
-      >
-        {data.map((blog) => {
-          return (
-            <div class="item" key={blog._id}>
-              <div className="single-slider">
-                <div className="trending-top mb-30">
-                  <div className="trend-top-img carousel-img">
-                    <img src={blog.mainImg} alt={blog.category} />
-                    <div className="trend-top-cap">
-                      <span
-                        className="bgr"
-                        data-animation="fadeInUp"
-                        data-delay=".2s"
-                        data-duration="1000ms"
-                      >
-                        {blog.category}
-                      </span>
-                      <h2>
-                        <Link
-                          href="/blog/qwe"
+      {data && (
+        <OwlCarousel
+          className="owl-theme"
+          loop
+          items={1}
+          dots={false}
+          margin={10}
+          autoplay
+          autoplayTimeout={3000}
+          autoplayHoverPause
+        >
+          {data.map((blog) => {
+            return (
+              <div class="item" key={blog._id}>
+                <div className="single-slider">
+                  <div className="trending-top mb-30">
+                    <div className="trend-top-img carousel-img">
+                      <img src={blog.mainImg} alt={blog.category} />
+                      <div className="trend-top-cap">
+                        <span
+                          className="bgr"
                           data-animation="fadeInUp"
-                          data-delay=".4s"
+                          data-delay=".2s"
                           data-duration="1000ms"
                         >
-                          {blog.title}
-                        </Link>
-                      </h2>
-                      <p
-                        data-animation="fadeInUp"
-                        data-delay=".6s"
-                        data-duration="1000ms"
-                      >
-                        {blog.createdDate}
-                      </p>
+                          {blog.category}
+                        </span>
+                        <h2>
+                          <Link
+                            href="/blog/qwe"
+                            data-animation="fadeInUp"
+                            data-delay=".4s"
+                            data-duration="1000ms"
+                          >
+                            {blog.title}
+                          </Link>
+                        </h2>
+                        <p
+                          data-animation="fadeInUp"
+                          data-delay=".6s"
+                          data-duration="1000ms"
+                        >
+                          {blog.createdDate}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </OwlCarousel>
+            );
+          })}
+        </OwlCarousel>
+      )}
     </div>
   );
 };

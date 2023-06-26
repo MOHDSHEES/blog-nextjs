@@ -9,7 +9,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
-  const [setData] = useState(null);
+  const [data, setData] = useState(null);
   useEffect(() => {
     setData(trending);
   }, [trending]);
