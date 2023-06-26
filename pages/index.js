@@ -37,10 +37,11 @@ export default function Home({ data, trending }) {
 
   // console.log(trend);
   // console.log(dat);
-  const { data: homePageData } = useFetch("homePage");
+  const { data: homePageData } = useFetch("homePage", true);
+  console.log(homePageData);
   useEffect(() => {
     setData(homePageData);
-  }, []);
+  }, [homePageData]);
   useEffect(() => {
     setTrending(trending);
     setData(data);
