@@ -9,6 +9,10 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    setData(trending);
+  }, [trending]);
   return (
     <div className="slider-active nav-a">
       {/* {trending && trending.length && trending[0].views} */}

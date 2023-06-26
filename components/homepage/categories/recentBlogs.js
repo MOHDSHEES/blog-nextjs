@@ -7,10 +7,6 @@ import CategorySmall2 from "./categorySmall2";
 const RecentBlogs = () => {
   const { trending } = useContext(MyContext);
 
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    setData(trending);
-  }, [trending]);
   // console.log(trending);
   return (
     <div
@@ -40,11 +36,7 @@ const RecentBlogs = () => {
 
       <div className="trending-area fix gray-bg mb-20">
         <div className="trending-main">
-          {data ? (
-            <CarouselSmall trending={data.slice(0, -2)} />
-          ) : (
-            <CarouselSmall trending={trending.slice(0, -2)} />
-          )}
+          <CarouselSmall trending={trending.slice(0, -2)} />
         </div>
       </div>
       {trending.slice(-2).map((blog) => {
