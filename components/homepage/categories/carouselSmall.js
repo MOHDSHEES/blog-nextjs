@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
   window.$ = window.jQuery = require("jquery");

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context";
 import CarouselSmall from "./carouselSmall";
 import CategorySmall2 from "./categorySmall2";
