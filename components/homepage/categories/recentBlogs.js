@@ -6,7 +6,7 @@ import CategorySmall2 from "./categorySmall2";
 
 const RecentBlogs = () => {
   const { trending } = useContext(MyContext);
-  console.log(trending);
+  // console.log(trending);
   return (
     <div
       className="most-recent-area"

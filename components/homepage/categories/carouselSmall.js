@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 var $ = require("jquery");
 if (typeof window !== "undefined") {
   window.$ = window.jQuery = require("jquery");
@@ -9,7 +9,11 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
-  // console.log(data);
+  const [data, setData] = useState(trending);
+  console.log(trending);
+  useEffect(() => {
+    setData(trending);
+  }, [trending]);
   return (
     <div className="slider-active nav-a">
       <OwlCarousel
