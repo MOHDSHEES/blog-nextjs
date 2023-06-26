@@ -10,64 +10,66 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
   const [data, setData] = useState(trending);
-  console.log(trending);
-  console.log(data);
+  console.log("trending" + trending);
+  console.log("data" + data);
   useEffect(() => {
     setData(trending);
   }, [trending]);
   return (
     <div className="slider-active nav-a">
-      <OwlCarousel
-        className="owl-theme"
-        loop
-        items={1}
-        dots={false}
-        margin={10}
-        autoplay
-        autoplayTimeout={3000}
-        autoplayHoverPause
-      >
-        {data.map((blog) => {
-          return (
-            <div class="item" key={blog._id}>
-              <div className="single-slider">
-                <div className="trending-top ">
-                  <div className="trend-top-img carouselSmall">
-                    <img src={blog.mainImg} alt="" />
-                    <div className="trend-top-cap" style={{ width: "80%" }}>
-                      <span
-                        className="bgr"
-                        data-animation="fadeInUp"
-                        data-delay=".2s"
-                        data-duration="1000ms"
-                      >
-                        {blog.category}
-                      </span>
-                      <div>
-                        <a
-                          href="latest_news.html"
+      {data && (
+        <OwlCarousel
+          className="owl-theme"
+          loop
+          items={1}
+          dots={false}
+          margin={10}
+          autoplay
+          autoplayTimeout={3000}
+          autoplayHoverPause
+        >
+          {data.map((blog) => {
+            return (
+              <div class="item" key={blog._id}>
+                <div className="single-slider">
+                  <div className="trending-top ">
+                    <div className="trend-top-img carouselSmall">
+                      <img src={blog.mainImg} alt="" />
+                      <div className="trend-top-cap" style={{ width: "80%" }}>
+                        <span
+                          className="bgr"
                           data-animation="fadeInUp"
-                          data-delay=".4s"
+                          data-delay=".2s"
                           data-duration="1000ms"
                         >
-                          {blog.title}
-                        </a>
+                          {blog.category}
+                        </span>
+                        <div>
+                          <a
+                            href="latest_news.html"
+                            data-animation="fadeInUp"
+                            data-delay=".4s"
+                            data-duration="1000ms"
+                          >
+                            {blog.title}
+                          </a>
+                        </div>
+                        <p
+                          data-animation="fadeInUp"
+                          data-delay=".6s"
+                          data-duration="1000ms"
+                        >
+                          Views: {blog.views} | {blog.createdDate}
+                        </p>
                       </div>
-                      <p
-                        data-animation="fadeInUp"
-                        data-delay=".6s"
-                        data-duration="1000ms"
-                      >
-                        Views: {blog.views} | {blog.createdDate}
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </OwlCarousel>
+            );
+          })}
+        </OwlCarousel>
+      )}
     </div>
   );
 };
