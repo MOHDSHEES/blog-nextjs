@@ -8,13 +8,13 @@ const RecentBlogs = () => {
   const { trending } = useContext(MyContext);
 
   const [data, setData] = useState(trending);
-  console.log("trending");
-  console.log(trending);
+  // console.log("trending");
+  // console.log(trending);
   console.log("data");
   console.log(data);
   useEffect(() => {
     setData(trending);
-  }, []);
+  }, [trending]);
   // console.log(trending);
   return (
     <div
