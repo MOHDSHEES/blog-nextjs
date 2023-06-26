@@ -9,7 +9,7 @@ const RecentBlogs = () => {
 
   const [data, setData] = useState(null);
   useEffect(() => {
-    setData(data);
+    setData(trending);
   }, [trending]);
   // console.log(trending);
   return (
