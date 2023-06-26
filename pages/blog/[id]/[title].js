@@ -14,10 +14,10 @@ export async function getServerSideProps(context) {
   // let homepageData;
   await dbConnect();
   const data = await blogModel
-    .findOneAndUpdate(
-      { _id: id, status: "Active" },
-      { $inc: { views: 1 } },
-      { new: true }
+    .findOne(
+      { _id: id, status: "Active" }
+      // { $inc: { views: 1 } },
+      // { new: true }
     )
     .lean();
   if (data && data._id) data._id = data._id.toString();
@@ -33,8 +33,8 @@ export async function getServerSideProps(context) {
   };
 }
 const BlogDetail = ({ data, title }) => {
-  console.log(title);
-  console.log(data);
+  // console.log(title);
+  // console.log(data);
   const { trending } = useContext(MyContext);
   //   console.log(trending);
   return (
@@ -47,12 +47,12 @@ const BlogDetail = ({ data, title }) => {
         <div className="container">
           <div className="row">
             <div className="col-lg-8 posts-list">
-              <SinglePost />
+              <SinglePost data={data} />
             </div>
 
             <div className="col-lg-4">
               <div className="blog_right_sidebar">
-                <TagClouds />
+                <TagClouds keywords={data && data.keywords} />
                 <aside className="single_sidebar_widget popular_post_widget">
                   <h3 className="widget_title">Recent Post</h3>
                   {trending &&

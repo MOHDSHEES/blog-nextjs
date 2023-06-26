@@ -34,7 +34,16 @@ const Carousel = ({ data }) => {
                 <div className="single-slider">
                   <div className="trending-top mb-30">
                     <div className="trend-top-img carousel-img">
-                      <img src={blog.mainImg} alt={blog.category} />
+                      <Link
+                        href={
+                          "/blog/" +
+                          blog._id +
+                          "/" +
+                          blog.title.replace(/ /g, "-")
+                        }
+                      >
+                        <img src={blog.mainImg} alt={blog.category} />
+                      </Link>
                       <div className="trend-top-cap">
                         <span
                           className="bgr"
@@ -46,7 +55,12 @@ const Carousel = ({ data }) => {
                         </span>
                         <h2>
                           <Link
-                            href="/blog/qwe"
+                            href={
+                              "/blog/" +
+                              blog._id +
+                              "/" +
+                              blog.title.replace(/ /g, "-")
+                            }
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"

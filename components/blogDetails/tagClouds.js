@@ -1,11 +1,22 @@
 import React from "react";
 
-const TagClouds = () => {
+const TagClouds = ({ keywords }) => {
   return (
     <aside className="single_sidebar_widget tag_cloud_widget">
-      <h4 className="widget_title">Tag Clouds</h4>
+      <h4 className="widget_title">Keywords</h4>
       <ul className="list">
-        <li>
+        {keywords &&
+          keywords
+            .split(",")
+            .slice(0, 10)
+            .map((keyword) => {
+              return (
+                <li key={keyword}>
+                  <a href="#">{keyword}</a>
+                </li>
+              );
+            })}
+        {/* <li>
           <a href="#">project</a>
         </li>
         <li>
@@ -28,7 +39,7 @@ const TagClouds = () => {
         </li>
         <li>
           <a href="#">illustration</a>
-        </li>
+        </li> */}
       </ul>
     </aside>
   );
