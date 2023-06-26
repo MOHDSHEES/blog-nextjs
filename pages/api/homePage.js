@@ -19,7 +19,7 @@ export default async function userAPI(req, res) {
       // console.log("CREATED DOCUMENT");
       res.json({ createdUser });
     } else if (req.method === "GET") {
-      console.log("in get");
+      // console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
       const homePagedata = await HomePageData.find({});
       //   console.log(homePagedata);

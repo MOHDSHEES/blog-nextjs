@@ -8,8 +8,9 @@ import blogModel from "../models/blogModel";
 import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
+import useFetch from "../components/useFetch";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
@@ -33,6 +34,13 @@ export async function getServerSideProps() {
 }
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
+
+  // console.log(trend);
+  // console.log(dat);
+  const { data: homePageData } = useFetch("homePage");
+  useEffect(() => {
+    setData(homePageData);
+  }, []);
   useEffect(() => {
     setTrending(trending);
     setData(data);
