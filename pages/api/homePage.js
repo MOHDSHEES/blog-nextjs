@@ -21,7 +21,7 @@ export default async function userAPI(req, res) {
     } else if (req.method === "GET") {
       // console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
-      const homePagedata = await HomePageData.find({});
+      const homePagedata = await HomePageData.findOne({}, { _id: 0 });
       //   console.log(homePagedata);
       //   console.log("FETCHED DOCUMENTS");
       res.json(homePagedata);
