@@ -35,6 +35,7 @@ export async function getStaticProps() {
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
 
+  // console.log(data);
   // console.log(trend);
   // console.log(dat);
   // const { data: homePageData } = useFetch("homePage", true);

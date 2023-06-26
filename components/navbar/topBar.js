@@ -14,7 +14,7 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 const TopBar = () => {
   const { trending, setTrending } = useContext(MyContext);
   const [trend, setTrend] = useState([]);
-  const { data } = useFetch("recent", true);
+  const { data } = useFetch("trending", true);
 
   // console.log(data);
   console.log(data);
