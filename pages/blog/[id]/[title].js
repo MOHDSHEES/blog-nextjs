@@ -50,14 +50,14 @@ const BlogDetail = ({ data, imgUrl }) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content={parse(data.blog[0].text).slice(0, 30)}
+          content={parse(data.blog[0].text.slice(0, 30))}
         />
         <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         <meta
           name="description"
-          content={parse(data.blog[0].text).slice(0, 30)}
+          content={parse(data.blog[0].text.slice(0, 30))}
           data-rh="true"
         />
       </Head>
