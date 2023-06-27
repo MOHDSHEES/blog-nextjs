@@ -6,6 +6,7 @@ import { MyContext } from "../../../components/context";
 import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
 import blogModel from "../../../models/blogModel";
+import parse from "html-react-parser";
 export async function getServerSideProps(context) {
   const { title, id } = context.query;
   // console.log(context);
@@ -40,8 +41,13 @@ const BlogDetail = ({ data, title }) => {
   return (
     <div>
       <Head>
-        <title>Blog</title>
-        <meta name="description" content="Blog page" data-rh="true" />
+        <title>{data.title}</title>
+        <link rel="icon" href={data.mainImg} />
+        <meta
+          name="description"
+          content={parse(data.blog[0].text)}
+          data-rh="true"
+        />
       </Head>
       <section className="blog_area single-post-area section-padding">
         <div className="container">

@@ -16,6 +16,7 @@ import CompleteNavbar from "../components/navbar/completeNavbar";
 import { Router } from "next/dist/client/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 config.autoAddCss = false;
 Router.events.on("routeChangeStart", () => {

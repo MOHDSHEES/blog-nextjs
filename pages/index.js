@@ -60,8 +60,7 @@ export default function Home({ data, trending }) {
   return (
     <div>
       <Head>
-        <title>OFF THE WEB</title>
-
+        <title>OFFTHEWEB</title>
         <meta
           name="description"
           content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
