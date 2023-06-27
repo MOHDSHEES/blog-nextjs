@@ -22,6 +22,24 @@ export async function getServerSideProps(context) {
     )
     .lean();
   if (data && data._id) data._id = data._id.toString();
+
+  let meta = [
+    {
+      src: data.mainImg,
+      sizes: "64x64 32x32 24x24 16x16",
+      type: "image/x-icon",
+    },
+    {
+      src: data.mainImg,
+      type: "image/png",
+      sizes: "192x192",
+    },
+    {
+      src: data.mainImg,
+      type: "image/png",
+      sizes: "512x512",
+    },
+  ];
   // const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   // let data = homePagedata.toObject();
 
@@ -30,11 +48,11 @@ export async function getServerSideProps(context) {
   // console.log(trending);
 
   return {
-    props: { data, title },
+    props: { data, title, meta },
   };
 }
-const BlogDetail = ({ data, title }) => {
-  // console.log(title);
+const BlogDetail = ({ data, title, meta }) => {
+  console.log(title);
   // console.log(data);
   const { trending } = useContext(MyContext);
   //   console.log(trending);
@@ -42,7 +60,8 @@ const BlogDetail = ({ data, title }) => {
     <div>
       <Head>
         <title>{data.title}</title>
-        <link rel="icon" href={data.mainImg} />
+
+        <link rel="icons" content={JSON.stringify(meta)} />
         <meta
           name="description"
           content={parse(data.blog[0].text)}
@@ -62,7 +81,7 @@ const BlogDetail = ({ data, title }) => {
                 <aside className="single_sidebar_widget popular_post_widget">
                   <h3 className="widget_title">Recent Post</h3>
                   {trending &&
-                    trending.length &&
+                    trending.length !== 0 &&
                     trending.map((blog, idx) => {
                       return <Card2 data={blog} key={idx} />;
                     })}
