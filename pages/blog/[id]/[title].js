@@ -22,6 +22,9 @@ export async function getServerSideProps(context) {
     )
     .lean();
   if (data && data._id) data._id = data._id.toString();
+  let urlArray = data.mainImg.split("/");
+  urlArray.splice(6, 0, "h_350,c_scale");
+  let imgUrl = urlArray.join("/");
 
   // const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   // let data = homePagedata.toObject();
@@ -31,10 +34,10 @@ export async function getServerSideProps(context) {
   // console.log(trending);
 
   return {
-    props: { data, title },
+    props: { data, title, imgUrl },
   };
 }
-const BlogDetail = ({ data, title }) => {
+const BlogDetail = ({ data, title, imgUrl }) => {
   console.log(title);
   // console.log(data);
   const { trending } = useContext(MyContext);
@@ -49,7 +52,7 @@ const BlogDetail = ({ data, title }) => {
         <meta property="og:type" content="website" />
         <meta property="og:description" content={parse(data.blog[0].text)} />
         {/* <link rel="preload" href={data.mainImg} as="image" /> */}
-        <meta property="og:image" content={data.mainImg} />
+        <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         {/* <meta

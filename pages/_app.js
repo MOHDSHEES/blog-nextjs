@@ -18,6 +18,8 @@ import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "react-loading-skeleton/dist/skeleton.css";
 
+NProgress.configure({ showSpinner: "false" });
+
 config.autoAddCss = false;
 Router.events.on("routeChangeStart", () => {
   NProgress.start();
