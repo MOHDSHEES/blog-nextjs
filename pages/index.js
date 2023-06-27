@@ -44,6 +44,8 @@ export default function Home({ data, trending }) {
   useEffect(() => {
     setData(homePageData);
   }, [homePageData]);
+  console.log("homePageData");
+  console.log(homePageData);
   useEffect(() => {
     setTrending(trending);
     setData(data);
