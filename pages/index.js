@@ -1,7 +1,7 @@
 import Head from "next/head";
 import MainCarousel from "../components/homepage/mainCarousel";
 import CategoryTab from "../components/homepage/categories/categoryTab";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import HomepageDataModel from "../models/homepageDataModel";
 import CarouselLast from "../components/homepage/carouselLast";
 import blogModel from "../models/blogModel";
@@ -35,6 +35,7 @@ export async function getStaticProps() {
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
 
+  const [home, setHome] = useState(data);
   // console.log(data);
   // console.log(trend);
   // console.log(dat);
@@ -44,8 +45,8 @@ export default function Home({ data, trending }) {
 
   useEffect(() => {
     setTrending(trending);
-    setData(data);
-    if (homePageData) setData(homePageData);
+    setHome(data);
+    if (homePageData) setHome(homePageData);
   }, [trending, data, homePageData]);
   // useEffect(() => {}, [homePageData]);
   console.log("homePageData");
@@ -70,10 +71,10 @@ export default function Home({ data, trending }) {
           data-rh="true"
         />
       </Head>
-      <MainCarousel data={data} />
-      <CategoryTab data={data} />
+      <MainCarousel data={home} />
+      <CategoryTab data={home} />
       <CarouselLast />
-      <MainFooter data={data} />
+      <MainFooter data={home} />
     </div>
   );
 }
