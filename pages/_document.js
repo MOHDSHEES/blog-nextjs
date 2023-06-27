@@ -6,7 +6,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="icon" href="/icons/favicon.ico" />
-          <link rel="manifest" href="/icons/manifest.json" />
+          {/* <link rel="manifest" href="/icons/manifest.json" /> */}
           <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         </Head>
         <body>

@@ -60,8 +60,8 @@ const BlogDetail = ({ data, title, meta }) => {
     <div>
       <Head>
         <title>{data.title}</title>
-
-        <link rel="icons" content={JSON.stringify(meta)} />
+        <link rel="icons" href={data.mainImg} />
+        {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         <meta
           name="description"
           content={parse(data.blog[0].text)}
