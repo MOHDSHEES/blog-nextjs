@@ -49,7 +49,7 @@ const BlogDetail = ({ data, title }) => {
         <meta property="og:type" content="website" />
         <meta property="og:description" content={parse(data.blog[0].text)} />
         <link rel="preload" href={data.mainImg} as="image" />
-        <meta property="og:image" content={data.mainImg} />
+        <meta property="og:image" content="/images/img/about/about_right.png" />
         <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         {/* <meta
