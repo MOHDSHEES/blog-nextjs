@@ -13,13 +13,31 @@ import "../styles/style.css";
 import "../styles/custom.css";
 import { MyProvider } from "../components/context";
 import CompleteNavbar from "../components/navbar/completeNavbar";
+import { Router } from "next/dist/client/router";
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 config.autoAddCss = false;
+Router.events.on("routeChangeStart", () => {
+  NProgress.start();
+});
+Router.events.on("routeChangeComplete", () => {
+  NProgress.done();
+});
+Router.events.on("routeChangeError", () => {
+  NProgress.done();
+});
+
 // connectDB();
 export default function App({ Component, pageProps, trending }) {
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   console.log("in");
+
+  // }, [router]);
+  // useEffect(() => {
+  //   require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  // }, []);
   return (
     <>
       <MyProvider initialData={trending}>

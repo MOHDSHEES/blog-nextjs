@@ -3,8 +3,6 @@ import Carousel from "./carousel";
 import CarouselSideCard from "./carouselSideCard";
 
 const MainCarousel = ({ data }) => {
-  console.log("carousel");
-  console.log(data);
   return (
     <div className="trending-area fix pt-25 gray-bg">
       <div className="container">
