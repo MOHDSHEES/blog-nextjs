@@ -23,23 +23,6 @@ export async function getServerSideProps(context) {
     .lean();
   if (data && data._id) data._id = data._id.toString();
 
-  let meta = [
-    {
-      src: data.mainImg,
-      sizes: "64x64 32x32 24x24 16x16",
-      type: "image/x-icon",
-    },
-    {
-      src: data.mainImg,
-      type: "image/png",
-      sizes: "192x192",
-    },
-    {
-      src: data.mainImg,
-      type: "image/png",
-      sizes: "512x512",
-    },
-  ];
   // const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   // let data = homePagedata.toObject();
 
@@ -65,6 +48,7 @@ const BlogDetail = ({ data, title, meta }) => {
         {/* <meta property="og:url" content="your url" /> */}
         <meta property="og:type" content="website" />
         <meta property="og:description" content={parse(data.blog[0].text)} />
+        <link rel="preload" href={data.mainImg} as="image" />
         <meta property="og:image" content={data.mainImg} />
         <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
