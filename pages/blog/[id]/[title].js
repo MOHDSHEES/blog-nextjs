@@ -61,12 +61,18 @@ const BlogDetail = ({ data, title, meta }) => {
       <Head>
         <title>{data.title}</title>
         <link rel="icons" href={data.mainImg} />
+
+        {/* <meta property="og:url" content="your url" /> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={parse(data.blog[0].text)} />
+        <meta property="og:image" content={data.mainImg} />
+        <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
-        <meta
+        {/* <meta
           name="description"
           content={parse(data.blog[0].text)}
           data-rh="true"
-        />
+        /> */}
       </Head>
       <section className="blog_area single-post-area section-padding">
         <div className="container">
