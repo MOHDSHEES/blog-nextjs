@@ -41,15 +41,16 @@ export default function Home({ data, trending }) {
   const { data: homePageData } = useFetch("homePage", true);
   // console.log(data);
   // console.log(homePageData);
+
+  useEffect(() => {
+    setTrending(trending);
+    setData(data);
+  }, [trending, data]);
   useEffect(() => {
     setData(homePageData);
   }, [homePageData]);
   console.log("homePageData");
   console.log(data);
-  useEffect(() => {
-    setTrending(trending);
-    setData(data);
-  }, [trending, data]);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
