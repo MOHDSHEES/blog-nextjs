@@ -13,6 +13,7 @@ const SinglePost = ({ data }) => {
             className="img-fluid blog-detail-img"
             src={data.mainImg}
             alt={data.category}
+            loading="lazy"
           />
         </div>
         <div className="blog_details">
@@ -60,8 +61,8 @@ const SinglePost = ({ data }) => {
                     </h4>
                   ) : bl.tag === "IT" ? (
                     <div className="it-singlePost">
-                      {" "}
                       <img
+                        loading="lazy"
                         src={resizeImg(bl.img, 6, "h_200,c_scale")}
                         // src={bl.img}
                         alt={bl.img}
@@ -82,6 +83,7 @@ const SinglePost = ({ data }) => {
                   ) : bl.tag === "TI" ? (
                     <div className=" ti-singlePost">
                       <img
+                        loading="lazy"
                         src={resizeImg(bl.img, 6, "h_200,c_scale")}
                         // src={bl.img}
                         alt={bl.img}

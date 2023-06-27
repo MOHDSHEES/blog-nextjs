@@ -44,7 +44,13 @@ const Carousel = ({ data }) => {
                           blog.title.replace(/ /g, "-")
                         }
                       >
-                        <img src={blog.mainImg} alt={blog.category} />
+                        <img
+                          src={blog.mainImg}
+                          // objectFit="cover"
+                          // width="100%"
+                          alt={blog.category}
+                          loading="lazy"
+                        />
                       </Link>
                       <div className="trend-top-cap">
                         <span

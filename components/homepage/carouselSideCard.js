@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const CarouselSideCard = ({ data }) => {
@@ -5,11 +6,15 @@ const CarouselSideCard = ({ data }) => {
     <div className="col-lg-12 col-md-6 col-sm-6 nav-a">
       <div className="trending-top mb-30">
         <div className="trend-top-img">
-          <img src={data.mainImg} alt="" />
+          <img src={data.mainImg} alt={data.title} loading="lazy" />
           <div className="trend-top-cap trend-top-cap2">
             <span className="bgb">{data.category}</span>
             <h2>
-              <a href="latest_news.html">{data.title}</a>
+              <Link
+                href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+              >
+                {data.title}
+              </Link>
             </h2>
             <p>{data.createdDate}</p>
           </div>

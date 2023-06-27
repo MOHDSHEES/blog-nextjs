@@ -34,11 +34,11 @@ export async function getServerSideProps(context) {
   // console.log(trending);
 
   return {
-    props: { data, title, imgUrl },
+    props: { data, imgUrl },
   };
 }
-const BlogDetail = ({ data, title, imgUrl }) => {
-  console.log(title);
+const BlogDetail = ({ data, imgUrl }) => {
+  // console.log(title);/
   // console.log(data);
   const { trending } = useContext(MyContext);
   //   console.log(trending);
@@ -46,23 +46,19 @@ const BlogDetail = ({ data, title, imgUrl }) => {
     <div>
       <Head>
         <title>{data.title}</title>
-        {/* <link rel="icons" href={data.mainImg} /> */}
-
-        {/* <meta property="og:url" content="your url" /> */}
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
           content={parse(data.blog[0].text.slice(0, 30))}
         />
-        {/* <link rel="preload" href={data.mainImg} as="image" /> */}
         <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
-        {/* <meta
+        <meta
           name="description"
-          content={parse(data.blog[0].text)}
+          content={parse(data.blog[0].text).slice(0, 30)}
           data-rh="true"
-        /> */}
+        />
       </Head>
       <section className="blog_area single-post-area section-padding">
         <div className="container">

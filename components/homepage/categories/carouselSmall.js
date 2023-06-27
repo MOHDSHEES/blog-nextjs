@@ -6,6 +6,7 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
@@ -33,7 +34,7 @@ const CarouselSmall = ({ trending }) => {
                 <div className="single-slider">
                   <div className="trending-top ">
                     <div className="trend-top-img carouselSmall">
-                      <img src={blog.mainImg} alt="" />
+                      <img src={blog.mainImg} alt={blog.title} loading="lazy" />
                       <div className="trend-top-cap" style={{ width: "80%" }}>
                         <span
                           className="bgr"
@@ -44,14 +45,19 @@ const CarouselSmall = ({ trending }) => {
                           {blog.category}
                         </span>
                         <div>
-                          <a
-                            href="latest_news.html"
+                          <Link
+                            href={
+                              "/blog/" +
+                              blog._id +
+                              "/" +
+                              blog.title.replace(/ /g, "-")
+                            }
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"
                           >
                             {blog.title}
-                          </a>
+                          </Link>
                         </div>
                         <p
                           data-animation="fadeInUp"
