@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
                 <h3 className="widget_title">Recent Post</h3>
                 {trending &&
                   trending.length !== 0 &&
-                  trending.map((blog, idx) => {
+                  trending.slice(0, 4).map((blog, idx) => {
                     return <Card2 data={blog} key={idx} />;
                   })}
               </aside>

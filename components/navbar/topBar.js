@@ -81,7 +81,7 @@ const TopBar = () => {
             </div>
             <div className="header-info-right topbar-time">
               <ul className="header-date">
-                <li>
+                <li style={{ color: "white" }}>
                   <span className="flaticon-calendar" />{" "}
                   {new Date().toLocaleString("en-US", { weekday: "long" })},{" "}
                   {new Date().toLocaleString("en-US", { month: "long" })},{" "}

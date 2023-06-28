@@ -44,9 +44,9 @@ const CarouselSmall = ({ trending }) => {
                         >
                           {blog.category}
                         </span>
-                        <div>
+                        <div className="p-link">
                           <Link
-                            className="color-white"
+                            className="color-white "
                             href={
                               "/blog/" +
                               blog._id +
