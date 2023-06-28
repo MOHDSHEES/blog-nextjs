@@ -3,8 +3,9 @@ import parse from "html-react-parser";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 import resizeImg from "../functions/resizeImg";
 import Skeleton from "react-loading-skeleton";
-import Author from "./author";
+// import Author from "./author";
 import useFetch from "../useFetch";
+import BlogIndex from "./blogIndex";
 
 const SinglePost = ({ data }) => {
   // console.log(data);
@@ -21,8 +22,9 @@ const SinglePost = ({ data }) => {
             loading="lazy"
           />
         </div>
+        <BlogIndex blog={data} />
         <div className="blog_details">
-          <h1>{data.title}</h1>
+          <h1 id={data.title}>{data.title}</h1>
           <ul className="blog-info-link mt-2 mb-4">
             <li>
               <a href="#">

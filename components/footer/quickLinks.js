@@ -1,0 +1,27 @@
+import Link from "next/link";
+import React from "react";
+
+const QuickLinks = () => {
+  return (
+    <div className="col-xl-4 col-lg-4 col-md-5 col-sm-7 nav-a p-link">
+      <div className="single-footer-caption mb-50">
+        <div className="footer-tittle">
+          <h4>Quick Links</h4>
+        </div>
+
+        <Link class=" mb-2" href="/policies/advertise">
+          <p className="color-white">
+            <i class="fa fa-angle-right text-dark mr-2"></i>Advertise
+          </p>
+        </Link>
+        <Link class=" mb-2" href="/policies/career">
+          <p className="color-white">
+            <i class="fa fa-angle-right text-dark mr-2"></i>Careers
+          </p>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default QuickLinks;

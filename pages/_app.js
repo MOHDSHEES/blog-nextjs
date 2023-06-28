@@ -39,9 +39,9 @@ export default function App({ Component, pageProps, trending }) {
   //   console.log("in");
 
   // }, [router]);
-  // useEffect(() => {
-  //   require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  // }, []);
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   return (
     <>
       <MyProvider initialData={trending}>

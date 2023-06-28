@@ -8,6 +8,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { MyContext } from "../context";
 import useFetch from "../useFetch";
+import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 // const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -56,8 +57,17 @@ const TopBar = () => {
                 >
                   {trend.map((blog) => {
                     return (
-                      <div class="item" key={blog._id}>
-                        <li className="break-line-1">{blog.title}</li>
+                      <div class="item nav-a" key={blog._id}>
+                        <Link
+                          href={
+                            "/blog/" +
+                            blog._id +
+                            "/" +
+                            blog.title.replace(/ /g, "-")
+                          }
+                        >
+                          <li className="break-line-1">{blog.title}</li>
+                        </Link>
                       </div>
                     );
                   })}

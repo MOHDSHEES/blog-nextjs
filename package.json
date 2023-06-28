@@ -18,6 +18,7 @@
     "next": "latest",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
     "react-loading-skeleton": "^3.3.1",
     "react-owl-carousel": "^2.3.3",
