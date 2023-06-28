@@ -71,14 +71,16 @@ const BlogDetail = ({ data, imgUrl }) => {
             <div className="col-lg-4">
               <div className="blog_right_sidebar">
                 <TagClouds keywords={data && data.keywords} />
-                <aside className="single_sidebar_widget popular_post_widget">
-                  <h3 className="widget_title">Recent Post</h3>
-                  {trending &&
-                    trending.length !== 0 &&
-                    trending.map((blog, idx) => {
-                      return <Card2 data={blog} key={idx} />;
-                    })}
-                </aside>
+                <div className="trending-sidebar scrollbar-over">
+                  <aside className="single_sidebar_widget popular_post_widget">
+                    <h3 className="widget_title">Recent Post</h3>
+                    {trending &&
+                      trending.length !== 0 &&
+                      trending.map((blog, idx) => {
+                        return <Card2 data={blog} key={idx} />;
+                      })}
+                  </aside>
+                </div>
               </div>
             </div>
           </div>

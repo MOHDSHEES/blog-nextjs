@@ -27,11 +27,20 @@ const SinglePost = ({ data }) => {
           <h1 id={data.title}>{data.title}</h1>
           <ul className="blog-info-link mt-2 mb-4">
             <li>
+              {user && (
+                <a href="#">
+                  Author ~ {user.fname && user.fname} {user.lname && user.lname}
+                </a>
+              )}
+              {/* <i className="fa fa-user"></i> */}
+            </li>
+            <li>
               <a href="#">
                 <i className="fa fa-user"> {data.category}</i>
               </a>
               {/* <i className="fa fa-user"></i> */}
             </li>
+
             <i className="fa fa-user">
               <li>
                 <a href="#">
@@ -133,11 +142,7 @@ const SinglePost = ({ data }) => {
           <i className="fa fa-comments"></i>
         </i> */}
       </div>
-      {user && (
-        <p>
-          Blog by ~ {user.fname && user.fname} {user.lname && user.lname}
-        </p>
-      )}
+
       {/* {user && <Author data={user} />} */}
       {/* <i className="fa fa-user">
         <i className="fa fa-comments"></i>
