@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 
 const CarouselSideCard = ({ data }) => {
+  console.log("sidecard");
+  console.log(data);
   return (
     <div className="col-lg-12 col-md-6 col-sm-6 nav-a">
       <div className="trending-top mb-30">
