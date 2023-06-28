@@ -57,7 +57,7 @@ const TopBar = () => {
                 >
                   {trend.map((blog) => {
                     return (
-                      <div class="item nav-a" key={blog._id}>
+                      <div class="item nav-a color-white" key={blog._id}>
                         <Link
                           href={
                             "/blog/" +
