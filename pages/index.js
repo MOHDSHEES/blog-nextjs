@@ -70,7 +70,7 @@ export default function Home({ data, trending }) {
       <MainCarousel data={home} />
       <CategoryTab data={home} />
       <CarouselLast />
-      <MainFooter data={home} />
+      {/* <MainFooter data={home} /> */}
     </div>
   );
 }

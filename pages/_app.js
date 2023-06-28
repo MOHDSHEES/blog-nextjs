@@ -17,6 +17,7 @@ import { Router } from "next/dist/client/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "react-loading-skeleton/dist/skeleton.css";
+import MainFooter from "../components/footer/mainFooter";
 
 NProgress.configure({ showSpinner: false });
 
@@ -46,6 +47,7 @@ export default function App({ Component, pageProps, trending }) {
       <MyProvider initialData={trending}>
         <CompleteNavbar />
         <Component {...pageProps} />
+        <MainFooter />
       </MyProvider>
     </>
   );
