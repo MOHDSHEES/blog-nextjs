@@ -127,14 +127,19 @@ const SinglePost = ({ data }) => {
               );
             })}
         </div>
-        <i className="fa fa-user">
+        {/* <i className="fa fa-user">
           <i className="fa fa-comments"></i>
-        </i>
+        </i> */}
       </div>
-      {user && <Author data={user} />}
-      <i className="fa fa-user">
+      {user && (
+        <p>
+          Blog by ~ {user.fname && user.fname} {user.lname && user.lname}
+        </p>
+      )}
+      {/* {user && <Author data={user} />} */}
+      {/* <i className="fa fa-user">
         <i className="fa fa-comments"></i>
-      </i>
+      </i> */}
     </div>
   );
 };
