@@ -46,7 +46,7 @@ const BlogDetail = ({ data, imgUrl }) => {
     <div>
       <Head>
         <title>{data.title}</title>
-
+        <meta name="keywords" content={data.keywords} />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
