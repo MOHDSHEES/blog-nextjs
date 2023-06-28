@@ -18,7 +18,7 @@ const MainFooter = ({}) => {
             <div className="col-xl-3 col-lg-3 col-md-5 col-sm-7">
               <div className="single-footer-caption mb-50">
                 <div className="banner">
-                  <img src="images/img/gallery/body_card4.png" alt="" />
+                  <img src="/images/img/gallery/body_card4.png" alt="" />
                 </div>
               </div>
             </div>
