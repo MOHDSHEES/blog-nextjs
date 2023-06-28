@@ -36,8 +36,8 @@ export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
 
   const [home, setHome] = useState(data);
-  console.log("index");
-  console.log(home);
+  // console.log("index");
+  // console.log(home);
   // console.log(data);
   // console.log(trend);
   // console.log(dat);

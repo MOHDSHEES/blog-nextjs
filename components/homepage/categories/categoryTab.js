@@ -5,8 +5,8 @@ import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
 
 const categoryTab = ({ data }) => {
-  console.log("categoryTb");
-  console.log(data);
+  // console.log("categoryTb");
+  // console.log(data);
   const [categoryData, setCategoryData] = useState(
     data && data.categoryData ? data.categoryData : []
   );
