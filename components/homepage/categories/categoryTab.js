@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CatMainCard from "./catMainCard";
 import CatSmallCard from "./catSmallCard";
 import SocialFollow from "./socialFollow";
@@ -7,9 +7,12 @@ import RecentBlogs from "./recentBlogs";
 const categoryTab = ({ data }) => {
   console.log("categoryTb");
   console.log(data);
-  const [categoryData] = useState(
+  const [categoryData, setCategoryData] = useState(
     data && data.categoryData ? data.categoryData : []
   );
+  useEffect(() => {
+    setCategoryData(data.categoryData);
+  }, [data]);
   const [prevActive, setPrevActive] = useState(0);
   function toggle(id) {
     document.getElementById(id).classList.add("active", "show");
