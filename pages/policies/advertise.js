@@ -15,16 +15,17 @@ const Advertise = () => {
           <div className="col-lg-4">
             <div className="blog_right_sidebar">
               {/* <TagClouds keywords={data && data.keywords} /> */}
-              <div className="trending-sidebar scrollbar-over">
-                <aside className="single_sidebar_widget popular_post_widget">
-                  <h3 className="widget_title">Recent Post</h3>
+
+              <aside className="single_sidebar_widget popular_post_widget">
+                <h3 className="widget_title">Recent Post</h3>
+                <div className="trending-sidebar scrollbar-over">
                   {trending &&
                     trending.length !== 0 &&
                     trending.slice(0, 3).map((blog, idx) => {
                       return <Card2 data={blog} key={idx} />;
                     })}
-                </aside>
-              </div>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
