@@ -10,7 +10,7 @@ const AdvertiseComponent = () => {
           <h2 className="mb4">Advertise Policies</h2>
         </div>
       </div>
-      <div className=" py-5 px-4 mb-3">
+      <div className=" py-3 px-4 mb-3">
         <p>
           Thank you for choosing OffTheWeb for your blogging needs! Please find
           below the terms and conditions for advertising on our website:

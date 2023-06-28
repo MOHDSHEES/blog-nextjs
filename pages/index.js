@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import HomepageDataModel from "../models/homepageDataModel";
 import CarouselLast from "../components/homepage/carouselLast";
 import blogModel from "../models/blogModel";
-import MainFooter from "../components/footer/mainFooter";
+// import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 import useFetch from "../components/useFetch";

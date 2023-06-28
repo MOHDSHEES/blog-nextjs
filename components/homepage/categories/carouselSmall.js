@@ -46,6 +46,7 @@ const CarouselSmall = ({ trending }) => {
                         </span>
                         <div>
                           <Link
+                            className="color-white"
                             href={
                               "/blog/" +
                               blog._id +
