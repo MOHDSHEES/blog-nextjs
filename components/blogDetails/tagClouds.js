@@ -4,7 +4,7 @@ const TagClouds = ({ keywords }) => {
   return (
     <aside className="single_sidebar_widget tag_cloud_widget">
       <h4 className="widget_title">Keywords</h4>
-      <ul className="list">
+      <ul className="list ">
         {keywords &&
           keywords
             .split(",")

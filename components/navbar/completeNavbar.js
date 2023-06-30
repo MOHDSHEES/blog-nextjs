@@ -11,8 +11,8 @@ const CompleteNavbar = () => {
         <div className="main-header">
           <TopBar />
           <MidBar />
-          <Navbar />
-          {/* <MainNavbar /> */}
+          {/* <Navbar /> */}
+          <MainNavbar />
         </div>
       </div>
     </header>

@@ -84,7 +84,7 @@ const BlogDetail = ({ data, imgUrl }) => {
   const { trending } = useContext(MyContext);
   //   console.log(trending);
   return (
-    <div>
+    <div className="gray-bg">
       <Head>
         <title>{data.title}</title>
         <meta name="keywords" content={data.keywords} />

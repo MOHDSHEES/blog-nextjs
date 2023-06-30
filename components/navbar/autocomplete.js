@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 
-function Autocomplete({ suggestions, searchHandler }) {
+function Autocomplete({ disable, suggestions, searchHandler }) {
   // hook for storing filtered suggestions
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   // hook for storing index for active suggestion
@@ -122,7 +122,7 @@ function Autocomplete({ suggestions, searchHandler }) {
     );
   };
   return (
-    <div ref={wrapperRef}>
+    <div ref={wrapperRef} className="searchInput-container">
       <form onSubmit={(e) => searchHandler(e, input)}>
         <div class="input-group">
           <input
@@ -136,7 +136,11 @@ function Autocomplete({ suggestions, searchHandler }) {
             value={input}
             required
           />
-          <button type="submit" class="input-group-text btn btn-primary">
+          <button
+            disabled={disable}
+            type="submit"
+            class="input-group-text btn btn-primary"
+          >
             Search
           </button>
         </div>

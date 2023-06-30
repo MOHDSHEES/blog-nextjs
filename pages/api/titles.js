@@ -21,11 +21,11 @@ export default async function userAPI(req, res) {
     } else if (req.method === "GET") {
       //   console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
-      const resu = await blogModel.find({}).select({ title: 1, _id: 1 });
+      const resu = await blogModel.find({}).select({ title: 1, _id: 0 });
       // console.log(resu);
-      // let titles = resu.map((a) => a.title);
+      let titles = resu.map((a) => a.title);
       // console.log(titles);
-      res.json(resu);
+      res.json(titles);
       //   console.log(homePagedata);
       //   console.log("FETCHED DOCUMENTS");
     } else {

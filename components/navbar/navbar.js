@@ -3,33 +3,60 @@ import { MyContext } from "../context";
 import useFetch from "../useFetch";
 import Autocomplete from "./autocomplete";
 import { message } from "antd";
-// import { closeMessage, openMessage } from "../functions/message";
+import { closeMessage, openMessage } from "../functions/message";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import Link from "next/link";
 
 const Navbar = () => {
-  // const [messageApi, contextHolder] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
   const { titles, setTitles } = useContext(MyContext);
   const { data } = useFetch("titles", true);
+  const [disabled, setDisabled] = useState(false);
   const router = useRouter();
   // console.log(data);
   useEffect(() => {
     setTitles(data);
   }, [data]);
 
-  async function searchHandler(search) {
-    // e.preventDefault();
+  async function searchHandler(e, search) {
+    e.preventDefault();
+    // openMessage(messageApi, "Searching...");
     // console.log(search);
+    setDisabled(true);
+    const { data } = await axios.post("/api/blog/title", {
+      title: search,
+    });
+    setDisabled(false);
+    // console.log(data);
+    if (!data) {
+      closeMessage(messageApi, "Blog Not Found", "error");
+    } else {
+      router.push("/blog/" + data._id + "/" + data.title.replace(/ /g, "-"));
+    }
+    // closeMessage(messageApi);
+    // console.log(data);
     // openMessage(messageApi, "Searching...");
     // closeMessage(messageApi, "Blog found", "success");
     // const blog = data[0];
-    router.push("/blog/" + data[0]._id + "/" + search.title.replace(/ /g, "-"));
   }
 
   return (
     <>
-      {/* {contextHolder} */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white">
-        <div className="container-fluid navbar-container">
+      {contextHolder}
+      <div className="container nav-bar-container">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+          <div className="navbar-logo-mobile">
+            <Link href="/" shallow={true}>
+              <h2
+                class="text-uppercase "
+                style={{ color: "black", fontWeight: 700, marginBottom: 0 }}
+              >
+                <span style={{ color: "red" }}>OFF</span>THE
+                <span style={{ color: "red" }}>WEB</span>
+              </h2>
+            </Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -41,12 +68,21 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          {/* <div className="container-fluid navbar-container"> */}
+          <div
+            className="collapse navbar-collapse "
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link
+                  href="/"
+                  shallow={true}
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link " aria-current="page" href="#">
@@ -98,9 +134,13 @@ const Navbar = () => {
                 </ul>
               </li>
             </ul>
-
-            <Autocomplete searchHandler={searchHandler} suggestions={titles} />
-
+            <div className="navbar-container">
+              <Autocomplete
+                disable={disabled}
+                searchHandler={searchHandler}
+                suggestions={titles}
+              />
+            </div>
             {/* <form>
             <div class="input-group ">
               <input
@@ -119,9 +159,10 @@ const Navbar = () => {
               </div>
             </div>
           </form> */}
+            {/* </div> */}
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </>
   );
 };

@@ -333,10 +333,32 @@
 .search-btn {
   border-radius: 0 5px 5px 0;
 }
-@media (max-width: 769px) {
-  .navbar-container {
+
+.navbar-logo-mobile {
+  display: none;
+}
+.mid-bar-laptop {
+  display: block;
+}
+@media (max-width: 997px) {
+  /* .navbar-container {
     padding-bottom: 20px;
   }
+  .navbar-logo-mobile {
+    display: block;
+  }
+  .nav-bar-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  } */
+  .mid-bar-laptop {
+    display: none;
+  }
+}
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: #ff2143;
+  color: white;
 }
 /* autocomplete */
 .no-suggestions {

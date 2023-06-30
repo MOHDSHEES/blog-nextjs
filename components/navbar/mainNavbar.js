@@ -1,92 +1,222 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+// import Autocomplete from "../autocomplete/autocomplete";
+import axios from "axios";
+// import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+// import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Offcanvas from "react-bootstrap/Offcanvas";
+// import { Link, NavLink } from "react-router-dom";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import Autocomplete from "./autocomplete";
+import useFetch from "../useFetch";
+import { MyContext } from "../context";
+import { useRouter } from "next/router";
+// import { globalContext } from "../../context";
 
-const MainNavbar = () => {
+const NavBar = () => {
+  const { titles, setTitles } = useContext(MyContext);
+
+  const { data } = useFetch("titles", true);
+  const [disabled, setDisabled] = useState(false);
+  const router = useRouter();
+  async function searchHandler(e, search) {
+    e.preventDefault();
+    // openMessage(messageApi, "Searching...");
+    // console.log(search);
+    setDisabled(true);
+    const { data } = await axios.post("/api/blog/title", {
+      title: search,
+    });
+    setDisabled(false);
+    // console.log(data);
+    if (!data) {
+      closeMessage(messageApi, "Blog Not Found", "error");
+    } else {
+      router.push("/blog/" + data._id + "/" + data.title.replace(/ /g, "-"));
+    }
+  }
+  // const { titles: title, employeeData } = useContext(globalContext);
+  const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    setTitles(data);
+  }, [data]);
+
   return (
-    <div className="header-bottom header-sticky">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-xl-8 col-lg-8 col-md-12 header-flex">
-            <div className="sticky-logo">
-              <a href="index.html">
-                <img src="assets/img/logo/logo.png" alt="" />
-              </a>
-            </div>
-            <div className="main-menu d-none d-md-block nav-a">
-              <nav>
-                <ul id="navigation">
-                  <li>
-                    <a href="index.html">Home</a>
-                  </li>
-                  <li>
-                    <a href="about.html">about</a>
-                  </li>
-                  <li>
-                    <a href="categori.html">Category</a>
-                  </li>
-                  <li>
-                    <a href="latest_news.html">Latest News</a>
-                  </li>
-                  <li>
-                    <a href="#">Pages</a>
-                    <ul className="submenu">
-                      <li>
-                        <a href="blog.html">Blog</a>
-                      </li>
-                      <li>
-                        <a href="blog_details.html">Blog Details</a>
-                      </li>
-                      <li>
-                        <a href="elements.html">Element</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="contact.html">Contact</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div className="col-xl-4 col-lg-4 col-md-4">
-            <div className="header-right f-right d-none d-lg-block">
-              <ul className="header-social">
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-instagram" />
-                  </a>
-                </li>
-                <li>
-                  {" "}
-                  <a href="#">
-                    <i className="fab fa-youtube" />
-                  </a>
-                </li>
-              </ul>
-              <div className="nav-search search-switch">
-                <i className="fa fa-search" />
-              </div>
-            </div>
-          </div>
-          <div className="col-12">
-            <div className="mobile_menu d-block d-md-none" />
-          </div>
-        </div>
+    <div>
+      <div class="container-fluid p-0  nav-a">
+        {/* {[false, "sm", "md", "lg", "xl", "xxl"].map((expand) => ( */}
+        <Navbar
+          expanded={expanded}
+          // key={expand}
+          expand="lg"
+          // bg="light"
+
+          className="py-2 py-lg-0 px-lg-5"
+        >
+          <Container fluid>
+            <Navbar.Brand
+              as="span"
+              className="navbar-brand d-block d-lg-none"
+              href="#"
+            >
+              {" "}
+              <Link href="/" shallow={true}>
+                <h2 style={{ fontWeight: "600" }} class="m-0  text-uppercase">
+                  <span style={{ color: "red" }}>OFF</span>THE
+                  <span style={{ color: "red" }}>WEB</span>
+                </h2>
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle
+              onClick={() => setExpanded(expanded ? false : "expanded")}
+              aria-controls={`offcanvasNavbar-expand-lg`}
+            />
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-lg`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
+              onHide={() => setExpanded(false)}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+                  OFFTHEWEB
+                </Offcanvas.Title>
+                {/* <button
+                  type="button"
+                  class="btn-close text-reset new_close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button> */}
+              </Offcanvas.Header>
+              {/* <Navbar.Collapse id="navbarScroll"> */}
+              <Offcanvas.Body className="align-items-center">
+                <Nav
+                  className="me-auto my-2 my-lg-0"
+                  // style={{ maxHeight: "100px" }}
+                  // navbarScroll
+                >
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    shallow={true}
+                    className="nav-item "
+                    href="/"
+                  >
+                    Home
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    shallow={true}
+                    href="/policies/career"
+                    className="nav-item "
+                  >
+                    Careers
+                  </Nav.Link>
+                  {/* <Nav.Link href="#" className="nav-item ">
+                    Single Blog
+                  </Nav.Link> */}
+                  {/* <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    href="/contact"
+                    class="nav-item "
+                  >
+                    Contact
+                  </Nav.Link> */}
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    href="#"
+                    className="nav-item"
+                  >
+                    Add Blog
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    href="#!"
+                    className="nav-item"
+                  >
+                    Employee
+                  </Nav.Link>
+                  {/* {employeeData ? (
+                    <Nav.Link
+                      onClick={() => setExpanded(false)}
+                      // as={NavLink}
+                      to={"/employee/" + employeeData.employeeId}
+                      class="nav-item "
+                    >
+                      Dashboard
+                    </Nav.Link>
+                  ) : (
+                    <Nav.Link
+                      onClick={() => setExpanded(false)}
+                      // as={NavLink}
+                      to="/employee/login"
+                      class="nav-item "
+                    >
+                      Employee LogIn
+                    </Nav.Link>
+                  )} */}
+
+                  <NavDropdown title="Policies" id="navbarScrollingDropdown">
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={Link}
+                      shallow={true}
+                      href="/policies/privacyPolicy"
+                    >
+                      Privacy Policies
+                    </NavDropdown.Item>
+                    {/* <NavDropdown.Divider /> */}
+                    {/* <NavDropdown.Item onClick={() => setExpanded(false)}>
+                      Testing
+                    </NavDropdown.Item> */}
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={Link}
+                      shallow={true}
+                      href="/policies/termsCondition"
+                    >
+                      Terms And Conditions
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={() => setExpanded(false)}
+                      as={Link}
+                      shallow={true}
+                      href="/policies/advertise"
+                    >
+                      Advertise
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </Nav>
+                {/* <Form className="d-flex"> */}
+                <Autocomplete
+                  disable={disabled}
+                  searchHandler={searchHandler}
+                  suggestions={titles}
+                />
+                {/* <Form.Control
+                  type="search"
+                  placeholder="Search"
+                  className="me-2"
+                  aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button> */}
+                {/* </Form> */}
+                {/* </Navbar.Collapse> */}
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+        {/* ))} */}
       </div>
     </div>
   );
 };
 
-export default MainNavbar;
+export default NavBar;

@@ -1,5 +1,5 @@
-import dbConnect from "../../lib/mongoose";
-import HomePageData from "../../models/homepageDataModel";
+import blogModel from "../../../models/blogModel";
+import dbConnect from "../../../lib/mongoose";
 
 // export default function handler(req, res) {
 //     res.status(200).json({ text: "Hello" });
@@ -7,6 +7,7 @@ import HomePageData from "../../models/homepageDataModel";
 
 export default async function userAPI(req, res) {
   try {
+    // console.log(req.method);
     // console.log("in");
     //   console.log('CONNECTING TO MONGO');
     await dbConnect();
@@ -15,16 +16,26 @@ export default async function userAPI(req, res) {
 
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
-      // const createdUser = await User.create(req.body);
+      const blog = await blogModel.findOne({
+        title: req.body.title,
+        status: "Active",
+      });
+      //   console.log(homePagedata);
+      //   console.log("FETCHED DOCUMENTS");
+      res.json(blog);
+      //   const createdUser = await User.create(req.body);
       // console.log("CREATED DOCUMENT");
-      // res.json({ createdUser });
+      //   res.json({ createdUser });
     } else if (req.method === "GET") {
       // console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
-      const homePagedata = await HomePageData.findOne({}, { _id: 0 });
-      //   console.log(homePagedata);
-      //   console.log("FETCHED DOCUMENTS");
-      res.json(homePagedata);
+      //   const blog = await blogModel.findOne({
+      //     title: req.body.title,
+      //     status: "Active",
+      //   });
+      //   //   console.log(homePagedata);
+      //   //   console.log("FETCHED DOCUMENTS");
+      //   res.json(blog);
     } else {
       throw new Error(`Unsupported HTTP method: ${req.method}`);
     }
