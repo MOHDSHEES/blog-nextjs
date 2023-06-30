@@ -24,7 +24,7 @@ const QuickLinks = () => {
             <i class="fa fa-angle-right text-dark mr-2"></i>Terms & Condition
           </p>
         </Link>
-        <Link class=" mb-2" href="/policies/career">
+        <Link class=" mb-2" href="/career">
           <p className="color-white">
             <i class="fa fa-angle-right text-dark mr-2"></i>Careers
           </p>

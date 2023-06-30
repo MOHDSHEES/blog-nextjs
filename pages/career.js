@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import CareerComponent from "../../components/policies/career";
-import { MyContext } from "../../components/context";
-import Card2 from "../../components/homepage/card2";
+import CareerComponent from "../components/policies/career";
+import { MyContext } from "../components/context";
+import Card2 from "../components/homepage/card2";
 
 const Career = () => {
   const { trending } = useContext(MyContext);

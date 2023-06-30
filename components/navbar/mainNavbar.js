@@ -118,7 +118,7 @@ const NavBar = () => {
                     onClick={() => setExpanded(false)}
                     as={Link}
                     shallow={true}
-                    href="/policies/career"
+                    href="/career"
                     className="nav-item"
                   >
                     Careers
