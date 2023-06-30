@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const LogoAbout = () => {
@@ -7,7 +8,7 @@ const LogoAbout = () => {
         <div className="single-footer-caption mb-30">
           {/* logo */}
           <div className="footer-logo nav-a">
-            <a href="index.html">
+            <Link href="/">
               <h2
                 class="mb-2 mt-n2  text-uppercase "
                 style={{ color: "white" }}
@@ -16,7 +17,7 @@ const LogoAbout = () => {
                 <span style={{ color: "red" }}>WEB</span>
               </h2>
               {/* <img src="images/img/logo/logo2_footer.png" alt="" /> */}
-            </a>
+            </Link>
           </div>
           <div className="footer-tittle">
             <div className="footer-pera">
