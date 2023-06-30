@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Link from "next/link";
+import resizeImg from "../functions/resizeImg";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const Carousel = ({ data }) => {
@@ -45,7 +46,7 @@ const Carousel = ({ data }) => {
                         }
                       >
                         <img
-                          src={blog.mainImg}
+                          src={resizeImg(blog.mainImg, 6, "h_520,c_scale")}
                           // objectFit="cover"
                           // width="100%"
                           alt={blog.category}

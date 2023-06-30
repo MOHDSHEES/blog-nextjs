@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import resizeImg from "../functions/resizeImg";
 
 const Card2 = ({ data }) => {
   return (
@@ -10,7 +11,7 @@ const Card2 = ({ data }) => {
       <div classname="weekly2-img" style={{ marginBottom: "20px" }}>
         <img
           className="card2-img"
-          src={data.mainImg}
+          src={resizeImg(data.mainImg, 6, "h_150,c_scale")}
           alt={data.category}
           loading="lazy"
         />
