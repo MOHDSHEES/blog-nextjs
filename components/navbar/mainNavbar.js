@@ -136,8 +136,9 @@ const NavBar = () => {
                   </Nav.Link> */}
                   <Nav.Link
                     onClick={() => setExpanded(false)}
+                    target="_blank"
                     as={Link}
-                    href="#"
+                    href="https://offtheweb.vercel.app/add"
                     className="nav-item"
                   >
                     Add Blog
@@ -145,7 +146,8 @@ const NavBar = () => {
                   <Nav.Link
                     onClick={() => setExpanded(false)}
                     as={Link}
-                    href="#!"
+                    href="https://offtheweb.vercel.app/employee/login"
+                    target="_blank"
                     className="nav-item"
                   >
                     Employee
