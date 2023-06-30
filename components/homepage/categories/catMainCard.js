@@ -12,7 +12,9 @@ const CatMainCard = ({ data }) => {
         </div>
         <div className="whates-caption">
           <h4>
-            <Link href={"/blog/" + data.title.replace(/ /g, "-")}>
+            <Link
+              href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+            >
               {data.title}
             </Link>
           </h4>

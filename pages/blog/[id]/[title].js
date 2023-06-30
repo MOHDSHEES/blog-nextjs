@@ -1,20 +1,19 @@
 import Head from "next/head";
 import React, { useContext } from "react";
-import SinglePost from "../../components/blogDetails/singlePost";
-import TagClouds from "../../components/blogDetails/tagClouds";
-import { MyContext } from "../../components/context";
-import Card2 from "../../components/homepage/card2";
-import dbConnect from "../../lib/mongoose";
+import SinglePost from "../../../components/blogDetails/singlePost";
+import TagClouds from "../../../components/blogDetails/tagClouds";
+import { MyContext } from "../../../components/context";
+import Card2 from "../../../components/homepage/card2";
+import dbConnect from "../../../lib/mongoose";
 import parse from "html-react-parser";
-import blogModel from "../../models/blogModel";
-import SocialFollow from "../../components/homepage/categories/socialFollow";
+import blogModel from "../../../models/blogModel";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
   await dbConnect();
   const data = await blogModel
     .findOne(
-      { title: params.title.replace("-", " "), status: "Active" }
+      { _id: params.id, status: "Active" }
       // { $inc: { views: 1 } },
       // { new: true }
     )
@@ -52,7 +51,7 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
-    params: { title: post.title },
+    params: { id: post._id.toString(), title: post.title },
   }));
   // id: post._id.toString()
   // We'll pre-render only these paths at build time.
@@ -113,7 +112,6 @@ const BlogDetail = ({ data, imgUrl }) => {
             <div className="col-lg-4">
               <div className="blog_right_sidebar">
                 <TagClouds keywords={data && data.keywords} />
-                {/* <SocialFollow /> */}
 
                 <aside className="single_sidebar_widget popular_post_widget">
                   <h3 className="widget_title">Recent Post</h3>

@@ -12,7 +12,9 @@ const CarouselSideCard = ({ data }) => {
           <div className="trend-top-cap trend-top-cap2">
             <span className="bgb">{data.category}</span>
             <h2>
-              <Link href={"/blog/" + data.title.replace(/ /g, "-")}>
+              <Link
+                href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+              >
                 {data.title}
               </Link>
             </h2>

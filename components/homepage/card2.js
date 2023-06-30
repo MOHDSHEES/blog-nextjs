@@ -18,7 +18,7 @@ const Card2 = ({ data }) => {
       <div classname="weekly2-caption ">
         <h4 className="nav-a">
           <Link
-            href={"/blog/" + data.title.replace(/ /g, "-")}
+            href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
             className="hover-red"
             style={{
               fontSize: "16px",

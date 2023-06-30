@@ -36,7 +36,14 @@ const Carousel = ({ data }) => {
                 <div className="single-slider">
                   <div className="trending-top mb-30">
                     <div className="trend-top-img carousel-img">
-                      <Link href={"/blog/" + blog.title.replace(/ /g, "-")}>
+                      <Link
+                        href={
+                          "/blog/" +
+                          blog._id +
+                          "/" +
+                          blog.title.replace(/ /g, "-")
+                        }
+                      >
                         <img
                           src={blog.mainImg}
                           // objectFit="cover"
@@ -56,7 +63,12 @@ const Carousel = ({ data }) => {
                         </span>
                         <h2>
                           <Link
-                            href={"/blog/" + blog.title.replace(/ /g, "-")}
+                            href={
+                              "/blog/" +
+                              blog._id +
+                              "/" +
+                              blog.title.replace(/ /g, "-")
+                            }
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"
