@@ -9,7 +9,7 @@ import blogModel from "../../../models/blogModel";
 import parse from "html-react-parser";
 
 export async function getStaticProps({ params }) {
-  console.log(params.id);
+  // console.log(params.id);
   await dbConnect();
   const data = await blogModel
     .findOne(
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
   // const res = await fetch("https://.../posts");
   await dbConnect();
   const posts = await blogModel.find({}).select({ title: 1, _id: 1 }).lean();
-  console.log(posts);
+  // console.log(posts);
   // console.log(resu);
   // let titles = resu.map((a) => a.title);
   // console.log(titles);

@@ -30,6 +30,7 @@ export async function getStaticProps() {
       data,
       trending,
     },
+    revalidate: 10,
   };
 }
 export default function Home({ data, trending }) {
