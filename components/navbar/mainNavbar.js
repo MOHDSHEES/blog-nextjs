@@ -14,6 +14,8 @@ import Autocomplete from "./autocomplete";
 import useFetch from "../useFetch";
 import { MyContext } from "../context";
 import { useRouter } from "next/router";
+import { message } from "antd";
+import { closeMessage, openMessage } from "../functions/message";
 // import { globalContext } from "../../context";
 
 const NavBar = () => {
@@ -22,11 +24,13 @@ const NavBar = () => {
   const { data } = useFetch("titles", true);
   const [disabled, setDisabled] = useState(false);
   const router = useRouter();
+  const [messageApi, contextHolder] = message.useMessage();
   async function searchHandler(e, search) {
     e.preventDefault();
-    // openMessage(messageApi, "Searching...");
+    openMessage(messageApi, "Searching...");
     // console.log(search);
     setDisabled(true);
+    setExpanded(false);
     const { data } = await axios.post("/api/blog/title", {
       title: search,
     });
@@ -35,6 +39,7 @@ const NavBar = () => {
     if (!data) {
       closeMessage(messageApi, "Blog Not Found", "error");
     } else {
+      closeMessage(messageApi, "Blog Found", "success", 1);
       router.push("/blog/" + data._id + "/" + data.title.replace(/ /g, "-"));
     }
   }
@@ -46,6 +51,7 @@ const NavBar = () => {
 
   return (
     <div>
+      {contextHolder}
       <div class="container-fluid p-0  nav-a">
         {/* {[false, "sm", "md", "lg", "xl", "xxl"].map((expand) => ( */}
         <Navbar
@@ -65,7 +71,8 @@ const NavBar = () => {
               {" "}
               <Link href="/" shallow={true}>
                 <h2 style={{ fontWeight: "600" }} class="m-0  text-uppercase">
-                  <span style={{ color: "red" }}>OFF</span>THE
+                  <span style={{ color: "red" }}>OFF</span>
+                  <span style={{ color: "black" }}>THE</span>
                   <span style={{ color: "red" }}>WEB</span>
                 </h2>
               </Link>

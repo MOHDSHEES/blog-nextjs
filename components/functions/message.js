@@ -6,12 +6,12 @@ const openMessage = (messageApi, content) => {
     content: content,
   });
 };
-function closeMessage(messageApi, msg, type) {
+function closeMessage(messageApi, msg, type, duration = 3) {
   messageApi.open({
     key: "updatable",
     type: type,
     content: msg,
-    duration: 3,
+    duration: duration,
   });
 }
 
