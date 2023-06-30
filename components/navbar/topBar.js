@@ -58,14 +58,7 @@ const TopBar = () => {
                   {trend.map((blog) => {
                     return (
                       <div class="item nav-a" key={blog._id}>
-                        <Link
-                          href={
-                            "/blog/" +
-                            blog._id +
-                            "/" +
-                            blog.title.replace(/ /g, "-")
-                          }
-                        >
+                        <Link href={"/blog/" + blog.title.replace(/ /g, "-")}>
                           <li
                             className="break-line-1"
                             style={{ color: "white" }}

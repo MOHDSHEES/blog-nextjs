@@ -1,25 +1,31 @@
 import Head from "next/head";
 import React, { useContext } from "react";
-import SinglePost from "../../../components/blogDetails/singlePost";
-import TagClouds from "../../../components/blogDetails/tagClouds";
-import { MyContext } from "../../../components/context";
-import Card2 from "../../../components/homepage/card2";
-import dbConnect from "../../../lib/mongoose";
-import blogModel from "../../../models/blogModel";
+import SinglePost from "../../components/blogDetails/singlePost";
+import TagClouds from "../../components/blogDetails/tagClouds";
+import { MyContext } from "../../components/context";
+import Card2 from "../../components/homepage/card2";
+import dbConnect from "../../lib/mongoose";
 import parse from "html-react-parser";
+import blogModel from "../../models/blogModel";
+import SocialFollow from "../../components/homepage/categories/socialFollow";
 
 export async function getStaticProps({ params }) {
-  // console.log(params.id);
+  // console.log(params.title);
   await dbConnect();
   const data = await blogModel
     .findOne(
-      { _id: params.id, status: "Active" }
+      { title: params.title.replace("-", " "), status: "Active" }
       // { $inc: { views: 1 } },
       // { new: true }
     )
+    .collation({
+      locale: "en",
+      strength: 2,
+    })
     .lean();
   if (data && data._id) data._id = data._id.toString();
 
+  // console.log(data);
   let urlArray = data.mainImg.split("/");
   urlArray.splice(6, 0, "w_0.2,c_scale");
   let imgUrl = urlArray.join("/");
@@ -29,7 +35,7 @@ export async function getStaticProps({ params }) {
       data,
       imgUrl,
     },
-    revalidate: 10, // In seconds
+    revalidate: 43200, // In seconds
   };
 }
 
@@ -46,9 +52,9 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
-    params: { id: post._id.toString(), title: post.title },
+    params: { title: post.title },
   }));
-
+  // id: post._id.toString()
   // We'll pre-render only these paths at build time.
   // { fallback: 'blocking' } will server-render pages
   // on-demand if the path doesn't exist.
@@ -107,6 +113,7 @@ const BlogDetail = ({ data, imgUrl }) => {
             <div className="col-lg-4">
               <div className="blog_right_sidebar">
                 <TagClouds keywords={data && data.keywords} />
+                {/* <SocialFollow /> */}
 
                 <aside className="single_sidebar_widget popular_post_widget">
                   <h3 className="widget_title">Recent Post</h3>

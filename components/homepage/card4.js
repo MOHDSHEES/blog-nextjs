@@ -9,9 +9,7 @@ const Card4 = ({ data }) => {
       </div>
       <div className="whats-right-cap">
         <h4 className="nav-a">
-          <Link
-            href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
-          >
+          <Link href={"/blog/" + data.title.replace(/ /g, "-")}>
             {data.title}
           </Link>
         </h4>
