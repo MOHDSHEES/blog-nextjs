@@ -21,9 +21,11 @@ const MidBar = () => {
             </div>
           </div>
           <div className="col-xl-9 col-lg-9 col-md-9">
-            <div className="header-banner f-right ">
-              <img src="images/img/gallery/header_card.png" alt="" />
-            </div>
+            <Link href="/policies/advertise">
+              <div className="header-banner f-right ">
+                <img src="/ad/ad.png" alt="ad" />
+              </div>
+            </Link>
           </div>
         </div>
       </div>

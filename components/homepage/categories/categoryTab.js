@@ -3,6 +3,7 @@ import CatMainCard from "./catMainCard";
 import CatSmallCard from "./catSmallCard";
 import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
+import Link from "next/link";
 
 const categoryTab = ({ data }) => {
   // console.log("categoryTb");
@@ -106,7 +107,9 @@ const categoryTab = ({ data }) => {
             </div>
             {/* Banner */}
             <div className="banner-one mt-20 mb-30">
-              <img src="images/img/gallery/body_card1.png" alt="" />
+              <Link href="/policies/advertise">
+                <img src="/ad/adGif.gif" alt="ad" />
+              </Link>
             </div>
           </div>
           <div className="col-lg-4">
