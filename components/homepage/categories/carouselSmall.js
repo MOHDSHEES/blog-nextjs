@@ -47,12 +47,7 @@ const CarouselSmall = ({ trending }) => {
                         <div className="p-link">
                           <Link
                             className="color-white "
-                            href={
-                              "/blog/" +
-                              blog._id +
-                              "/" +
-                              blog.title.replace(/ /g, "-")
-                            }
+                            href={"/blog/" + blog.title.replace(/ /g, "-")}
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"

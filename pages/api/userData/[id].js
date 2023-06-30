@@ -17,7 +17,7 @@ export default async function userAPI(req, res) {
       // const createdUser = await User.create(req.body);
       res.json({ createdUser });
     } else if (req.method === "GET") {
-      console.log(req.query.id);
+      // console.log(req.query.id);
       const user = await userModel.findOne(
         {
           _id: req.query.id,

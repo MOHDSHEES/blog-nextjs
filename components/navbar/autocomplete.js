@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 
 function Autocomplete({ suggestions, searchHandler }) {
-  // console.log(suggestions);
   // hook for storing filtered suggestions
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   // hook for storing index for active suggestion
@@ -11,10 +10,10 @@ function Autocomplete({ suggestions, searchHandler }) {
   const [showSuggestions, setShowSuggestions] = useState(false);
   //  hook for storing input value
   const [input, setInput] = useState("");
-  // const [id, setId] = useState(null);
-  const router = useRouter();
 
+  const router = useRouter();
   let path = router.pathname;
+  // let path = window.location.pathname;
   useEffect(() => {
     setInput("");
   }, [path]);
@@ -23,16 +22,11 @@ function Autocomplete({ suggestions, searchHandler }) {
     const userInput = e.target.value;
 
     const inputWords = userInput.trim().toLowerCase().split(" ");
-    // console.log(inputWords);
-    // let filtered = suggestions;
-    let filtered = suggestions.map((a) => a.title);
-    // console.log(filtered);
+    let filtered = suggestions;
     inputWords.forEach((word) => {
-      filtered = suggestions.filter((suggestion) => {
-        // console.log(suggestion.title);
-        if (suggestion.title.toLowerCase().includes(word)) return suggestion;
-      });
-      // console.log(filtered);
+      filtered = suggestions.filter((suggestion) =>
+        suggestion.toLowerCase().includes(word)
+      );
     });
     // Filter our suggestions that don't contain the user's input
     // const unLinked = suggestions.filter(
@@ -111,12 +105,12 @@ function Autocomplete({ suggestions, searchHandler }) {
           return (
             <li
               className={className}
-              key={suggestion._id}
+              key={suggestion}
               onMouseEnter={() => setActiveSuggestionIndex(index)}
               // onMouseLeave={()=>setHovered(false)}
               onClick={(e) => onClick(e)}
             >
-              {suggestion.title}
+              {suggestion}
             </li>
           );
         })}
@@ -128,7 +122,7 @@ function Autocomplete({ suggestions, searchHandler }) {
     );
   };
   return (
-    <div className="searchInput-container" ref={wrapperRef}>
+    <div ref={wrapperRef}>
       <form onSubmit={(e) => searchHandler(e, input)}>
         <div class="input-group">
           <input

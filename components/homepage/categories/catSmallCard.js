@@ -11,9 +11,7 @@ const CatSmallCard = ({ data }) => {
         <div className="whats-right-cap">
           <span className="colorb">{data.category}</span>
           <h4>
-            <Link
-              href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
-            >
+            <Link href={"/blog/" + data.title.replace(/ /g, "-")}>
               {data.title}
             </Link>
           </h4>

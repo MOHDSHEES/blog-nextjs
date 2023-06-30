@@ -9,9 +9,7 @@ const CategorySmall2 = ({ data }) => {
       </div>
       <div className="most-recent-capt">
         <h4>
-          <Link
-            href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
-          >
+          <Link href={"/blog/" + data.title.replace(/ /g, "-")}>
             {data.title}
           </Link>
         </h4>
