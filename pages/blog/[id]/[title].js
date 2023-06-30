@@ -44,7 +44,10 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   // const res = await fetch("https://.../posts");
   await dbConnect();
-  const posts = await blogModel.find({}).select({ title: 1, _id: 1 }).lean();
+  const posts = await blogModel
+    .find({ status: "Active" })
+    .select({ title: 1, _id: 1 })
+    .lean();
   // console.log(posts);
   // console.log(resu);
   // let titles = resu.map((a) => a.title);
