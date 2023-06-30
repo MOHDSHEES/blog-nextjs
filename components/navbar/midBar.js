@@ -9,13 +9,13 @@ const MidBar = () => {
           <div className="col-xl-3 col-lg-3 col-md-3 d-none d-md-block">
             <div className="logo nav-a">
               <Link href="/" shallow={true}>
-                <h2
+                <h1
                   class="mb-2 mt-n2  text-uppercase "
-                  style={{ color: "black", fontWeight: 700 }}
+                  style={{ color: "black", fontWeight: 900 }}
                 >
                   <span style={{ color: "red" }}>OFF</span>THE
                   <span style={{ color: "red" }}>WEB</span>
-                </h2>
+                </h1>
                 {/* <img src="images/img/logo/logo.png" alt="" /> */}
               </Link>
             </div>
