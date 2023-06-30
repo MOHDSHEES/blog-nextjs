@@ -89,7 +89,7 @@ const SocialFollow = () => {
         </div>
         <div className="follow-us d-flex align-items-center">
           <div className="follow-social">
-            <a href="https://www.instagram.com/_offtheweb/">
+            <a href="https://www.instagram.com/offtheweb.in/">
               <FontAwesomeIcon
                 icon={faInstagramSquare}
                 size="2xl"
@@ -98,7 +98,7 @@ const SocialFollow = () => {
             </a>
           </div>
           <div className="follow-count">
-            <a href="https://www.instagram.com/_offtheweb/">
+            <a href="https://www.instagram.com/offtheweb.in/">
               <span>Instagram</span>
               {/* <p>Fans</p> */}
             </a>
