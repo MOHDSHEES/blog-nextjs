@@ -139,7 +139,7 @@ function Autocomplete({ disable, suggestions, searchHandler }) {
           <button
             disabled={disable}
             type="submit"
-            class="input-group-text btn btn-primary"
+            class="input-group-text btn btn-danger"
           >
             Search
           </button>
