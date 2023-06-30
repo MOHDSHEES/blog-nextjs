@@ -25,9 +25,12 @@ export async function getStaticProps({ params }) {
   if (data && data._id) data._id = data._id.toString();
 
   // console.log(data);
-  let urlArray = data.mainImg.split("/");
-  urlArray.splice(6, 0, "w_0.2,c_scale");
-  let imgUrl = urlArray.join("/");
+  let imgUrl;
+  if (data) {
+    let urlArray = data.mainImg.split("/");
+    urlArray.splice(6, 0, "w_0.2,c_scale");
+    imgUrl = urlArray.join("/");
+  }
 
   return {
     props: {

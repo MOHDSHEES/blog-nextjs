@@ -80,7 +80,7 @@ const TopBar = () => {
               )}
             </div>
             <div className="header-info-right topbar-time">
-              <ul className="header-date">
+              <ul className="header-date" style={{ marginBottom: 0 }}>
                 <li style={{ color: "white" }}>
                   <span className="flaticon-calendar" />{" "}
                   {new Date().toLocaleString("en-US", { weekday: "long" })},{" "}
