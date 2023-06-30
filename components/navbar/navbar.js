@@ -1,151 +1,129 @@
-import React, { useState } from "react";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import Container from "react-bootstrap/Container";
-import Link from "next/link";
-// import { NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { MyContext } from "../context";
+import useFetch from "../useFetch";
+import Autocomplete from "./autocomplete";
+import { message } from "antd";
+// import { closeMessage, openMessage } from "../functions/message";
+import { useRouter } from "next/navigation";
 
-const MNavbar = () => {
-  const [expanded, setExpanded] = useState(false);
+const Navbar = () => {
+  // const [messageApi, contextHolder] = message.useMessage();
+  const { titles, setTitles } = useContext(MyContext);
+  const { data } = useFetch("titles", true);
+  const router = useRouter();
+  // console.log(data);
+  useEffect(() => {
+    setTitles(data);
+  }, [data]);
+
+  async function searchHandler(search) {
+    // e.preventDefault();
+    // console.log(search);
+    // openMessage(messageApi, "Searching...");
+    // closeMessage(messageApi, "Blog found", "success");
+    // const blog = data[0];
+    router.push("/blog/" + data[0]._id + "/" + search.title.replace(/ /g, "-"));
+  }
+
   return (
-    <div>
-      <div class="container-fluid p-0 mb-3">
-        {/* {[false, "sm", "md", "lg", "xl", "xxl"].map((expand) => ( */}
-        <Navbar
-          expanded={expanded}
-          // key={expand}
-          expand="lg"
-          bg="light"
-          className="py-2 py-lg-0 px-lg-5"
-        >
-          <Container fluid>
-            <Navbar.Brand className="navbar-brand d-block d-lg-none" href="#">
-              {" "}
-              <Link href="/">
-                <h2 style={{ fontWeight: "600" }} class="m-0  text-uppercase">
-                  <span class="text-primary">OFF</span>THE
-                  <span class="text-primary">WEB</span>
-                </h2>
-              </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle
-              onClick={() => setExpanded(expanded ? false : "expanded")}
-              aria-controls={`offcanvasNavbar-expand-lg`}
-            />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-lg`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
-              onHide={() => setExpanded(false)}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-                  OFFTHEWEB
-                </Offcanvas.Title>
-                {/* <button
-                    type="button"
-                    class="btn-close text-reset new_close"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                  ></button> */}
-              </Offcanvas.Header>
-              {/* <Navbar.Collapse id="navbarScroll"> */}
-              <Offcanvas.Body className="align-items-center">
-                <Nav
-                  className="me-auto my-2 my-lg-0"
-                  // style={{ maxHeight: "100px" }}
-                  // navbarScroll
+    <>
+      {/* {contextHolder} */}
+      <nav className="navbar navbar-expand-lg navbar-light bg-white">
+        <div className="container-fluid navbar-container">
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Home
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="#">
+                  Category
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="#">
+                  Contact
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="#">
+                  Add Blog
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="#">
+                  Employee Login
+                </a>
+              </li>
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
                 >
-                  <Nav.Link
-                    onClick={() => setExpanded(false)}
-                    // as={NavLink}
-                    className="nav-item "
-                    to="/"
-                  >
-                    Home
-                  </Nav.Link>
-                  <Nav.Link
-                    onClick={() => setExpanded(false)}
-                    // as={NavLink}
-                    to="/categories"
-                    className="nav-item "
-                  >
-                    Categories
-                  </Nav.Link>
-                  {/* <Nav.Link href="#" className="nav-item ">
-                      Single Blog
-                    </Nav.Link> */}
-                  <Nav.Link
-                    onClick={() => setExpanded(false)}
-                    // as={NavLink}
-                    to="/contact"
-                    class="nav-item "
-                  >
-                    Contact
-                  </Nav.Link>
-                  <Nav.Link
-                    onClick={() => setExpanded(false)}
-                    // as={NavLink}
-                    to="/add"
-                    class="nav-item "
-                  >
-                    Add Blog
-                  </Nav.Link>
-                  {/* {employeeData ? (
-                    <Nav.Link
-                      onClick={() => setExpanded(false)}
-                      //   as={NavLink}
-                      to={"/employee/" + employeeData.employeeId}
-                      class="nav-item "
-                    >
-                      Dashboard
-                    </Nav.Link>
-                  ) : (
-                    <Nav.Link
-                      onClick={() => setExpanded(false)}
-                      //   as={NavLink}
-                      to="/employee/login"
-                      class="nav-item "
-                    >
-                      Employee LogIn
-                    </Nav.Link>
-                  )} */}
-
-                  <NavDropdown title="Policies" id="navbarScrollingDropdown">
-                    <NavDropdown.Item
-                      onClick={() => setExpanded(false)}
-                      //   as={NavLink}
-                      to="/privacy/policies"
-                    >
-                      Privacy Policies
-                    </NavDropdown.Item>
-
-                    <NavDropdown.Item
-                      onClick={() => setExpanded(false)}
-                      //   as={NavLink}
-                      to="/terms/condition"
-                    >
+                  Policies
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Privacy policies
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
                       Terms And Conditions
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      onClick={() => setExpanded(false)}
-                      //   as={NavLink}
-                      to="/advertise/policies"
-                    >
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
                       Advertise
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-        {/* ))} */}
-      </div>
-    </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <Autocomplete searchHandler={searchHandler} suggestions={titles} />
+
+            {/* <form>
+            <div class="input-group ">
+              <input
+                className="form-control"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary search-btn"
+                  type="button"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form> */}
+          </div>
+        </div>
+      </nav>
+    </>
   );
 };
 
-export default MNavbar;
+export default Navbar;

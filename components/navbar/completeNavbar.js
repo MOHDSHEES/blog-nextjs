@@ -1,6 +1,7 @@
 import React from "react";
 import MainNavbar from "./mainNavbar";
 import MidBar from "./midBar";
+import Navbar from "./navbar";
 import TopBar from "./topBar";
 
 const CompleteNavbar = () => {
@@ -10,7 +11,8 @@ const CompleteNavbar = () => {
         <div className="main-header">
           <TopBar />
           <MidBar />
-          <MainNavbar />
+          <Navbar />
+          {/* <MainNavbar /> */}
         </div>
       </div>
     </header>

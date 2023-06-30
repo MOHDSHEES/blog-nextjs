@@ -354,9 +354,10 @@ hr {
 }
 .btn {
   background: #ff2143;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #fff;
-  cursor: pointer;
+
+  /* cursor: pointer;
   display: inline-block;
   font-size: 14px;
   font-weight: 500;
@@ -366,14 +367,16 @@ hr {
   line-height: 0;
   -moz-user-select: none;
   cursor: pointer;
-  transition: color 0.4s linear;
   position: relative;
   z-index: 1;
   border: 0;
   overflow: hidden;
-  margin: 0;
+  margin: 0; */
 }
-.btn::before {
+.btn:hover {
+  background: #df1130;
+}
+/* .btn::before {
   content: "";
   position: absolute;
   left: 0;
@@ -388,12 +391,12 @@ hr {
   transform-origin: 0 0;
   transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
   transform: scaleX(0);
-}
-.btn:hover::before {
+} */
+/* .btn:hover::before {
   transform: scaleX(1);
   color: #fff !important;
   z-index: -1;
-}
+} */
 .button.button-contactForm.boxed-btn2 {
   background: #ff2143;
   border: 1px solid #ddd;

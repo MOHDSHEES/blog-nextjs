@@ -7,36 +7,72 @@ import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
 import blogModel from "../../../models/blogModel";
 import parse from "html-react-parser";
-export async function getServerSideProps(context) {
-  const { title, id } = context.query;
-  // console.log(context);
-  //   console.log(title);
-  //   console.log(id);
-  // let homepageData;
+
+export async function getStaticProps({ params }) {
+  console.log(params.id);
   await dbConnect();
   const data = await blogModel
     .findOne(
-      { _id: id, status: "Active" }
+      { _id: params.id, status: "Active" }
       // { $inc: { views: 1 } },
       // { new: true }
     )
     .lean();
   if (data && data._id) data._id = data._id.toString();
+
   let urlArray = data.mainImg.split("/");
   urlArray.splice(6, 0, "w_0.2,c_scale");
   let imgUrl = urlArray.join("/");
 
-  // const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
-  // let data = homePagedata.toObject();
-
-  // const trending = resu.toObject();
-  // const trending = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
-  // console.log(trending);
-
   return {
-    props: { data, imgUrl },
+    props: {
+      data,
+      imgUrl,
+    },
+    revalidate: 10, // In seconds
   };
 }
+
+export async function getStaticPaths() {
+  // const res = await fetch("https://.../posts");
+  await dbConnect();
+  const posts = await blogModel.find({}).select({ title: 1, _id: 1 }).lean();
+  console.log(posts);
+  // console.log(resu);
+  // let titles = resu.map((a) => a.title);
+  // console.log(titles);
+  // const posts = [{ id: "6447a13deb22555a15b58185", title: "test 1" }];
+  // const posts = await res.json();
+
+  // Get the paths we want to pre-render based on posts
+  const paths = posts.map((post) => ({
+    params: { id: post._id.toString(), title: post.title },
+  }));
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: 'blocking' } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: "blocking" };
+}
+
+// export async function getServerSideProps(context) {
+//   const { title, id } = context.query;
+//   await dbConnect();
+//   const data = await blogModel
+//     .findOne(
+//       { _id: id, status: "Active" }
+//       // { $inc: { views: 1 } },
+//       // { new: true }
+//     )
+//     .lean();
+//   if (data && data._id) data._id = data._id.toString();
+//   let urlArray = data.mainImg.split("/");
+//   urlArray.splice(6, 0, "w_0.2,c_scale");
+//   let imgUrl = urlArray.join("/");
+//   return {
+//     props: { data, imgUrl },
+//   };
+// }
 const BlogDetail = ({ data, imgUrl }) => {
   // console.log(title);/
   // console.log(data);
