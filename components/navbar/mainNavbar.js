@@ -118,11 +118,12 @@ const NavBar = () => {
                     onClick={() => setExpanded(false)}
                     as={Link}
                     shallow={true}
-                    href="/career"
+                    href="/contact"
                     className="nav-item"
                   >
-                    Careers
+                    Contact Us
                   </Nav.Link>
+
                   {/* <Nav.Link href="#" className="nav-item ">
                     Single Blog
                   </Nav.Link> */}
@@ -151,6 +152,15 @@ const NavBar = () => {
                     className="nav-item"
                   >
                     Employee
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    shallow={true}
+                    href="/career"
+                    className="nav-item"
+                  >
+                    Careers
                   </Nav.Link>
                   {/* {employeeData ? (
                     <Nav.Link

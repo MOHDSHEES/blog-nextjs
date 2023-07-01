@@ -1,3 +1,15 @@
+.read-more {
+  position: absolute;
+  background: #d8131a;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 3px;
+  bottom: -5px;
+  right: 5px;
+}
+.accordion-body {
+  padding-bottom: 50px;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -146,7 +158,19 @@
 .a-red a {
   color: #d8131a;
 }
+.a-red a:hover {
+  color: #fa6368;
+}
 
+.icons {
+  background-color: white;
+  color: #d8131a;
+  margin-right: 5px;
+}
+.icons:hover {
+  background-color: #d8131a;
+  color: white;
+}
 .index-ul {
   list-style-type: circle;
 }
@@ -397,4 +421,12 @@
 }
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #999;
+}
+
+/* contact us */
+
+@media (max-width: 991px) {
+  .contactus-flex {
+    flex-direction: column-reverse;
+  }
 }

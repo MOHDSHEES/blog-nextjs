@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
 const CareerComponent = () => {
+  const [active, setActive] = useState({
+    state1: false,
+    state2: false,
+    state3: false,
+  });
+  function toggle(name) {
+    if (active[name]) {
+      document.getElementById(name).scrollIntoView({ behavior: "smooth" });
+    }
+    setActive({
+      ...active,
+      [name]: !active[name],
+    });
+  }
   return (
     <div class="accordion a-red" id="accordionPanelsStayOpenExample">
       <div style={{ textAlign: "center" }}>
         <h2 className=" mt-4">Career Opportunities </h2>
         <h3 className="mb-5"> Current Openings</h3>
       </div>
-      <div class="accordion-item" style={{ position: "reletive" }}>
+      <div class="accordion-item" style={{ position: "relative" }}>
         <h2 class="accordion-header">
           <button
-            class="accordion-button "
+            class="accordion-button collapsed "
             type="button"
+            id="state1"
+            onClick={(e) => toggle("state1")}
             data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseOne"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="panelsStayOpen-collapseOne"
           >
             1) Social Media Management Intern
@@ -34,10 +50,22 @@ const CareerComponent = () => {
           marketing campaigns. The intern will be responsible for creating and
           scheduling social media posts, engaging with followers, and tracking
           analytics.
+          <p
+            data-bs-toggle="collapse"
+            onClick={(e) => toggle("state1")}
+            data-bs-target="#panelsStayOpen-collapseOne"
+            aria-expanded="true"
+            aria-controls="panelsStayOpen-collapseOne"
+            className="read-more cursor-pointer"
+          >
+            {active.state1 ? "read less" : "read more"}
+          </p>
         </div>
+
         <div
           id="panelsStayOpen-collapseOne"
-          class="accordion-collapse collapse show "
+          class="accordion-collapse collapse"
+          style={{ marginTop: "-30px" }}
         >
           <div class="accordion-body">
             <strong>Responsibilities:</strong>
@@ -84,11 +112,13 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
-      <div class="accordion-item mt-2 ">
+      <div class="accordion-item mt-2  " style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button
             class="accordion-button collapsed"
             type="button"
+            id="state2"
+            onClick={(e) => toggle("state2")}
             data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseTwo"
             aria-expanded="false"
@@ -112,10 +142,21 @@ const CareerComponent = () => {
           search engines. The intern will be responsible for creating and
           scheduling posts, conducting keyword research, and optimizing website
           content.
+          <p
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseTwo"
+            aria-expanded="false"
+            onClick={(e) => toggle("state2")}
+            aria-controls="panelsStayOpen-collapseTwo"
+            className="read-more cursor-pointer"
+          >
+            {active.state2 ? "read less" : "read more"}
+          </p>
         </div>
         <div
           id="panelsStayOpen-collapseTwo"
           class="accordion-collapse collapse"
+          style={{ marginTop: "-30px" }}
           //   data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">
@@ -179,11 +220,13 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
-      <div class="accordion-item mt-2 mb-5">
+      <div class="accordion-item mt-2 mb-5" style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button
             class="accordion-button collapsed"
             type="button"
+            id="state3"
+            onClick={(e) => toggle("state3")}
             data-bs-toggle="collapse"
             data-bs-target="#panelsStayOpen-collapseThree"
             aria-expanded="false"
@@ -206,10 +249,21 @@ const CareerComponent = () => {
           content for the company's website, blog, and social media channels.
           The intern will work closely with the Content Manager to develop and
           execute content marketing campaigns.
+          <p
+            data-bs-toggle="collapse"
+            data-bs-target="#panelsStayOpen-collapseThree"
+            aria-expanded="false"
+            onClick={(e) => toggle("state3")}
+            aria-controls="panelsStayOpen-collapseThree"
+            className="read-more cursor-pointer"
+          >
+            {active.state3 ? "read less" : "read more"}
+          </p>
         </div>
         <div
           id="panelsStayOpen-collapseThree"
           class="accordion-collapse collapse"
+          style={{ marginTop: "-30px" }}
           //   data-bs-parent="#accordionExample"
         >
           <div class="accordion-body">

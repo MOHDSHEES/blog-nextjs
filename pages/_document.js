@@ -12,6 +12,10 @@ class MyDocument extends Document {
             name="google-site-verification"
             content="KDX93825cyhwPt5qrouMT2SW88-urVI4NOO5zpJjEmc"
           />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+          />
         </Head>
         <body>
           <Main />

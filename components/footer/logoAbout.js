@@ -25,12 +25,56 @@ const LogoAbout = () => {
                 Stay ahead of the curve with OFFTHEWEB - your source for the
                 latest in tech and beyond.
               </p>
-              {/* <p className="info2">
-                198 West 21th Street, Suite 721 New York,NY 10010
-              </p>
-              <p className="info2">
-                Phone: +95 (0) 123 456 789 Cell: +95 (0) 123 456 789
-              </p> */}
+              <div class="d-flex justify-content-start mt-4 ">
+                <a
+                  class="btn btn-outline-secondary text-center mr-2 px-0  icons"
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                  }}
+                  href="https://twitter.com/_OFFTHEWEB"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="bx bxl-twitter"></i>
+                </a>
+                <a
+                  class="btn btn-outline-secondary text-center mr-2 px-0 icons"
+                  style={{ width: "38px", height: "38px" }}
+                  href="https://www.facebook.com/offftheweb"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="bx bxl-facebook"></i>
+                </a>
+                <a
+                  class="btn btn-outline-secondary text-center mr-2 px-0 icons"
+                  style={{ width: "38px", height: "38px" }}
+                  href="https://www.linkedin.com/company/offtheweb/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="bx bxl-linkedin"></i>
+                </a>
+                <a
+                  class="btn btn-outline-secondary text-center mr-2 px-0 icons"
+                  style={{ width: "38px", height: "38px" }}
+                  href="https://www.instagram.com/offtheweb.in/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="bx bxl-instagram"></i>
+                </a>
+                <a
+                  class="btn btn-outline-secondary text-center mr-2 px-0 icons"
+                  style={{ width: "38px", height: "38px" }}
+                  href="https://www.youtube.com/channel/UC0BxUqApESxQZ49REib5ELQ"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="bx bxl-youtube"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>

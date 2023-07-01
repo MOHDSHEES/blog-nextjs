@@ -15,9 +15,9 @@ export default async function userAPI(req, res) {
 
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
-      const createdUser = await User.create(req.body);
+      // const createdUser = await User.create(req.body);
       // console.log("CREATED DOCUMENT");
-      res.json({ createdUser });
+      // res.json({ createdUser });
     } else if (req.method === "GET") {
       //   console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
