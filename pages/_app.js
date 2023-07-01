@@ -17,6 +17,7 @@ import { Router } from "next/dist/client/router";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "react-loading-skeleton/dist/skeleton.css";
+import Script from "next/script";
 import MainFooter from "../components/footer/mainFooter";
 
 NProgress.configure({ showSpinner: false });
@@ -44,6 +45,15 @@ export default function App({ Component, pageProps, trending }) {
   }, []);
   return (
     <>
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
+       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+       new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+       })(window,document,'script','dataLayer','GTM-WH4KP2P');
+      `}
+      </Script>
       <MyProvider initialData={trending}>
         <CompleteNavbar />
         <Component {...pageProps} />
