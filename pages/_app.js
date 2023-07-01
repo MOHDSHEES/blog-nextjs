@@ -19,6 +19,7 @@ import "nprogress/nprogress.css";
 import "react-loading-skeleton/dist/skeleton.css";
 import Script from "next/script";
 import MainFooter from "../components/footer/mainFooter";
+import { Analytics } from "@vercel/analytics/react";
 
 NProgress.configure({ showSpinner: false });
 
@@ -59,6 +60,7 @@ export default function App({ Component, pageProps, trending }) {
         <Component {...pageProps} />
         <MainFooter />
       </MyProvider>
+      <Analytics />
     </>
   );
 }
