@@ -50,6 +50,10 @@
   height: 290px;
   object-fit: cover;
 }
+
+.footer-links {
+  padding-left: 80px;
+}
 @media (max-width: 768px) {
   .carousel-img img {
     height: 420px;
@@ -59,6 +63,9 @@
   }
   .carouselSmall img {
     height: 380px;
+  }
+  .footer-links {
+    padding-left: 0;
   }
 }
 @media (max-width: 480px) {

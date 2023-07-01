@@ -3,7 +3,7 @@ import React from "react";
 
 const QuickLinks = () => {
   return (
-    <div className="col-xl-4 col-lg-4 col-md-5 col-sm-7 nav-a p-link">
+    <div className="col-xl-4 col-lg-4 col-md-5 col-sm-7 nav-a p-link footer-links">
       <div className="single-footer-caption mb-50">
         <div className="footer-tittle">
           <h4>Quick Links</h4>
