@@ -1,3 +1,12 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #051441;
+}
+
 .read-more {
   position: absolute;
   background: #d8131a;
@@ -159,6 +168,7 @@
     max-height: 200px;
   }
 }
+
 .color-white {
   color: white;
 }

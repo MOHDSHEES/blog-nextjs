@@ -18,7 +18,7 @@ const CatMainCard = ({ data }) => {
             />
           </div>
           {/* </Link> */}
-          <div className="whates-caption">
+          <div className="whates-caption" style={{ color: "black" }}>
             <h4>
               {/* <Link
               href={
