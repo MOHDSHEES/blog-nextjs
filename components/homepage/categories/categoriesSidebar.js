@@ -11,12 +11,12 @@ const CategoriesSidebar = ({ categories }) => {
         style={{ background: "white" }}
       >
         <h3 class="m-0">Categories</h3>
-        <Link
+        {/* <Link
           class="text-secondary font-weight-medium text-decoration-none"
           href="/categories"
         >
           View All
-        </Link>
+        </Link> */}
       </div>
       {categories &&
         categories.slice(0, 4).map((c, idx) => {
