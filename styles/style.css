@@ -2693,7 +2693,7 @@ hr {
 }
 @media (max-width: 575px) {
   .trending-area .trending-main .trending-top .trend-top-img .trend-top-cap h2 {
-    font-size: 15px;
+    font-size: 25px;
   }
 }
 .trending-area .trending-main .trending-top .trend-top-img .trend-top-cap h2 a {
@@ -3286,7 +3286,7 @@ hr {
     .most-recent-capt
     h4
     a {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 .whats-news-area

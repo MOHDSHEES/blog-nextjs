@@ -52,7 +52,10 @@ const CarouselSmall = ({ trending }) => {
                           alt={blog.title}
                           loading="lazy"
                         />
-                        <div className="trend-top-cap" style={{ width: "80%" }}>
+                        <div
+                          className="trend-top-cap"
+                          style={{ width: "80%", fontSize: "22px" }}
+                        >
                           <span
                             className="bgr"
                             data-animation="fadeInUp"
