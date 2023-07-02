@@ -40,7 +40,7 @@ const NavBar = () => {
       closeMessage(messageApi, "Blog Not Found", "error");
     } else {
       closeMessage(messageApi, "Blog Found", "success", 1);
-      router.push("/blog/" + data._id + "/" + data.title.replace(/ /g, "-"));
+      router.push("/blog/" + data.title.replace(/ /g, "-") + "/" + data._id);
     }
   }
   // const { titles: title, employeeData } = useContext(globalContext);

@@ -9,7 +9,7 @@ const Card2 = ({ data }) => {
       style={{ marginLeft: "15px", marginRight: "15px" }}
     >
       <Link
-        href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+        href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}
         className="hover-red"
       >
         <div
@@ -27,7 +27,7 @@ const Card2 = ({ data }) => {
       <div classname="weekly2-caption ">
         <h4 className="nav-a">
           <Link
-            href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+            href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}
             className="hover-red"
             style={{
               fontSize: "16px",

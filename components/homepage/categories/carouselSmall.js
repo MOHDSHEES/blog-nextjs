@@ -38,9 +38,9 @@ const CarouselSmall = ({ trending }) => {
                       className="color-white "
                       href={
                         "/blog/" +
-                        blog._id +
+                        blog.title.replace(/ /g, "-") +
                         "/" +
-                        blog.title.replace(/ /g, "-")
+                        blog._id
                       }
                       data-animation="fadeInUp"
                       data-delay=".4s"

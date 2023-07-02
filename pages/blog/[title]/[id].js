@@ -7,9 +7,11 @@ import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
 import parse from "html-react-parser";
 import blogModel from "../../../models/blogModel";
+import Link from "next/link";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
+  console.log(params);
   await dbConnect();
   const data = await blogModel
     .findOne(
@@ -92,48 +94,66 @@ const BlogDetail = ({ data, imgUrl }) => {
   return (
     <div className="gray-bg">
       <Head>
-        <title>{data.title}</title>
-        <meta name="keywords" content={data.keywords} />
+        <title>{data && data.title}</title>
+        <meta name="keywords" content={data && data.keywords} />
         <meta property="og:type" content="website" />
         <meta
           property="og:description"
-          content={data.blog[0].text.slice(0, 250)}
+          content={data && data.blog[0].text.slice(0, 250)}
         />
         <meta property="og:image" content={imgUrl} />
-        <meta property="og:title" content={data.title} />
+        <meta property="og:title" content={data && data.title} />
         {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         <meta
           name="description"
-          content={data.blog[0].text.slice(0, 250)}
+          content={data && data.blog[0].text.slice(0, 250)}
           data-rh="true"
         />
       </Head>
-      <section className="blog_area single-post-area section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 posts-list">
-              <SinglePost data={data} />
-            </div>
+      {data ? (
+        <section className="blog_area single-post-area section-padding">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 posts-list">
+                <SinglePost data={data} />
+              </div>
 
-            <div className="col-lg-4">
-              <div className="blog_right_sidebar">
-                <TagClouds keywords={data && data.keywords} />
+              <div className="col-lg-4">
+                <div className="blog_right_sidebar">
+                  <TagClouds keywords={data && data.keywords} />
 
-                <aside className="single_sidebar_widget popular_post_widget">
-                  <h3 className="widget_title">Recent Post</h3>
-                  <div className="trending-sidebar scrollbar-over">
-                    {trending &&
-                      trending.length !== 0 &&
-                      trending.map((blog, idx) => {
-                        return <Card2 data={blog} key={idx} />;
-                      })}
-                  </div>
-                </aside>
+                  <aside className="single_sidebar_widget popular_post_widget">
+                    <h3 className="widget_title">Recent Post</h3>
+                    <div className="trending-sidebar scrollbar-over">
+                      {trending &&
+                        trending.length !== 0 &&
+                        trending.map((blog, idx) => {
+                          return <Card2 data={blog} key={idx} />;
+                        })}
+                    </div>
+                  </aside>
+                </div>
               </div>
             </div>
           </div>
+        </section>
+      ) : (
+        <div
+          style={{
+            height: "200px",
+            background: "white",
+            textAlign: "center",
+            marginTop: "90px",
+          }}
+        >
+          Oops, page you're looking has been moved to another URL or has been
+          completely removed.
+          <br />
+          <Link href="/" className="btn btn-secondary mt-3">
+            Home
+          </Link>
         </div>
-      </section>
+      )}
     </div>
   );
 };

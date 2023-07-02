@@ -39,9 +39,9 @@ const Carousel = ({ data }) => {
                     <Link
                       href={
                         "/blog/" +
-                        blog._id +
+                        blog.title.replace(/ /g, "-") +
                         "/" +
-                        blog.title.replace(/ /g, "-")
+                        blog._id
                       }
                     >
                       <div className="trend-top-img carousel-img">
