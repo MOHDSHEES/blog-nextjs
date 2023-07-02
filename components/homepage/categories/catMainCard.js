@@ -20,14 +20,24 @@ const CatMainCard = ({ data }) => {
         <div className="whates-caption">
           <h4>
             <Link
-              href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}
+              href={
+                "/blog/" +
+                data.title.replace(/ /g, "-").replace(/\?/g, "") +
+                "/" +
+                data._id
+              }
             >
               {data.title}
             </Link>
           </h4>
           <span>{data.createdDate}</span>
           <Link
-            href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}
+            href={
+              "/blog/" +
+              data.title.replace(/ /g, "-").replace(/\?/g, "") +
+              "/" +
+              data._id
+            }
           >
             {" "}
             <p className="break-line-3">

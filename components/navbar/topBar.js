@@ -61,7 +61,7 @@ const TopBar = () => {
                         <Link
                           href={
                             "/blog/" +
-                            blog.title.replace(/ /g, "-") +
+                            blog.title.replace(/ /g, "-").replace(/\?/g, "") +
                             "/" +
                             blog._id
                           }

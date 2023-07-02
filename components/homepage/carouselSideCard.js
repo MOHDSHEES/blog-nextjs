@@ -8,7 +8,14 @@ const CarouselSideCard = ({ data }) => {
   return (
     <div className="col-lg-12 col-md-6 col-sm-6 nav-a">
       <div className="trending-top mb-30">
-        <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}>
+        <Link
+          href={
+            "/blog/" +
+            data.title.replace(/ /g, "-").replace(/\?/g, "") +
+            "/" +
+            data._id
+          }
+        >
           <div className="trend-top-img" style={{ color: "red" }}>
             <img
               src={resizeImg(data.mainImg, 6, "h_240,c_scale")}

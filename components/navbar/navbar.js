@@ -32,7 +32,12 @@ const Navbar = () => {
     if (!data) {
       closeMessage(messageApi, "Blog Not Found", "error");
     } else {
-      router.push("/blog/" + data.title.replace(/ /g, "-") + "/" + data._id);
+      router.push(
+        "/blog/" +
+          data.title.replace(/ /g, "-").replace(/\?/g, "") +
+          "/" +
+          data._id
+      );
     }
     // closeMessage(messageApi);
     // console.log(data);

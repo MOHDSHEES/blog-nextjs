@@ -5,7 +5,14 @@ import resizeImg from "../../functions/resizeImg";
 const CategorySmall2 = ({ data }) => {
   return (
     <div className="most-recent-single nav-a">
-      <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}>
+      <Link
+        href={
+          "/blog/" +
+          data.title.replace(/ /g, "-").replace(/\?/g, "") +
+          "/" +
+          data._id
+        }
+      >
         <div className="most-recent-images categorySmall2">
           <img
             src={resizeImg(data.mainImg, 6, "h_90,c_scale")}
@@ -17,7 +24,12 @@ const CategorySmall2 = ({ data }) => {
       <div className="most-recent-capt">
         <h4>
           <Link
-            href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}
+            href={
+              "/blog/" +
+              data.title.replace(/ /g, "-").replace(/\?/g, "") +
+              "/" +
+              data._id
+            }
           >
             {data.title}
           </Link>

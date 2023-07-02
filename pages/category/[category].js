@@ -82,7 +82,7 @@ const Category = ({ categories }) => {
                       <Link
                         href={
                           "/blog/" +
-                          data.title.replace(/ /g, "-") +
+                          data.title.replace(/ /g, "-").replace(/\?/g, "") +
                           "/" +
                           data._id
                         }
@@ -98,7 +98,7 @@ const Category = ({ categories }) => {
                           <Link
                             href={
                               "/blog/" +
-                              data.title.replace(/ /g, "-") +
+                              data.title.replace(/ /g, "-").replace(/\?/g, "") +
                               "/" +
                               data._id
                             }
@@ -109,7 +109,7 @@ const Category = ({ categories }) => {
                         <Link
                           href={
                             "/blog/" +
-                            data.title.replace(/ /g, "-") +
+                            data.title.replace(/ /g, "-").replace(/\?/g, "") +
                             "/" +
                             data._id
                           }
