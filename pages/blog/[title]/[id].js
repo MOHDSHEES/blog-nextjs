@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
-  console.log(params);
+  // console.log(params);
   await dbConnect();
   const data = await blogModel
     .findOne(
@@ -59,7 +59,10 @@ export async function getStaticPaths() {
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
-    params: { id: post._id.toString(), title: post.title.replace(/ /g, "-") },
+    params: {
+      id: post._id.toString(),
+      title: post.title.replace(/ /g, "-").replace(/\?/g, ""),
+    },
   }));
   // id: post._id.toString()
   // We'll pre-render only these paths at build time.
