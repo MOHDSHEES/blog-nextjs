@@ -82,9 +82,9 @@ const Category = ({ categories }) => {
                       <Link
                         href={
                           "/blog/" +
-                          data._id +
+                          data.title.replace(/ /g, "-") +
                           "/" +
-                          data.title.replace(/ /g, "-")
+                          data._id
                         }
                       >
                         <img
@@ -98,9 +98,9 @@ const Category = ({ categories }) => {
                           <Link
                             href={
                               "/blog/" +
-                              data._id +
+                              data.title.replace(/ /g, "-") +
                               "/" +
-                              data.title.replace(/ /g, "-")
+                              data._id
                             }
                           >
                             {data.title}
@@ -109,9 +109,9 @@ const Category = ({ categories }) => {
                         <Link
                           href={
                             "/blog/" +
-                            data._id +
+                            data.title.replace(/ /g, "-") +
                             "/" +
-                            data.title.replace(/ /g, "-")
+                            data._id
                           }
                           style={{ color: "#506172" }}
                         >
