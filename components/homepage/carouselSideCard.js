@@ -8,24 +8,26 @@ const CarouselSideCard = ({ data }) => {
   return (
     <div className="col-lg-12 col-md-6 col-sm-6 nav-a">
       <div className="trending-top mb-30">
-        <div className="trend-top-img">
-          <img
-            src={resizeImg(data.mainImg, 6, "h_240,c_scale")}
-            alt={data.title}
-            loading="lazy"
-          />
-          <div className="trend-top-cap trend-top-cap2">
-            <span className="bgb">{data.category}</span>
-            <h2>
-              <Link
+        <Link href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}>
+          <div className="trend-top-img" style={{ color: "red" }}>
+            <img
+              src={resizeImg(data.mainImg, 6, "h_240,c_scale")}
+              alt={data.title}
+              loading="lazy"
+            />
+            <div className="trend-top-cap trend-top-cap2">
+              <span className="bgb">{data.category}</span>
+              <h2 className="link">
+                {/* <Link
                 href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
-              >
+              > */}
                 {data.title}
-              </Link>
-            </h2>
-            <p>{data.createdDate}</p>
+                {/* </Link> */}
+              </h2>
+              <p>{data.createdDate}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );

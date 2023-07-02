@@ -8,13 +8,15 @@ const CatMainCard = ({ data }) => {
   return (
     <div className="col-xl-6 col-lg-12 nav-a">
       <div className="whats-news-single mb-40 mb-40">
-        <div className="whates-img">
-          <img
-            src={resizeImg(data.mainImg, 6, "h_520,c_scale")}
-            alt={data.category}
-            loading="lazy"
-          />
-        </div>
+        <Link href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}>
+          <div className="whates-img">
+            <img
+              src={resizeImg(data.mainImg, 6, "h_520,c_scale")}
+              alt={data.category}
+              loading="lazy"
+            />
+          </div>
+        </Link>
         <div className="whates-caption">
           <h4>
             <Link
@@ -24,7 +26,14 @@ const CatMainCard = ({ data }) => {
             </Link>
           </h4>
           <span>{data.createdDate}</span>
-          <p className="break-line-3">{parse(data.blog[0].text)}</p>
+          <Link
+            href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+          >
+            {" "}
+            <p className="break-line-3">
+              {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))}
+            </p>
+          </Link>
         </div>
       </div>
     </div>

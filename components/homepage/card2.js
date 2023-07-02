@@ -5,17 +5,25 @@ import resizeImg from "../functions/resizeImg";
 const Card2 = ({ data }) => {
   return (
     <div
-      classname="weekly2-single"
+      classname="weekly2-single a-red"
       style={{ marginLeft: "15px", marginRight: "15px" }}
     >
-      <div classname="weekly2-img" style={{ marginBottom: "20px" }}>
-        <img
-          className="card2-img"
-          src={resizeImg(data.mainImg, 6, "h_150,c_scale")}
-          alt={data.category}
-          loading="lazy"
-        />
-      </div>
+      <Link
+        href={"/blog/" + data._id + "/" + data.title.replace(/ /g, "-")}
+        className="hover-red"
+      >
+        <div
+          classname="weekly2-img"
+          style={{ marginBottom: "20px", color: "red" }}
+        >
+          <img
+            className="card2-img"
+            src={resizeImg(data.mainImg, 6, "h_150,c_scale")}
+            alt={data.category}
+            loading="lazy"
+          />
+        </div>
+      </Link>
       <div classname="weekly2-caption ">
         <h4 className="nav-a">
           <Link

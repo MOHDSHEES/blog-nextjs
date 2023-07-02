@@ -34,23 +34,35 @@ const CarouselSmall = ({ trending }) => {
               <div class="item" key={blog._id}>
                 <div className="single-slider">
                   <div className="trending-top ">
-                    <div className="trend-top-img carouselSmall">
-                      <img
-                        src={resizeImg(blog.mainImg, 6, "h_290,c_scale")}
-                        alt={blog.title}
-                        loading="lazy"
-                      />
-                      <div className="trend-top-cap" style={{ width: "80%" }}>
-                        <span
-                          className="bgr"
-                          data-animation="fadeInUp"
-                          data-delay=".2s"
-                          data-duration="1000ms"
-                        >
-                          {blog.category}
-                        </span>
-                        <div className="p-link">
-                          <Link
+                    <Link
+                      className="color-white "
+                      href={
+                        "/blog/" +
+                        blog._id +
+                        "/" +
+                        blog.title.replace(/ /g, "-")
+                      }
+                      data-animation="fadeInUp"
+                      data-delay=".4s"
+                      data-duration="1000ms"
+                    >
+                      <div className="trend-top-img carouselSmall">
+                        <img
+                          src={resizeImg(blog.mainImg, 6, "h_290,c_scale")}
+                          alt={blog.title}
+                          loading="lazy"
+                        />
+                        <div className="trend-top-cap" style={{ width: "80%" }}>
+                          <span
+                            className="bgr"
+                            data-animation="fadeInUp"
+                            data-delay=".2s"
+                            data-duration="1000ms"
+                          >
+                            {blog.category}
+                          </span>
+                          <div className="link">
+                            {/* <Link
                             className="color-white "
                             href={
                               "/blog/" +
@@ -61,19 +73,16 @@ const CarouselSmall = ({ trending }) => {
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"
-                          >
+                          > */}
                             {blog.title}
-                          </Link>
+                            {/* </Link> */}
+                          </div>
+                          <p>
+                            Views: {blog.views} | {blog.createdDate}
+                          </p>
                         </div>
-                        <p
-                          data-animation="fadeInUp"
-                          data-delay=".6s"
-                          data-duration="1000ms"
-                        >
-                          Views: {blog.views} | {blog.createdDate}
-                        </p>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>

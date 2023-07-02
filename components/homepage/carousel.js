@@ -36,15 +36,23 @@ const Carousel = ({ data }) => {
               <div class="item" key={blog._id}>
                 <div className="single-slider">
                   <div className="trending-top mb-30">
-                    <div className="trend-top-img carousel-img">
-                      <Link
+                    <Link
+                      href={
+                        "/blog/" +
+                        blog._id +
+                        "/" +
+                        blog.title.replace(/ /g, "-")
+                      }
+                    >
+                      <div className="trend-top-img carousel-img">
+                        {/* <Link
                         href={
                           "/blog/" +
                           blog._id +
                           "/" +
                           blog.title.replace(/ /g, "-")
                         }
-                      >
+                      > */}
                         <img
                           src={resizeImg(blog.mainImg, 6, "h_520,c_scale")}
                           // objectFit="cover"
@@ -52,18 +60,18 @@ const Carousel = ({ data }) => {
                           alt={blog.category}
                           loading="lazy"
                         />
-                      </Link>
-                      <div className="trend-top-cap">
-                        <span
-                          className="bgr"
-                          data-animation="fadeInUp"
-                          data-delay=".2s"
-                          data-duration="1000ms"
-                        >
-                          {blog.category}
-                        </span>
-                        <h2>
-                          <Link
+                        {/* </Link> */}
+                        <div className="trend-top-cap">
+                          <span
+                            className="bgr"
+                            data-animation="fadeInUp"
+                            data-delay=".2s"
+                            data-duration="1000ms"
+                          >
+                            {blog.category}
+                          </span>
+                          <h2 className=" link">
+                            {/* <Link
                             href={
                               "/blog/" +
                               blog._id +
@@ -73,19 +81,20 @@ const Carousel = ({ data }) => {
                             data-animation="fadeInUp"
                             data-delay=".4s"
                             data-duration="1000ms"
-                          >
+                          > */}
                             {blog.title}
-                          </Link>
-                        </h2>
-                        <p
-                          data-animation="fadeInUp"
-                          data-delay=".6s"
-                          data-duration="1000ms"
-                        >
-                          {blog.createdDate}
-                        </p>
+                            {/* </Link> */}
+                          </h2>
+                          <p
+                            data-animation="fadeInUp"
+                            data-delay=".6s"
+                            data-duration="1000ms"
+                          >
+                            {blog.createdDate}
+                          </p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
