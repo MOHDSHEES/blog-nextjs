@@ -4,11 +4,20 @@ import resizeImg from "../functions/resizeImg";
 
 const Card2 = ({ data }) => {
   return (
-    <div
-      classname="weekly2-single a-red"
-      style={{ marginLeft: "15px", marginRight: "15px" }}
+    <Link
+      href={
+        "/blog/" +
+        data.title.replace(/\?/g, "").replace(/ /g, "-") +
+        "/" +
+        data._id
+      }
+      className=""
     >
-      <Link
+      <div
+        classname="weekly2-single "
+        style={{ marginLeft: "15px", marginRight: "15px" }}
+      >
+        {/* <Link
         href={
           "/blog/" +
           data.title.replace(/\?/g, "").replace(/ /g, "-") +
@@ -16,7 +25,7 @@ const Card2 = ({ data }) => {
           data._id
         }
         className="hover-red"
-      >
+      > */}
         <div
           classname="weekly2-img"
           style={{ marginBottom: "20px", color: "red" }}
@@ -28,10 +37,10 @@ const Card2 = ({ data }) => {
             loading="lazy"
           />
         </div>
-      </Link>
-      <div classname="weekly2-caption ">
-        <h4 className="nav-a">
-          <Link
+        {/* </Link> */}
+        <div classname="weekly2-caption ">
+          <h4 className="">
+            {/* <Link
             href={
               "/blog/" +
               data.title.replace(/ /g, "-").replace(/\?/g, "") +
@@ -46,15 +55,16 @@ const Card2 = ({ data }) => {
               display: "block",
               paddingRight: "20px",
             }}
-          >
+          > */}
             {data.title}
-          </Link>
-        </h4>
-        <p style={{ fontSize: "12px" }}>
-          {data.createdDate} | Views: {data.views}
-        </p>
+            {/* </Link> */}
+          </h4>
+          <p style={{ fontSize: "12px" }}>
+            {data.createdDate} | Views: {data.views}
+          </p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -7,8 +7,9 @@ const CatMainCard = ({ data }) => {
   // console.log(data);
   return (
     <div className="col-xl-6 col-lg-12 nav-a">
-      <div className="whats-news-single mb-40 mb-40">
-        <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}>
+      <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}>
+        <div className="whats-news-single mb-40 mb-40">
+          {/* <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}> */}
           <div className="whates-img">
             <img
               src={resizeImg(data.mainImg, 6, "h_520,c_scale")}
@@ -16,36 +17,36 @@ const CatMainCard = ({ data }) => {
               loading="lazy"
             />
           </div>
-        </Link>
-        <div className="whates-caption">
-          <h4>
-            <Link
+          {/* </Link> */}
+          <div className="whates-caption">
+            <h4>
+              {/* <Link
               href={
                 "/blog/" +
                 data.title.replace(/ /g, "-").replace(/\?/g, "") +
                 "/" +
                 data._id
               }
-            >
+            > */}
               {data.title}
-            </Link>
-          </h4>
-          <span>{data.createdDate}</span>
-          <Link
+              {/* </Link> */}
+            </h4>
+            <span>{data.createdDate}</span>
+            {/* <Link
             href={
               "/blog/" +
               data.title.replace(/ /g, "-").replace(/\?/g, "") +
               "/" +
               data._id
             }
-          >
-            {" "}
+          > */}{" "}
             <p className="break-line-3">
               {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))}
             </p>
-          </Link>
+            {/* </Link> */}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const Card4 = ({ data }) => {
   return (
-    <div className="whats-right-single mb-20 ">
+    <div className="nav-a">
       <Link
         href={
           "/blog/" +
@@ -12,25 +12,36 @@ const Card4 = ({ data }) => {
           data._id
         }
       >
-        <div className="whats-right-img card4-img">
-          <img src={data.mainImg} alt={data.category} loading="lazy" />
-        </div>
-      </Link>
-      <div className="whats-right-cap">
-        <h4 className="nav-a">
-          <Link
+        <div className="whats-right-single mb-20 ">
+          {/* <Link
+        href={
+          "/blog/" +
+          data.title.replace(/ /g, "-").replace(/\?/g, "") +
+          "/" +
+          data._id
+        }
+      > */}
+          <div className="whats-right-img card4-img">
+            <img src={data.mainImg} alt={data.category} loading="lazy" />
+          </div>
+          {/* </Link> */}
+          <div className="whats-right-cap">
+            <h4 className=" color-white">
+              {/* <Link
             href={
               "/blog/" +
               data.title.replace(/ /g, "-").replace(/\?/g, "") +
               "/" +
               data._id
             }
-          >
-            {data.title}
-          </Link>
-        </h4>
-        <p>{data.createdDate}</p>
-      </div>
+          > */}
+              {data.title}
+              {/* </Link> */}
+            </h4>
+            <p>{data.createdDate}</p>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 };
