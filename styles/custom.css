@@ -6,6 +6,10 @@ h5,
 h6 {
   color: #051441;
 }
+a {
+  color: white;
+  text-decoration: none;
+}
 
 .read-more {
   position: absolute;
