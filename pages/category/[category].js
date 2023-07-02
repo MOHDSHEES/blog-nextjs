@@ -22,7 +22,8 @@ export async function getStaticProps({ params }) {
     .lean();
   // let trending = resu.map((a) => a.title);
 
-  const categories = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
+  const categori = resu.map((obj) => ({ ...obj, _id: obj._id.toString() }));
+  let categories = categori.reverse();
 
   return {
     props: {
@@ -69,7 +70,9 @@ const Category = ({ categories }) => {
                   style={{ background: "white" }}
                   class="d-flex align-items-center justify-content-center  py-2 px-4 mb-3"
                 >
-                  <h2 className="">{categories[0].category} </h2>
+                  <h2 className="">
+                    {categories && categories.length && categories[0].category}{" "}
+                  </h2>
                 </div>
               </div>
               <div className="categories-container row">
