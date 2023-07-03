@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { message } from "antd";
 import { openMessage, closeMessage } from "../components/functions/message";
 import axios from "axios";
+import Head from "next/head";
 const Contact = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [disabled, setdisabled] = useState(false);
@@ -43,6 +44,14 @@ const Contact = () => {
   }
   return (
     <>
+      <Head>
+        <title>ContactUs</title>
+        <meta
+          name="description"
+          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          data-rh="true"
+        />
+      </Head>
       {contextHolder}
       <div className="container mt-5">
         <div class="col-12 mb-5" style={{ textAlign: "center" }}>

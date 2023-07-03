@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useContext } from "react";
 import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
@@ -7,6 +8,14 @@ const PrivacyPolicy = () => {
   const { trending } = useContext(MyContext);
   return (
     <section className="blog_area single-post-area section-padding">
+      <Head>
+        <title>Privacy Policies</title>
+        <meta
+          name="description"
+          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          data-rh="true"
+        />
+      </Head>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 posts-list">

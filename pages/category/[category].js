@@ -9,6 +9,7 @@ import parse from "html-react-parser";
 import TagClouds from "../../components/blogDetails/tagClouds";
 import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
+import Head from "next/head";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
@@ -59,6 +60,18 @@ const Category = ({ categories }) => {
   return (
     <div>
       <section className="blog_area single-post-area section-padding gray-bg">
+        <Head>
+          <title>
+            {categories && categories.length
+              ? categories[0].category
+              : "Category"}
+          </title>
+          <meta
+            name="description"
+            content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+            data-rh="true"
+          />
+        </Head>
         <div className="container category-container">
           <div className="row">
             <div

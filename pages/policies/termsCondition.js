@@ -7,6 +7,14 @@ const TermsCondition = () => {
   const { trending } = useContext(MyContext);
   return (
     <section className="blog_area single-post-area section-padding">
+      <Head>
+        <title>Terms and Conditions</title>
+        <meta
+          name="description"
+          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          data-rh="true"
+        />
+      </Head>
       <div className="container">
         <div className="row">
           <div className="col-lg-8 posts-list">
