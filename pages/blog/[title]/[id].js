@@ -97,6 +97,7 @@ const BlogDetail = ({ data, imgUrl }) => {
 
   const [updatedData, setUpdatedData] = useState(data);
   useEffect(() => {
+    setUpdatedData(data);
     (async () => {
       // setloading(true);
       if (data && data._id) {
