@@ -11,7 +11,6 @@ const Card2 = ({ data }) => {
         "/" +
         data._id
       }
-      className=""
     >
       <div
         classname="weekly2-single "

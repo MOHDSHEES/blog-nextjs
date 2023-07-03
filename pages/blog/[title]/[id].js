@@ -99,15 +99,17 @@ const BlogDetail = ({ data, imgUrl }) => {
   useEffect(() => {
     (async () => {
       // setloading(true);
-      const { data: da } = await axios.post("/api/blog/id", {
-        id: data._id,
-      });
-      // console.log(da);
-      // console.log(data);
-      setUpdatedData(da);
+      if (data && data._id) {
+        const { data: da } = await axios.post("/api/blog/id", {
+          id: data._id,
+        });
+        // console.log(da);
+        // console.log(data);
+        setUpdatedData(da);
+      }
       // setloading(false);
     })();
-  }, []);
+  }, [data]);
   //   console.log(trending);
   return (
     <div className="gray-bg">

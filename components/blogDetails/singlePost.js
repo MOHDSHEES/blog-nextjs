@@ -124,7 +124,7 @@ const SinglePost = ({ data }) => {
                               baseColor="#cdcbcb"
                               highlightColor="#e6e5e5"
                               // width={window.screen.width < 775 ? 280 : 490}
-                              height={200}
+                              height={350}
                               width={300}
                               duration={2}
                             />
