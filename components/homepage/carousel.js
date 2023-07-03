@@ -28,6 +28,7 @@ const Carousel = ({ data }) => {
           dots={false}
           margin={10}
           autoplay
+          key={data.length}
           autoplayTimeout={3000}
           autoplayHoverPause
         >
