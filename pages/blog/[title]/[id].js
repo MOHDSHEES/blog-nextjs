@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SinglePost from "../../../components/blogDetails/singlePost";
 import TagClouds from "../../../components/blogDetails/tagClouds";
 import { MyContext } from "../../../components/context";
@@ -8,6 +8,7 @@ import dbConnect from "../../../lib/mongoose";
 import parse from "html-react-parser";
 import blogModel from "../../../models/blogModel";
 import Link from "next/link";
+import axios from "axios";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
@@ -93,6 +94,20 @@ const BlogDetail = ({ data, imgUrl }) => {
   // console.log(title);/
   // console.log(data);
   const { trending } = useContext(MyContext);
+
+  const [updatedData, setUpdatedData] = useState(data);
+  useEffect(() => {
+    (async () => {
+      // setloading(true);
+      const { data: da } = await axios.post("/api/blog/id", {
+        id: data._id,
+      });
+      // console.log(da);
+      // console.log(data);
+      setUpdatedData(da);
+      // setloading(false);
+    })();
+  }, []);
   //   console.log(trending);
   return (
     <div className="gray-bg">
@@ -118,12 +133,12 @@ const BlogDetail = ({ data, imgUrl }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-8 posts-list">
-                <SinglePost data={data} />
+                <SinglePost data={updatedData} />
               </div>
 
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
-                  <TagClouds keywords={data && data.keywords} />
+                  <TagClouds keywords={updatedData && updatedData.keywords} />
 
                   <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Recent Post</h3>
