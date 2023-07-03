@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useContext } from "react";
 import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
