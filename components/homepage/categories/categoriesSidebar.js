@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import resizeImg from "../../functions/resizeImg";
 
 const CategoriesSidebar = ({ categories }) => {
   return (
@@ -28,7 +27,7 @@ const CategoriesSidebar = ({ categories }) => {
             >
               <img
                 class="img-fluid w-100 h-100"
-                src={resizeImg(c.categoryImg, 6, "h_100,c_scale")}
+                src={c.categoryImg}
                 // src={c.categoryImg}
                 alt={c.category}
                 style={{ objectFit: "cover" }}

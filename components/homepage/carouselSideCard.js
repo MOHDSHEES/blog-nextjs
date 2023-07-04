@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import resizeImg from "../functions/resizeImg";
 
 const CarouselSideCard = ({ data }) => {
   // console.log("sidecard");
@@ -17,11 +16,7 @@ const CarouselSideCard = ({ data }) => {
           }
         >
           <div className="trend-top-img" style={{ color: "red" }}>
-            <img
-              src={resizeImg(data.mainImg, 6, "h_240,c_scale")}
-              alt={data.title}
-              loading="lazy"
-            />
+            <img src={data.mainImg} alt={data.title} loading="lazy" />
             <div className="trend-top-cap trend-top-cap2">
               <span className="bgb">{data.category}</span>
               <h2 className="link">

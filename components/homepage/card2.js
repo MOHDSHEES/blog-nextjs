@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import resizeImg from "../functions/resizeImg";
 
 const Card2 = ({ data }) => {
   return (
@@ -31,7 +30,7 @@ const Card2 = ({ data }) => {
         >
           <img
             className="card2-img"
-            src={resizeImg(data.mainImg, 6, "h_150,c_scale")}
+            src={data.mainImg}
             alt={data.category}
             loading="lazy"
           />

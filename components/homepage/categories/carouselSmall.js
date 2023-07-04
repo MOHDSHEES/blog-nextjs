@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Link from "next/link";
-import resizeImg from "../../functions/resizeImg";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
@@ -48,13 +47,13 @@ const CarouselSmall = ({ trending }) => {
                     >
                       <div className="trend-top-img carouselSmall">
                         <img
-                          src={resizeImg(blog.mainImg, 6, "h_290,c_scale")}
+                          src={blog.mainImg}
                           alt={blog.title}
                           loading="lazy"
                         />
                         <div
                           className="trend-top-cap"
-                          style={{ width: "80%", fontSize: "22px" }}
+                          style={{ width: "80%", fontSize: "2px" }}
                         >
                           <span
                             className="bgr"

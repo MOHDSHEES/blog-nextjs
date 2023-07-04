@@ -1,7 +1,6 @@
 import React from "react";
 import parse from "html-react-parser";
 import { TwitterTweetEmbed } from "react-twitter-embed";
-import resizeImg from "../functions/resizeImg";
 import Skeleton from "react-loading-skeleton";
 // import Author from "./author";
 import useFetch from "../useFetch";
@@ -79,7 +78,7 @@ const SinglePost = ({ data }) => {
                     <div className="it-singlePost">
                       <img
                         loading="lazy"
-                        src={resizeImg(bl.img, 6, "h_200,c_scale")}
+                        src={bl.img}
                         // src={bl.img}
                         alt={bl.img}
                       />
@@ -100,7 +99,7 @@ const SinglePost = ({ data }) => {
                     <div className=" ti-singlePost">
                       <img
                         loading="lazy"
-                        src={resizeImg(bl.img, 6, "h_200,c_scale")}
+                        src={bl.img}
                         // src={bl.img}
                         alt={bl.img}
                       />
