@@ -7,7 +7,9 @@ import blogModel from "../models/blogModel";
 export async function getServerSideProps({ res }) {
   //   const posts = getSortedPostsData();
   await dbConnect();
-  const blogs = await blogModel.find({}, { _id: 1, title: 1 }).lean();
+  const blogs = await blogModel
+    .find({}, { _id: 1, title: 1 }, { status: "Active" })
+    .lean();
   //   let da = blogs.toObject();
 
   const data = blogs.map((obj) => ({ ...obj, _id: obj._id.toString() }));

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import resizeImg from "../../components/functions/resizeImg";
 import CatMainCard from "../../components/homepage/categories/catMainCard";
 import dbConnect from "../../lib/mongoose";
@@ -10,6 +10,7 @@ import TagClouds from "../../components/blogDetails/tagClouds";
 import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
 import Head from "next/head";
+import axios from "axios";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
@@ -56,6 +57,24 @@ export async function getStaticPaths() {
 }
 const Category = ({ categories }) => {
   const { trending } = useContext(MyContext);
+  const [categoryData, setCategoryData] = useState(categories);
+  // const { data: homePageData } = useFetch("categoryPage", true);
+  // console.log(data);
+  // console.log(homePageData);
+  // console.log(homePageData);
+
+  useEffect(() => {
+    setCategoryData(categories);
+    (async () => {
+      if (categories && categories.length) {
+        const { data: da } = await axios.post("/api/categoryPage", {
+          category: categories[0].category,
+        });
+        if (da && da.length) setCategoryData(da.reverse());
+        else setCategoryData(categories);
+      }
+    })();
+  }, [categories]);
   // console.log(categories);
   return (
     <div>
@@ -89,7 +108,7 @@ const Category = ({ categories }) => {
                 </div>
               </div>
               <div className="categories-container row">
-                {categories.map((data) => {
+                {categoryData.map((data) => {
                   return (
                     <div
                       class="card categories-card col-lg-5"
