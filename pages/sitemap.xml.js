@@ -8,7 +8,7 @@ export async function getServerSideProps({ res }) {
   //   const posts = getSortedPostsData();
   await dbConnect();
   const blogs = await blogModel
-    .find({}, { _id: 1, title: 1 }, { status: "Active" })
+    .find({ status: "Active" }, { _id: 1, title: 1 })
     .lean();
   //   let da = blogs.toObject();
 
