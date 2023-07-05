@@ -2,7 +2,7 @@ const staticCategories = [
   {
     category: "Technology",
     categoryImg:
-      "https://res.cloudinary.com/domyp6djh/image/upload/v1685355464/technology/Technology-Watch_opuzor.jpg",
+      "https://res.cloudinary.com/domyp6djh/image/upload/v1688586697/technology%20webp/A9716732.jpeg_p73z8e.webp",
   },
   {
     category: "Cyber Security",
@@ -12,7 +12,7 @@ const staticCategories = [
   {
     category: "Business",
     categoryImg:
-      "https://res.cloudinary.com/domyp6djh/image/upload/v1685356474/business/gy6tb4e20y1dqbzasthz.jpg",
+      "https://res.cloudinary.com/domyp6djh/image/upload/v1688586344/technology%20webp/image_1_fmaole.webp",
   },
   {
     category: "Sports",
