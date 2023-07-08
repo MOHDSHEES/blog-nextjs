@@ -2073,15 +2073,24 @@ hr {
   .section-tittles span {
     color: #fff;
   }
+  .section-title-2 span {
+    color: #eb566c;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-tittles span {
     color: #fff;
   }
+  .section-title-2 span {
+    color: #eb566c;
+  }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .section-tittles span {
     color: #fff;
+  }
+  .section-title-2 span {
+    color: #eb566c;
   }
 }
 @media (max-width: 575px) {
@@ -2107,15 +2116,24 @@ hr {
   .section-tittles span::before {
     background: #fff;
   }
+  .section-title-2 span::before {
+    background: #eb566c;
+  }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .section-tittles span::before {
     background: #fff;
   }
+  .section-title-2 span::before {
+    background: #eb566c;
+  }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .section-tittles span::before {
     background: #fff;
+  }
+  .section-title-2 span::before {
+    background: #eb566c;
   }
 }
 @media (max-width: 575px) {

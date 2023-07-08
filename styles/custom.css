@@ -515,3 +515,34 @@ a {
   background-color: white;
   padding: 15px;
 }
+
+/* about page */
+.aboutServices {
+  display: flex;
+}
+.aboutServices-img {
+  display: flex;
+  align-items: center;
+  background-color: #ff2143;
+  flex: 1;
+}
+.aboutServices-img img {
+  border-radius: 5px;
+  padding: 30px;
+  width: 100%;
+}
+.aboutServices-content {
+  text-align: justify;
+  padding: 30px;
+  color: white;
+  background-color: black;
+  flex: 1;
+}
+.aboutServices-content p {
+  color: white;
+}
+@media (max-width: 992px) {
+  .aboutServices {
+    flex-direction: column;
+  }
+}

@@ -55,7 +55,7 @@ const AboutUs = () => {
             <div className="section-tittles section-title-2 mb-30">
               <span
                 style={{
-                  fontSize: "40px",
+                  fontSize: "20px",
                   marginBottom: "40px",
                   marginTop: "20px",
                 }}
@@ -72,7 +72,7 @@ const AboutUs = () => {
             loop
             // items={3}
             dots={false}
-            margin={10}
+            margin={30}
             autoplay
             // key={data.length}
             autoplayTimeout={3000}
@@ -85,10 +85,10 @@ const AboutUs = () => {
                 items: 1,
               },
               767: {
-                items: 3,
+                items: 2,
               },
               992: {
-                items: 3,
+                items: 2,
               },
               1280: {
                 items: 3,
@@ -150,7 +150,7 @@ const AboutUs = () => {
             loop
             // items={4}
             dots={false}
-            margin={10}
+            margin={30}
             autoplay
             // key={data.length}
             autoplayTimeout={3000}
@@ -163,10 +163,10 @@ const AboutUs = () => {
                 items: 1,
               },
               767: {
-                items: 3,
+                items: 2,
               },
               992: {
-                items: 3,
+                items: 2,
               },
               1280: {
                 items: 3,
@@ -211,14 +211,14 @@ const AboutUs = () => {
             <MemberCard
               name={"PANKAJ KUMAR"}
               src={
-                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688831046/employees/Teamboy_zqv9yx.webp"
               }
               post={"Content Writer"}
             />
             <MemberCard
               name={"VAISHNAVI S KALE"}
               src={
-                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688831062/employees/Teamgirl_q0c1zd.webp"
               }
               post={"Content Writer"}
             />
@@ -247,7 +247,7 @@ const AboutUs = () => {
             loop
             items={2}
             dots={false}
-            margin={10}
+            margin={30}
             autoplay
             // key={data.length}
             autoplayTimeout={3000}
@@ -260,10 +260,10 @@ const AboutUs = () => {
                 items: 1,
               },
               767: {
-                items: 3,
+                items: 2,
               },
               992: {
-                items: 3,
+                items: 2,
               },
               1280: {
                 items: 3,
@@ -295,14 +295,14 @@ const AboutUs = () => {
             <MemberCard
               name={"HIDA PARVEEN"}
               src={
-                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688831062/employees/Teamgirl_q0c1zd.webp"
               }
               post={"Digital Marketing"}
             />
             <MemberCard
               name={"NEHA N"}
               src={
-                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688831062/employees/Teamgirl_q0c1zd.webp"
               }
               post={"Digital Marketing"}
             />
