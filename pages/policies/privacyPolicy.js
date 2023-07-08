@@ -11,9 +11,23 @@ const PrivacyPolicy = () => {
       <Head>
         <title>Privacy Policies</title>
         <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
           name="description"
-          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          content="Protecting your privacy is our top priority. Learn how OffTheWeb ensures the security of your personal information through our privacy policy. Your trust matters to us. Visit our privacy policy page for more details."
           data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Protecting your privacy is our top priority. Learn how OffTheWeb ensures the security of your personal information through our privacy policy. Your trust matters to us. Visit our privacy policy page for more details."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,privacy policy offtheweb,privacy policy,privacy"
         />
       </Head>
       <div className="container">

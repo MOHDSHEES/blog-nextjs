@@ -11,9 +11,23 @@ const TermsCondition = () => {
       <Head>
         <title>Terms and Conditions</title>
         <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
           name="description"
-          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          content="Read our concise terms and conditions for a clear understanding of your rights and obligations when using OffTheWeb. Your agreement to these terms is appreciated. Visit our terms and conditions page for details."
           data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Read our concise terms and conditions for a clear understanding of your rights and obligations when using OffTheWeb. Your agreement to these terms is appreciated. Visit our terms and conditions page for details."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,terms and condition offtheweb,terms and condition"
         />
       </Head>
       <div className="container">

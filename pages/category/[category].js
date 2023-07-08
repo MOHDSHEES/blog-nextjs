@@ -86,9 +86,23 @@ const Category = ({ categories }) => {
               : "Category"}
           </title>
           <meta
+            property="og:image"
+            content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+          />
+          <meta
             name="description"
-            content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+            content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
             data-rh="true"
+          />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:description"
+            content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
+          />
+          <meta property="og:title" content="OFFTHEWEB" />
+          <meta
+            name="keywords"
+            content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,categories,category,technology,sports,cybersecurity,business"
           />
         </Head>
         <div className="container category-container">

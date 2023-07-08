@@ -11,9 +11,23 @@ const Advertise = () => {
       <Head>
         <title>Advertise</title>
         <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
           name="description"
-          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          content="Advertise with OffTheWeb - Reach your target audience effectively through our tailored advertising solutions. Explore our advertise page now and boost your brand's visibility and engagement with OffTheWeb's engaged readership."
           data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Advertise with OffTheWeb - Reach your target audience effectively through our tailored advertising solutions. Explore our advertise page now and boost your brand's visibility and engagement with OffTheWeb's engaged readership. "
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,advertise offtheweb,advertise,ad"
         />
       </Head>
       <div className="container">

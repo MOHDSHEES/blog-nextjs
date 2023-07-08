@@ -11,9 +11,23 @@ const Career = () => {
       <Head>
         <title>Carrer</title>
         <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
           name="description"
-          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          content="Unlock your potential with OffTheWeb - your go-to destination for career insights and guidance. Explore our career page to discover expert advice, practical tips, and valuable resources that will empower you to thrive in your professional journey. From job search strategies to interview tips, career development to personal branding, OffTheWeb provides the knowledge and inspiration you need to make impactful career choices. Visit us now and take the next step towards a fulfilling and successful career."
           data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Unlock your potential with OffTheWeb - your go-to destination for career insights and guidance. Explore our career page to discover expert advice, practical tips, and valuable resources that will empower you to thrive in your professional journey. From job search strategies to interview tips, career development to personal branding, OffTheWeb provides the knowledge and inspiration you need to make impactful career choices. Visit us now and take the next step towards a fulfilling and successful career."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,career offtheweb,career.jobs,offtheweb jobs"
         />
       </Head>
       <div className="container">
