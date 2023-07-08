@@ -11,7 +11,7 @@ import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const Carousel = ({ data }) => {
-  const [da, setDa] = useState(data);
+  const [da, setDa] = useState(null);
   // console.log("carousel");
   // console.log(data);
   useEffect(() => {

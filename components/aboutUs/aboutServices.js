@@ -22,7 +22,7 @@ const AboutServices = () => {
               />
             </div>
             <div className="aboutServices-content">
-              <div className="section-tittles section-title-2 mb-20">
+              <div className="section-tittles section-title-2">
                 <span style={{ fontSize: "30px" }}>About Us</span>
               </div>
               <p className="mb-4">

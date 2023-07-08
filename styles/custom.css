@@ -517,6 +517,9 @@ a {
 }
 
 /* about page */
+.section-title-2 {
+  margin-bottom: 30px;
+}
 .aboutServices {
   display: flex;
 }
@@ -543,5 +546,8 @@ a {
 @media (max-width: 992px) {
   .aboutServices {
     flex-direction: column;
+  }
+  .section-title-2 {
+    margin-bottom: 5px;
   }
 }

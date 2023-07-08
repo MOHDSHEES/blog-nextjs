@@ -58,7 +58,7 @@ const AboutUs = () => {
             <div className="section-tittles section-title-2 mb-30">
               <span
                 style={{
-                  fontSize: "20px",
+                  fontSize: "30px",
                   marginBottom: "40px",
                   marginTop: "20px",
                 }}
@@ -66,7 +66,9 @@ const AboutUs = () => {
               >
                 Our Professional members
               </span>
-              <h2 style={{ textAlign: "center" }}>OffTheWeb Management</h2>
+              <h3 style={{ textAlign: "center", fontWeight: "700" }}>
+                Management Team
+              </h3>
             </div>
             {/* </div> */}
           </div>
@@ -144,7 +146,9 @@ const AboutUs = () => {
             {/* Section Tittle */}
             <div className="section-tittles mb-30">
               {/* <span>Our Professional members </span> */}
-              <h2 style={{ textAlign: "center" }}>Content Writing Team</h2>
+              <h3 style={{ textAlign: "center", fontWeight: "700" }}>
+                Content Writing Team
+              </h3>
             </div>
             {/* </div> */}
           </div>
@@ -241,7 +245,9 @@ const AboutUs = () => {
             {/* Section Tittle */}
             <div className="section-tittles mb-30">
               {/* <span>Our Professional members </span> */}
-              <h2 style={{ textAlign: "center" }}>Digital Marketing Team</h2>
+              <h3 style={{ textAlign: "center", fontWeight: "700" }}>
+                Digital Marketing Team
+              </h3>
             </div>
             {/* </div> */}
           </div>
