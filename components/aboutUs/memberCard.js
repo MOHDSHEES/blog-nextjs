@@ -17,6 +17,7 @@ const MemberCard = ({ src, post, name }) => {
           src={src}
           style={{ width: "100%", height: "363px", objectFit: "cover" }}
           alt={name}
+          loading="lazy"
         />
       </div>
       <div className="team-caption">

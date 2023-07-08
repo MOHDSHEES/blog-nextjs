@@ -18,6 +18,7 @@ const AboutServices = () => {
                 style={{ borderRadius: "5px" }}
                 src="/images/name.jpeg"
                 alt="offtheweb"
+                loading="lazy"
               />
             </div>
           </div>
