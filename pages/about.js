@@ -58,7 +58,7 @@ const AboutUs = () => {
             <div className="section-tittles section-title-2 mb-30">
               <span
                 style={{
-                  fontSize: "30px",
+                  fontSize: "25px",
                   marginBottom: "40px",
                   marginTop: "20px",
                 }}
