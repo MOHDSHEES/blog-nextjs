@@ -47,9 +47,23 @@ const Contact = () => {
       <Head>
         <title>ContactUs</title>
         <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
           name="description"
           content="Get in touch with OffTheWeb.in - your ultimate destination for insightful blog content. Contact us today to share your feedback, collaborate on exciting opportunities, or simply connect with our passionate team. Reach out now and let's embark on a journey of knowledge, inspiration, and meaningful conversations."
           data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Get in touch with OffTheWeb.in - your ultimate destination for insightful blog content. Contact us today to share your feedback, collaborate on exciting opportunities, or simply connect with our passionate team. Reach out now and let's embark on a journey of knowledge, inspiration, and meaningful conversations."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,contact offtheweb"
         />
       </Head>
       {contextHolder}

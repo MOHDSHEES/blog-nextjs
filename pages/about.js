@@ -8,12 +8,35 @@ if (typeof window !== "undefined") {
 import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import Head from "next/head";
 // import Link from "next/link";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const AboutUs = () => {
   return (
     <div>
+      <Head>
+        <title>OFFTHEWEB</title>
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+        />
+        <meta
+          name="description"
+          content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
+          data-rh="true"
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending,about offtheweb"
+        />
+      </Head>
       <div
         class="about-details section-padding30"
         style={{ paddingBottom: "40px" }}

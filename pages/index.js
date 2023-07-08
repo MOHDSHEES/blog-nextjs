@@ -74,6 +74,16 @@ export default function Home({ data, trending }) {
           content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
           data-rh="true"
         />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Explore the captivating world of OffTheWeb.in - a captivating blog website that delves into a myriad of topics, from technology to business, sports to cyber security. Immerse yourself in our thought-provoking articles, engage in enlightening discussions, and stay informed with our expertly curated content. Join us on OffTheWeb.in and embark on a journey of discovery, inspiration, and endless possibilities."
+        />
+        <meta property="og:title" content="OFFTHEWEB" />
+        <meta
+          name="keywords"
+          content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending"
+        />
       </Head>
       <MainCarousel data={home} />
       <CategoryTab data={home} />
