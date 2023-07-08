@@ -123,6 +123,15 @@ const NavBar = () => {
                     onClick={() => setExpanded(false)}
                     as={Link}
                     shallow={true}
+                    href="/about"
+                    className="nav-item"
+                  >
+                    About Us
+                  </Nav.Link>
+                  <Nav.Link
+                    onClick={() => setExpanded(false)}
+                    as={Link}
+                    shallow={true}
                     href="/contact"
                     className="nav-item"
                   >

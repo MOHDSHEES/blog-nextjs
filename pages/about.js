@@ -1,6 +1,15 @@
 import React from "react";
 import AboutServices from "../components/aboutUs/aboutServices";
 import MemberCard from "../components/aboutUs/memberCard";
+var $ = require("jquery");
+if (typeof window !== "undefined") {
+  window.$ = window.jQuery = require("jquery");
+}
+import dynamic from "next/dynamic";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+// import Link from "next/link";
+const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const AboutUs = () => {
   return (
@@ -11,18 +20,18 @@ const AboutUs = () => {
             <div class="offset-xl-1 col-lg-8">
               <div class="about-details-cap mb-50">
                 <h4>Our Mission</h4>
-                <p>
-                  <i>Offtheweb.in</i> is a blog website that provides a
-                  refreshing break from the online world that surrounds us. We
-                  offer a wide range of content that encourages readers to step
-                  away from their screens and explore topics that are often
-                  overlooked in the digital realm . Our mission is to inspire
-                  our readers to live more mindful and intentional lives.
+                <p style={{ textAlign: "justify" }}>
+                  OFFTHEWEB is a blog website that provides a refreshing break
+                  from the online world that surrounds us. We offer a wide range
+                  of content that encourages readers to step away from their
+                  screens and explore topics that are often overlooked in the
+                  digital realm . Our mission is to inspire our readers to live
+                  more mindful and intentional lives.
                 </p>
               </div>
               <div class="about-details-cap mb-50">
                 <h4>Our Vision</h4>
-                <p>
+                <p style={{ textAlign: "justify" }}>
                   We envision a world where people are less connected to their
                   screens and more connected to explore topics that are often
                   overlooked in the digital realm. We believe that by providing
@@ -38,26 +47,273 @@ const AboutUs = () => {
       </div>
       <AboutServices />
       {/* Team Start */}
-      <div className="team-area section-padding30">
+      <div className="team-area pb-20 pt-70">
         <div className="container">
           <div className="row">
-            <div className="cl-xl-7 col-lg-8 col-md-10">
-              {/* Section Tittle */}
-              <div className="section-tittles mb-70">
-                <span>Our Professional members </span>
-                <h2>Our Team Mambers</h2>
-              </div>
+            {/* <div className="cl-xl-7 col-lg-8 col-md-10"> */}
+            {/* Section Tittle */}
+            <div className="section-tittles section-title-2 mb-30">
+              <span
+                style={{
+                  fontSize: "40px",
+                  marginBottom: "40px",
+                  marginTop: "20px",
+                }}
+                className="mb-20"
+              >
+                Our Professional members
+              </span>
+              <h2 style={{ textAlign: "center" }}>OffTheWeb Management</h2>
             </div>
+            {/* </div> */}
           </div>
-          <div className="row">
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            // items={3}
+            dots={false}
+            margin={10}
+            autoplay
+            // key={data.length}
+            autoplayTimeout={3000}
+            autoplayHoverPause
+            responsive={{
+              0: {
+                items: 1,
+              },
+              480: {
+                items: 1,
+              },
+              767: {
+                items: 3,
+              },
+              992: {
+                items: 3,
+              },
+              1280: {
+                items: 3,
+              },
+            }}
+          >
+            <MemberCard
+              name={"MOHD SHEES"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688824318/employees/ceo_owuczd.jpg"
+              }
+              post={"Founder and CEO"}
+            />
+            <MemberCard
+              name={"DEEPAK KUMAR"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688824322/employees/Deepak_kumar_yvnwvd.webp"
+              }
+              post={"Co-Founder and COO"}
+            />
+            <MemberCard
+              name={"ANAS ADNAN"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688827079/employees/Anas_Adnan_y87a04.webp"
+              }
+              post={"Project Manager"}
+            />
+            <MemberCard
+              name={"RAMSHA FARHEEN"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825964/employees/Ramsha_farheen_dbjanl.webp"
+              }
+              post={"Human Resource Manager"}
+            />
+          </OwlCarousel>
+          {/* <div className="row">
             <MemberCard />
             <MemberCard />
             <MemberCard />
-          </div>
+          </div> */}
         </div>
       </div>
       {/* Team End */}
       {/* <Banner /> */}
+
+      <div className="team-area pb-20 pt-20">
+        <div className="container">
+          <div className="row">
+            {/* <div className="cl-xl-7 col-lg-8 col-md-10"> */}
+            {/* Section Tittle */}
+            <div className="section-tittles mb-30">
+              {/* <span>Our Professional members </span> */}
+              <h2 style={{ textAlign: "center" }}>Content Writing Team's</h2>
+            </div>
+            {/* </div> */}
+          </div>
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            // items={4}
+            dots={false}
+            margin={10}
+            autoplay
+            // key={data.length}
+            autoplayTimeout={3000}
+            autoplayHoverPause
+            responsive={{
+              0: {
+                items: 1,
+              },
+              480: {
+                items: 1,
+              },
+              767: {
+                items: 3,
+              },
+              992: {
+                items: 3,
+              },
+              1280: {
+                items: 3,
+              },
+            }}
+          >
+            <MemberCard
+              name={"GAURAV BISHT"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825405/employees/Gaurav_Bisht_czwr48.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"GULSHAN YADAV"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825406/employees/Gulshan_Yadav_oungfw.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"ADITYA MISHRA"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688827137/employees/Aditya_Mishra_j0jfcf.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"SOBHA JUYAL"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825408/employees/Sobha_juyal_nrqgvd.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"DIPALI DHANWANI"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825405/employees/Dipali_Dhanwani_xsxu4k.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"PANKAJ KUMAR"}
+              src={
+                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
+              name={"VAISHNAVI S KALE"}
+              src={
+                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+              }
+              post={"Content Writer"}
+            />
+          </OwlCarousel>
+          {/* <div className="row">
+            <MemberCard />
+            <MemberCard />
+            <MemberCard />
+          </div> */}
+        </div>
+      </div>
+
+      <div className="team-area pb-20 pt-20">
+        <div className="container">
+          <div className="row">
+            {/* <div className="cl-xl-7 col-lg-8 col-md-10"> */}
+            {/* Section Tittle */}
+            <div className="section-tittles mb-30">
+              {/* <span>Our Professional members </span> */}
+              <h2 style={{ textAlign: "center" }}>Digital Marketing Team's</h2>
+            </div>
+            {/* </div> */}
+          </div>
+          <OwlCarousel
+            className="owl-theme"
+            loop
+            items={2}
+            dots={false}
+            margin={10}
+            autoplay
+            // key={data.length}
+            autoplayTimeout={3000}
+            autoplayHoverPause
+            responsive={{
+              0: {
+                items: 1,
+              },
+              480: {
+                items: 1,
+              },
+              767: {
+                items: 3,
+              },
+              992: {
+                items: 3,
+              },
+              1280: {
+                items: 3,
+              },
+            }}
+          >
+            <MemberCard
+              name={"RIYA KUKREJA"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825405/employees/Riya_kukreja_cwlrma.webp"
+              }
+              post={"Digital Marketing"}
+            />
+
+            <MemberCard
+              name={"DEEKSHA SHIVDAS"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825404/employees/Deeksha_shivdas_ok2od6.webp"
+              }
+              post={"Digital Marketing"}
+            />
+            <MemberCard
+              name={"NAMAN GOYAL"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688828941/employees/Naman_Goyal_bwckwm.webp"
+              }
+              post={"Digital Marketing"}
+            />
+            <MemberCard
+              name={"HIDA PARVEEN"}
+              src={
+                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+              }
+              post={"Digital Marketing"}
+            />
+            <MemberCard
+              name={"NEHA N"}
+              src={
+                "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+              }
+              post={"Digital Marketing"}
+            />
+          </OwlCarousel>
+          {/* <div className="row">
+            <MemberCard />
+            <MemberCard />
+            <MemberCard />
+          </div> */}
+        </div>
+      </div>
     </div>
   );
 };

@@ -2088,6 +2088,9 @@ hr {
   .section-tittles span {
     color: #fff;
   }
+  .section-title-2 span {
+    color: #eb566c;
+  }
 }
 .section-tittles span::before {
   position: absolute;
@@ -2118,6 +2121,9 @@ hr {
 @media (max-width: 575px) {
   .section-tittles span::before {
     background: #fff;
+  }
+  .section-title-2 span::before {
+    background: #eb566c;
   }
 }
 .section-tittles h2 {
