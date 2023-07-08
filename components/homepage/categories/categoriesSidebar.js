@@ -17,8 +17,8 @@ const CategoriesSidebar = ({ categories }) => {
           return (
             <div
               key={idx + "id"}
-              class="position-relative overflow-hidden mb-3 nav-a mt-4"
-              style={{ height: "100px" }}
+              class="position-relative overflow-hidden mb-3 nav-a mt-2"
+              style={{ height: "110px" }}
             >
               <img
                 class="img-fluid w-100 h-100"

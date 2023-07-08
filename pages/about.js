@@ -117,7 +117,7 @@ const AboutUs = () => {
             <MemberCard
               name={"ANAS ADNAN"}
               src={
-                "https://res.cloudinary.com/domyp6djh/image/upload/v1688827079/employees/Anas_Adnan_y87a04.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688841805/employees/Anas_Adnan_y87a04_1_nuzwei.webp"
               }
               post={"Project Manager"}
             />
