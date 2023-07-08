@@ -284,7 +284,7 @@ const AboutUs = () => {
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688825405/employees/Riya_kukreja_cwlrma.webp"
               }
-              post={"Digital Marketing"}
+              post={"Digital Marketing and SEO"}
             />
 
             <MemberCard
@@ -292,28 +292,28 @@ const AboutUs = () => {
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688825404/employees/Deeksha_shivdas_ok2od6.webp"
               }
-              post={"Digital Marketing"}
+              post={"Digital Marketing and SEO"}
             />
             <MemberCard
               name={"NAMAN GOYAL"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688828941/employees/Naman_Goyal_bwckwm.webp"
               }
-              post={"Digital Marketing"}
+              post={"Digital Marketing and SEO"}
             />
             <MemberCard
               name={"HIDA PARVEEN"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688831062/employees/Teamgirl_q0c1zd.webp"
               }
-              post={"Digital Marketing"}
+              post={"Digital Marketing and SEO"}
             />
             <MemberCard
               name={"NEHA N"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688831062/employees/Teamgirl_q0c1zd.webp"
               }
-              post={"Digital Marketing"}
+              post={"Digital Marketing and SEO"}
             />
           </OwlCarousel>
           {/* <div className="row">

@@ -5,24 +5,19 @@ const CategoriesSidebar = ({ categories }) => {
   return (
     <div>
       {/* <div class="col-lg-4"> */}
-      <div
+      {/* <div
         class="d-flex align-items-center justify-content-between py-2 px-4 mb-3"
         style={{ background: "white" }}
       >
         <h3 class="m-0">Categories</h3>
-        {/* <Link
-          class="text-secondary font-weight-medium text-decoration-none"
-          href="/categories"
-        >
-          View All
-        </Link> */}
-      </div>
+     
+      </div> */}
       {categories &&
         categories.slice(0, 4).map((c, idx) => {
           return (
             <div
               key={idx + "id"}
-              class="position-relative overflow-hidden mb-3 nav-a"
+              class="position-relative overflow-hidden mb-3 nav-a mt-4"
               style={{ height: "100px" }}
             >
               <img
