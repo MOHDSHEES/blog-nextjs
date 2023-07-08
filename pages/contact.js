@@ -48,7 +48,7 @@ const Contact = () => {
         <title>ContactUs</title>
         <meta
           name="description"
-          content="Stay ahead of the curve with OFFTHEWEB - your source for the latest in tech and beyond."
+          content="Get in touch with OffTheWeb.in - your ultimate destination for insightful blog content. Contact us today to share your feedback, collaborate on exciting opportunities, or simply connect with our passionate team. Reach out now and let's embark on a journey of knowledge, inspiration, and meaningful conversations."
           data-rh="true"
         />
       </Head>
