@@ -534,13 +534,11 @@ a {
 .aboutServices-content {
   text-align: justify;
   padding: 30px;
-  color: white;
-  background-color: black;
+  /* color: white; */
+  /* background-color: black; */
   flex: 1;
 }
-.aboutServices-content p {
-  color: white;
-}
+
 @media (max-width: 992px) {
   .aboutServices {
     flex-direction: column;

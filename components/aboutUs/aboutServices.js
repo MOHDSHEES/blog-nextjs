@@ -3,7 +3,7 @@ import React from "react";
 const AboutServices = () => {
   return (
     <div
-      className="support-company-area pt-50 pb-50 section-bg fix"
+      className="support-company-area  pb-50 section-bg fix"
       // style={{
       //   backgroundImage:
       //     "url(https://res.cloudinary.com/domyp6djh/image/upload/v1688413234/aboutBack_m1njkp.jpg)",

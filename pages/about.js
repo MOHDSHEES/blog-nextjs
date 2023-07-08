@@ -14,7 +14,10 @@ const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 const AboutUs = () => {
   return (
     <div>
-      <div class="about-details section-padding30">
+      <div
+        class="about-details section-padding30"
+        style={{ paddingBottom: "40px" }}
+      >
         <div class="container">
           <div class="row">
             <div class="offset-xl-1 col-lg-8">
