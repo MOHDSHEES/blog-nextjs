@@ -9,6 +9,10 @@ class MyDocument extends Document {
           <link rel="manifest" href="/icons/manifest.json" />
           <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
           <meta
+            property="og:image"
+            content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+          />
+          <meta
             name="trustpilot-one-time-domain-verification-id"
             content="bd52b26a-2a95-4bdc-b090-da3954c81044"
           />
