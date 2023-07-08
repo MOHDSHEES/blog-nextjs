@@ -15,15 +15,15 @@ const AboutServices = () => {
           <div className="aboutServices">
             <div className="aboutServices-img">
               <img
-                style={{ borderRadius: "5px" }}
+                style={{ borderRadius: "7%" }}
                 src="/images/name.jpeg"
                 alt="offtheweb"
                 loading="lazy"
               />
             </div>
             <div className="aboutServices-content">
-              <div className="section-tittles section-title-2 mb-50">
-                <span style={{ fontSize: "45px" }}>About Us</span>
+              <div className="section-tittles section-title-2 mb-20">
+                <span style={{ fontSize: "30px" }}>About Us</span>
               </div>
               <p className="mb-4">
                 OFFTHEWEB is a blog website that aims to provide a refreshing
@@ -33,7 +33,7 @@ const AboutServices = () => {
                 often overlooked in the digital realm. From lifestyle and travel
                 to personal growth and well-being.
               </p>
-              <p className="mb-65">
+              <p className="">
                 Off The Web provides a wide range of content that encourages
                 readers to step away from their screens and engage with the
                 world around them. Join us on a journey of discovery and

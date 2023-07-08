@@ -144,7 +144,7 @@ const AboutUs = () => {
             {/* Section Tittle */}
             <div className="section-tittles mb-30">
               {/* <span>Our Professional members </span> */}
-              <h2 style={{ textAlign: "center" }}>Content Writing Team's</h2>
+              <h2 style={{ textAlign: "center" }}>Content Writing Team</h2>
             </div>
             {/* </div> */}
           </div>
@@ -241,7 +241,7 @@ const AboutUs = () => {
             {/* Section Tittle */}
             <div className="section-tittles mb-30">
               {/* <span>Our Professional members </span> */}
-              <h2 style={{ textAlign: "center" }}>Digital Marketing Team's</h2>
+              <h2 style={{ textAlign: "center" }}>Digital Marketing Team</h2>
             </div>
             {/* </div> */}
           </div>

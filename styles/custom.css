@@ -534,6 +534,7 @@ a {
 .aboutServices-content {
   text-align: justify;
   padding: 30px;
+  padding-bottom: 0;
   /* color: white; */
   /* background-color: black; */
   flex: 1;
