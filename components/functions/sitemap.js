@@ -5,9 +5,13 @@ function generateSiteMap(posts) {
        <url>
          <loc>${URL}</loc>
        </url>
+       
        <url>
          <loc>${URL}/policies/advertise</loc>
        </url>
+       <url>
+       <loc>${URL}/about</loc>
+     </url>
         <url>
          <loc>${URL}/contact</loc>
        </url>
