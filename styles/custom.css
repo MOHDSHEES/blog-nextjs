@@ -555,3 +555,16 @@ a {
 .social-share-ul li {
   padding: 10px;
 }
+
+.new-editor-post img {
+  max-height: 350px;
+  object-fit: cover;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .new-editor-post img {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover;
+  }
+}

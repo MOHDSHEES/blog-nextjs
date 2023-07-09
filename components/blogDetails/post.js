@@ -7,6 +7,8 @@ import useFetch from "../useFetch";
 import BlogIndex from "./blogIndex";
 
 const Post = ({ data }) => {
+  // .match(`/<h1>(.*?)<\/h1>/gi`)
+  // .map((match) => match.replace(/<\/?h1>/g, ""))
   // console.log(data);
   const { data: user } = useFetch(`userData/${data.user}`, true);
   // console.log(user);
@@ -21,9 +23,10 @@ const Post = ({ data }) => {
             loading="lazy"
           />
         </div>
-        <BlogIndex blog={data} />
+        {/* <BlogIndex blog={data} /> */}
         <div className="blog_details">
-          <h1 id={data.title}>{data.title}</h1>
+          {}
+          {/* <h1 id={data.title}>{data.title}</h1> */}
           <ul className="blog-info-link mt-2 mb-4" style={{ paddingLeft: 0 }}>
             <li>
               {user && (
@@ -50,7 +53,7 @@ const Post = ({ data }) => {
               {/* <i className="fa fa-comments"></i> */}
             </i>
           </ul>
-          <div>{blog && parse(blog.blog)}</div>
+          <div className="new-editor-post">{data && parse(data.blog)}</div>
         </div>
         {/* <i className="fa fa-user">
           <i className="fa fa-comments"></i>
