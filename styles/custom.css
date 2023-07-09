@@ -561,6 +561,9 @@ a {
   object-fit: cover;
   padding: 10px;
 }
+.new-editor-post li {
+  list-style: auto;
+}
 @media (max-width: 768px) {
   .new-editor-post img {
     max-height: 300px;
