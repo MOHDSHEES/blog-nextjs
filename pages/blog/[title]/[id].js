@@ -26,6 +26,8 @@ import {
   PinterestIcon,
   FacebookMessengerShareButton,
   FacebookMessengerIcon,
+  EmailShareButton,
+  EmailIcon,
 } from "react-share";
 
 export async function getStaticProps({ params }) {
@@ -240,6 +242,14 @@ const BlogDetail = ({ data, imgUrl }) => {
                         >
                           <PinterestIcon size={30} round={true} />
                         </PinterestShareButton>
+                      </li>
+                      <li>
+                        <EmailShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                          media={updatedData.mainImg}
+                        >
+                          <EmailIcon size={30} round={true} />
+                        </EmailShareButton>
                       </li>
                       <li>
                         <FacebookMessengerShareButton
