@@ -166,7 +166,6 @@ const BlogDetail = ({ data, imgUrl }) => {
         <meta property="og:description" content={"fgfgdfgdf"} />
         <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data && data.title} />
-        {/* <link rel="icons" content={JSON.stringify(meta)} /> */}
         <meta name="description" content={data && "dfdf"} data-rh="true" />
       </Head>
       {data ? (
