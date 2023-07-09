@@ -96,21 +96,48 @@ const BlogDetail = ({ data, imgUrl }) => {
   const { trending } = useContext(MyContext);
 
   const [updatedData, setUpdatedData] = useState(data);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     // setloading(true);
+  //     if (data && data._id) {
+  //       const { d } = await axios.post("/api/views", {
+  //         id: data._id,
+  //       });
+  //       // console.log(da);
+  //       // console.log(data);
+  //       // setUpdatedData(da);
+  //     }
+  //     // setloading(false);
+  //   })();
+  // }, [data]);
+
+  let flag = 0;
   useEffect(() => {
-    setUpdatedData(data);
-    (async () => {
-      // setloading(true);
-      if (data && data._id) {
-        const { data: da } = await axios.post("/api/blog/id", {
-          id: data._id,
-        });
-        // console.log(da);
-        // console.log(data);
-        setUpdatedData(da);
-      }
-      // setloading(false);
-    })();
-  }, [data]);
+    if (flag) {
+      setUpdatedData(data);
+      // console.log("in");
+      (async () => {
+        // setloading(true);
+        const currentDate = new Date().toLocaleDateString();
+        const seen = localStorage.getItem(data._id) || null;
+        if (data && data._id && seen !== currentDate) {
+          const { data: da } = await axios.post("/api/views", {
+            id: data._id,
+          });
+          setUpdatedData(da);
+          localStorage.setItem(data._id, currentDate);
+        } else if (data && data._id) {
+          const { data: da } = await axios.post("/api/blog/id", {
+            id: data._id,
+          });
+          setUpdatedData(da);
+        }
+        // setloading(false);
+      })();
+    }
+    flag = 1;
+  }, []);
   //   console.log(trending);
   return (
     <div className="gray-bg">
