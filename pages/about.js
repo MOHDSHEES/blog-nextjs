@@ -140,14 +140,14 @@ const AboutUs = () => {
             <MemberCard
               name={"ANAS ADNAN"}
               src={
-                "https://res.cloudinary.com/domyp6djh/image/upload/v1688841805/employees/Anas_Adnan_y87a04_1_nuzwei.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688926452/employees/Anas_Adnan_rkbyn9.webp"
               }
               post={"Project Manager"}
             />
             <MemberCard
               name={"RAMSHA FARHEEN"}
               src={
-                "https://res.cloudinary.com/domyp6djh/image/upload/v1688825964/employees/Ramsha_farheen_dbjanl.webp"
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1688921858/employees/Ramsha_farheen_dbjanl.webp"
               }
               post={"Human Resource Manager"}
             />
