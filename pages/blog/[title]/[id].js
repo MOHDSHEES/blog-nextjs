@@ -121,13 +121,13 @@ const BlogDetail = ({ data, imgUrl }) => {
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
-        const seen = localStorage.getItem(data._id) || null;
+        const seen = sessionStorage.getItem(data._id) || null;
         if (data && data._id && seen !== currentDate) {
           const { data: da } = await axios.post("/api/views", {
             id: data._id,
           });
           setUpdatedData(da);
-          localStorage.setItem(data._id, currentDate);
+          sessionStorage.setItem(data._id, currentDate);
         } else if (data && data._id) {
           const { data: da } = await axios.post("/api/blog/id", {
             id: data._id,
