@@ -53,7 +53,7 @@ const CarouselSmall = ({ trending }) => {
                         />
                         <div
                           className="trend-top-cap"
-                          style={{ width: "80%", fontSize: "2px" }}
+                          style={{ width: "80%", fontSize: "20px" }}
                         >
                           <span
                             className="bgr"
