@@ -26,6 +26,8 @@ import {
   PinterestIcon,
   EmailShareButton,
   EmailIcon,
+  RedditShareButton,
+  RedditIcon,
 } from "react-share";
 
 export async function getStaticProps({ params }) {
@@ -248,6 +250,14 @@ const BlogDetail = ({ data, imgUrl }) => {
                         >
                           <EmailIcon size={30} round={true} />
                         </EmailShareButton>
+                      </li>
+                      <li>
+                        <RedditShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                          media={updatedData.mainImg}
+                        >
+                          <RedditIcon size={30} round={true} />
+                        </RedditShareButton>
                       </li>
                     </ul>
                   </aside>
