@@ -9,6 +9,24 @@ import parse from "html-react-parser";
 import blogModel from "../../../models/blogModel";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/router";
+
+import {
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  FacebookMessengerShareButton,
+  FacebookMessengerIcon,
+} from "react-share";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
@@ -91,12 +109,12 @@ export async function getStaticPaths() {
 //   };
 // }
 const BlogDetail = ({ data, imgUrl }) => {
+  const router = useRouter();
   // console.log(title);/
   // console.log(data);
   const { trending } = useContext(MyContext);
 
   const [updatedData, setUpdatedData] = useState(data);
-
   // useEffect(() => {
   //   (async () => {
   //     // setloading(true);
@@ -165,11 +183,73 @@ const BlogDetail = ({ data, imgUrl }) => {
               <div className="col-lg-8 posts-list">
                 <SinglePost data={updatedData} />
               </div>
-
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
                   <TagClouds keywords={updatedData && updatedData.keywords} />
-
+                  <aside className="single_sidebar_widget tag_cloud_widget">
+                    <h4
+                      className="widget_title"
+                      style={{ marginBottom: "15px" }}
+                    >
+                      Social Share
+                    </h4>
+                    <ul
+                      className="list social-share-ul"
+                      style={{ paddingLeft: 0 }}
+                    >
+                      <li>
+                        <WhatsappShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                        >
+                          <WhatsappIcon size={30} round={true} />
+                        </WhatsappShareButton>
+                      </li>
+                      <li>
+                        <FacebookShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                        >
+                          <FacebookIcon size={30} round={true} />
+                        </FacebookShareButton>
+                      </li>
+                      <li>
+                        <LinkedinShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                          summary={parse(updatedData.blog[0].text)}
+                        >
+                          <LinkedinIcon size={30} round={true} />
+                        </LinkedinShareButton>
+                      </li>
+                      <li>
+                        <TelegramShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                        >
+                          <TelegramIcon size={30} round={true} />
+                        </TelegramShareButton>
+                      </li>
+                      <li>
+                        <TwitterShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                        >
+                          <TwitterIcon size={30} round={true} />
+                        </TwitterShareButton>
+                      </li>
+                      <li>
+                        <PinterestShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                          media={updatedData.mainImg}
+                        >
+                          <PinterestIcon size={30} round={true} />
+                        </PinterestShareButton>
+                      </li>
+                      <li>
+                        <FacebookMessengerShareButton
+                          url={"https://www.offtheweb.in" + router.asPath}
+                        >
+                          <FacebookMessengerIcon size={30} round={true} />
+                        </FacebookMessengerShareButton>
+                      </li>
+                    </ul>
+                  </aside>
                   <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Recent Post</h3>
                     <div className="trending-sidebar scrollbar-over">

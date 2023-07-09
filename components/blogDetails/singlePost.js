@@ -5,11 +5,8 @@ import Skeleton from "react-loading-skeleton";
 // import Author from "./author";
 import useFetch from "../useFetch";
 import BlogIndex from "./blogIndex";
-import { WhatsappShareButton, WhatsappIcon } from "react-share";
-import { useRouter } from "next/router";
 
 const SinglePost = ({ data }) => {
-  const router = useRouter();
   // console.log(data);
   const { data: user } = useFetch(`userData/${data.user}`, true);
   // console.log(user);
@@ -23,9 +20,6 @@ const SinglePost = ({ data }) => {
             alt={data.category}
             loading="lazy"
           />
-          <WhatsappShareButton url={router.asPath} title="OFFTHEWEB">
-            <WhatsappIcon size={32} round={true} />
-          </WhatsappShareButton>
         </div>
         <BlogIndex blog={data} />
         <div className="blog_details">
