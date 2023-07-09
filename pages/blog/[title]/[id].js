@@ -117,7 +117,7 @@ const BlogDetail = ({ data, imgUrl }) => {
     if (flag) {
       flag = 0;
       setUpdatedData(data);
-      console.log("in");
+      // console.log("in");
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
