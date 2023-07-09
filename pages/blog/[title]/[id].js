@@ -24,8 +24,6 @@ import {
   TwitterIcon,
   PinterestShareButton,
   PinterestIcon,
-  FacebookMessengerShareButton,
-  FacebookMessengerIcon,
   EmailShareButton,
   EmailIcon,
 } from "react-share";
@@ -250,13 +248,6 @@ const BlogDetail = ({ data, imgUrl }) => {
                         >
                           <EmailIcon size={30} round={true} />
                         </EmailShareButton>
-                      </li>
-                      <li>
-                        <FacebookMessengerShareButton
-                          url={"https://www.offtheweb.in" + router.asPath}
-                        >
-                          <FacebookMessengerIcon size={30} round={true} />
-                        </FacebookMessengerShareButton>
                       </li>
                     </ul>
                   </aside>
