@@ -112,11 +112,12 @@ const BlogDetail = ({ data, imgUrl }) => {
   //   })();
   // }, [data]);
 
-  let flag = 0;
+  let flag = 1;
   useEffect(() => {
     if (flag) {
+      flag = 0;
       setUpdatedData(data);
-      // console.log("in");
+      console.log("in");
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
@@ -136,8 +137,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         // setloading(false);
       })();
     }
-    flag = 1;
-  }, []);
+  }, [flag]);
   //   console.log(trending);
   return (
     <div className="gray-bg">
