@@ -562,9 +562,10 @@ a {
   padding: 10px;
   padding-bottom: 0;
   min-width: 50%;
+  max-width: 100%;
 }
 .new-editor-post li {
-  list-style: auto;
+  list-style: inherit;
 }
 @media (max-width: 768px) {
   .new-editor-post img {
