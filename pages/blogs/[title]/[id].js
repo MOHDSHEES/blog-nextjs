@@ -45,7 +45,7 @@ export async function getStaticProps({ params }) {
       strength: 2,
     })
     .lean();
-  if (data && data._id) data._id = data._id.toString();
+  //   if (data && data._id) data._id = data._id.toString();
 
   // console.log(data);
   let imgUrl = null;
@@ -79,7 +79,7 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
     params: {
-      id: post.id.toString(),
+      id: post.id,
       title: post.title.replace(/ /g, "-").replace(/\?/g, ""),
     },
   }));
