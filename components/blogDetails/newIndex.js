@@ -47,7 +47,8 @@ const NewIndex = ({ blog }) => {
             Introduction
           </p>
         </li>
-        {index.length !== 0 &&
+        {index &&
+          index.length !== 0 &&
           index.map((text, idx) => {
             return (
               <li key={idx} className="index-ul p-link">
