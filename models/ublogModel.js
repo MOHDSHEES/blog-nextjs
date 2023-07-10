@@ -2,7 +2,14 @@ import mongoose from "mongoose";
 
 // mongoose.set("useCreateIndex", true);
 // schema.index({ title: "text" });
+
 const blogSchema = new mongoose.Schema({
+  id: {
+    type: String,
+    required: true,
+    default: () => Math.random(),
+    index: { unique: true },
+  },
   title: { type: String, unique: true, required: true },
   mainImg: { type: String, required: true },
   description: { type: String, required: true },

@@ -36,7 +36,7 @@ export async function getStaticProps({ params }) {
   await dbConnect();
   const data = await uBlogModel
     .findOne(
-      { _id: params.id }
+      { id: params.id }
       // { $inc: { views: 1 } },
       // { new: true }
     )
@@ -67,7 +67,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   // const res = await fetch("https://.../posts");
   await dbConnect();
-  const posts = await uBlogModel.find({}).select({ title: 1, _id: 1 }).lean();
+  const posts = await uBlogModel.find({}).select({ title: 1, id: 1 }).lean();
   // console.log(posts);
   // console.log(resu);
   // let titles = resu.map((a) => a.title);
@@ -79,7 +79,7 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
     params: {
-      id: post._id.toString(),
+      id: post.id.toString(),
       title: post.title.replace(/ /g, "-").replace(/\?/g, ""),
     },
   }));
@@ -139,16 +139,16 @@ const BlogDetail = ({ data, imgUrl }) => {
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
-        const seen = sessionStorage.getItem(data._id) || null;
-        if (data && data._id && seen !== currentDate) {
+        const seen = sessionStorage.getItem(data.id) || null;
+        if (data && data.id && seen !== currentDate) {
           const { data: da } = await axios.post("/api/blogs/views", {
-            id: data._id,
+            id: data.id,
           });
           setUpdatedData(da);
-          sessionStorage.setItem(data._id, currentDate);
-        } else if (data && data._id) {
+          sessionStorage.setItem(data.id, currentDate);
+        } else if (data && data.id) {
           const { data: da } = await axios.post("/api/blogs/id", {
-            id: data._id,
+            id: data.id,
           });
           setUpdatedData(da);
         }

@@ -17,7 +17,7 @@ export default async function userAPI(req, res) {
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
       const blog = await uBlogModel.findOneAndUpdate(
-        { _id: req.body.id },
+        { id: req.body.id },
         { $inc: { views: 1 } },
         { new: true }
       );
