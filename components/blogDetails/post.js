@@ -5,6 +5,7 @@ import Skeleton from "react-loading-skeleton";
 // import Author from "./author";
 import useFetch from "../useFetch";
 import BlogIndex from "./blogIndex";
+import NewIndex from "./newIndex";
 
 const Post = ({ data }) => {
   // .match(`/<h1>(.*?)<\/h1>/gi`)
@@ -23,7 +24,7 @@ const Post = ({ data }) => {
             loading="lazy"
           />
         </div>
-        {/* <BlogIndex blog={data} /> */}
+        <NewIndex blog={data} />
         <div className="blog_details">
           {}
           {/* <h1 id={data.title}>{data.title}</h1> */}
@@ -53,7 +54,9 @@ const Post = ({ data }) => {
               {/* <i className="fa fa-comments"></i> */}
             </i>
           </ul>
-          <div className="new-editor-post">{data && parse(data.blog)}</div>
+          <div id="blog-1" className="new-editor-post">
+            {data && parse(data.blog)}
+          </div>
         </div>
         {/* <i className="fa fa-user">
           <i className="fa fa-comments"></i>
