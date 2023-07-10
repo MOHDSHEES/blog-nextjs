@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 const NewIndex = ({ blog }) => {
-  const regex = /<h2[^>]*>(.*?)<\/h2>/gi; // Regular expression to match the <h2> tag with any attributes and capture its content
-  // Find all matches of the regular expression in the string
+  //   const regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+  const regex = /<h2[^>]*>([\s\S]*?)<\/h2>/gi;
   const [index, setIndex] = useState([]);
   useEffect(() => {
-    const matches = blog.blog.match(regex);
-    const extractedTexts =
-      matches && matches.map((match) => match.replace(/<\/?h2[^>]*>/g, ""));
+    // const matches = blog.blog.match(regex);
+    // const extractedTexts =
+    //   matches && matches.map((match) => match.replace(/<\/?h2[^>]*>/g, ""));
+    // Regular expression to match all <h2> tags and capture their content along with child elements
+    const matches = [...blog.blog.matchAll(regex)]; // Find all matches of the regular expression in the string
+
+    const extractedTexts = matches.map((match) =>
+      match[1].replace(/<.*?>/g, "")
+    );
     setIndex(extractedTexts);
     //   console.log(extractedTexts);
   }, [blog]);
