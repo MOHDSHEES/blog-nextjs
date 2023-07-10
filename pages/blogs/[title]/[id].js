@@ -36,7 +36,10 @@ export async function getStaticProps({ params }) {
   await dbConnect();
   const data = await uBlogModel
     .findOne(
-      { id: params.id }
+      { id: params.id },
+      {
+        _id: 0,
+      }
       // { $inc: { views: 1 } },
       // { new: true }
     )
