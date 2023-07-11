@@ -140,20 +140,24 @@ const BlogDetail = ({ data, imgUrl }) => {
     if (flag) {
       flag = 0;
       setUpdatedData(data);
+      const { title } = router.query;
+      const regex = /-([a-zA-Z0-9]+)$/; // Regular expression to match the desired portion at the end of the string
+      const match = title.match(regex);
+      const id = match && match[1];
       // console.log("in");
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
         const seen = sessionStorage.getItem(data.id) || null;
-        if (data && data.id && seen !== currentDate) {
+        if (id && seen !== currentDate) {
           const { data: da } = await axios.post("/api/blogs/views", {
-            id: data.id,
+            id: id,
           });
           setUpdatedData(da);
-          sessionStorage.setItem(data.id, currentDate);
-        } else if (data && data.id) {
+          sessionStorage.setItem(id, currentDate);
+        } else if (id) {
           const { data: da } = await axios.post("/api/blogs/id", {
-            id: data.id,
+            id: id,
           });
           setUpdatedData(da);
         }
