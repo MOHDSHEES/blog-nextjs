@@ -26,7 +26,6 @@ const Post = ({ data }) => {
         </div>
         <NewIndex blog={data} />
         <div className="blog_details">
-          {}
           {/* <h1 id={data.title}>{data.title}</h1> */}
           <ul className="blog-info-link mt-2 mb-4" style={{ paddingLeft: 0 }}>
             <li>
