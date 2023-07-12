@@ -34,9 +34,11 @@ export async function getStaticProps({ params }) {
   // console.log(params.title);
   // console.log(params);
   await dbConnect();
-  const regex = /-([a-zA-Z0-9]+)$/; // Regular expression to match the desired portion at the end of the string
-  const match = params.title.match(regex);
-  const id = match && match[1];
+  //   const regex = /-([a-zA-Z0-9]+)$/;
+  //   const match = params.title.match(regex);
+  //   const id = match && match[1];
+  const id = params.title.slice(-10);
+  console.log(id);
   const data = await uBlogModel
     .findOne(
       { id: id },
@@ -141,9 +143,11 @@ const BlogDetail = ({ data, imgUrl }) => {
       flag = 0;
       setUpdatedData(data);
       const { title } = router.query;
-      const regex = /-([a-zA-Z0-9]+)$/; // Regular expression to match the desired portion at the end of the string
-      const match = title.match(regex);
-      const id = match && match[1];
+      //   const regex = /-([a-zA-Z0-9]+)$/;
+      //   const match = title.match(regex);
+      const id = title.slice(-10);
+      console.log(id);
+      //   const id = match && match[1];
       // console.log("in");
       (async () => {
         // setloading(true);
