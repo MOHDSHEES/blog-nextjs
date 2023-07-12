@@ -38,7 +38,7 @@ export async function getStaticProps({ params }) {
   //   const match = params.title.match(regex);
   //   const id = match && match[1];
   const id = params.title.slice(-10);
-  console.log(id);
+  //   console.log(id);
   const data = await uBlogModel
     .findOne(
       { id: id },
@@ -146,7 +146,7 @@ const BlogDetail = ({ data, imgUrl }) => {
       //   const regex = /-([a-zA-Z0-9]+)$/;
       //   const match = title.match(regex);
       const id = title.slice(-10);
-      console.log(id);
+      //   console.log(id);
       //   const id = match && match[1];
       // console.log("in");
       (async () => {
