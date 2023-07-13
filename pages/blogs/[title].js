@@ -176,10 +176,14 @@ const BlogDetail = ({ data, imgUrl }) => {
         <title>{data && data.title}</title>
         <meta name="keywords" content={data && data.keywords} />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content={"fgfgdfgdf"} />
+        <meta property="og:description" content={data && data.description} />
         <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data && data.title} />
-        <meta name="description" content={data && "dfdf"} data-rh="true" />
+        <meta
+          name="description"
+          content={data && data.description}
+          data-rh="true"
+        />
       </Head>
       {data ? (
         <section className="blog_area single-post-area section-padding">

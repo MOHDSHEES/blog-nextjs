@@ -108,7 +108,7 @@ const categoryTab = ({ data }) => {
             {/* Banner */}
             <div className="banner-one mt-20 mb-30">
               <Link href="/policies/advertise">
-                <img src="/ad/adGif.gif" alt="ad" />
+                <img src="/ad/adGif.gif" alt="ad" loading="lazy" />
               </Link>
             </div>
           </div>

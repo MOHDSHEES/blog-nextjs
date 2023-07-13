@@ -58,7 +58,7 @@ const CareerComponent = () => {
             aria-controls="panelsStayOpen-collapseOne"
             className="read-more cursor-pointer"
           >
-            {active.state1 ? "read less" : "read more"}
+            {active.state1 ? "read less..." : "read more..."}
           </p>
         </div>
 
@@ -150,7 +150,7 @@ const CareerComponent = () => {
             aria-controls="panelsStayOpen-collapseTwo"
             className="read-more cursor-pointer"
           >
-            {active.state2 ? "read less" : "read more"}
+            {active.state2 ? "read less..." : "read more..."}
           </p>
         </div>
         <div
@@ -257,7 +257,7 @@ const CareerComponent = () => {
             aria-controls="panelsStayOpen-collapseThree"
             className="read-more cursor-pointer"
           >
-            {active.state3 ? "read less" : "read more"}
+            {active.state3 ? "read less..." : "read more..."}
           </p>
         </div>
         <div
