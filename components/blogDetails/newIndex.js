@@ -12,7 +12,10 @@ const NewIndex = ({ blog }) => {
     const matches = [...blog.blog.matchAll(regex)]; // Find all matches of the regular expression in the string
 
     const extractedTexts = matches.map((match) =>
-      match[1].replace(/<.*?>/g, "")
+      match[1]
+        .replace(/<.*?>/g, "")
+        .replace(/&nbsp;/g, "")
+        .trim()
     );
     setIndex(extractedTexts);
     //   console.log(extractedTexts);

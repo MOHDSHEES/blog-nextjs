@@ -6,6 +6,7 @@ import Skeleton from "react-loading-skeleton";
 import useFetch from "../useFetch";
 import BlogIndex from "./blogIndex";
 import NewIndex from "./newIndex";
+import Image from "next/image";
 
 const Post = ({ data }) => {
   // .match(`/<h1>(.*?)<\/h1>/gi`)
@@ -17,6 +18,7 @@ const Post = ({ data }) => {
     <div>
       <div className="single-post">
         <div className="feature-img mb-4 ">
+          {/* <Image src={data.mainImg} alt={data.category} cover fill /> */}
           <img
             className="img-fluid blog-detail-img"
             src={data.mainImg}

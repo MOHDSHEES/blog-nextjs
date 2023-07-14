@@ -143,9 +143,11 @@ const BlogDetail = ({ data, imgUrl }) => {
       flag = 0;
       setUpdatedData(data);
       const { title } = router.query;
+      console.log(title);
       //   const regex = /-([a-zA-Z0-9]+)$/;
       //   const match = title.match(regex);
       const id = title.slice(-10);
+      console.log(id);
       //   console.log(id);
       //   const id = match && match[1];
       // console.log("in");
