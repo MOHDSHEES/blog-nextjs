@@ -18,7 +18,13 @@ const Post = ({ data }) => {
     <div>
       <div className="single-post">
         <div className="feature-img mb-4 ">
-          {/* <Image src={data.mainImg} alt={data.category} cover fill /> */}
+          {/* <Image
+            className="img-fluid blog-detail-img"
+            src={data.mainImg}
+            alt={data.category}
+            cover
+            fill
+          /> */}
           <img
             className="img-fluid blog-detail-img"
             src={data.mainImg}
