@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
 
   // console.log(data);
   let imgUrl = null;
-  if (data) {
+  if (data && data.mainImg) {
     let urlArray = data.mainImg.split("/");
     urlArray.splice(6, 0, "w_0.2,c_scale");
     imgUrl = urlArray.join("/");
