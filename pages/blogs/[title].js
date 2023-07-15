@@ -37,7 +37,8 @@ export async function getStaticProps({ params }) {
   //   const regex = /-([a-zA-Z0-9]+)$/;
   //   const match = params.title.match(regex);
   //   const id = match && match[1];
-  const id = params.title.slice(-10);
+  let id = null;
+  if (params.title) id = params.title.slice(-10);
   //   console.log(id);
   const data = await uBlogModel
     .findOne(
