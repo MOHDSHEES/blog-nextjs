@@ -56,7 +56,7 @@ export async function getStaticProps({ params }) {
     .lean();
   //   if (data && data._id) data._id = data._id.toString();
 
-  console.log(data);
+  // console.log(data);
   let imgUrl = null;
   if (data && data.mainImg) {
     let urlArray = data.mainImg.split("/");
@@ -174,6 +174,8 @@ const BlogDetail = ({ data, imgUrl }) => {
     }
   }, [flag]);
   //   console.log(trending);
+  console.log(data);
+  console.log(updatedData);
   return (
     <div className="gray-bg">
       <Head>
@@ -189,7 +191,10 @@ const BlogDetail = ({ data, imgUrl }) => {
           data-rh="true"
         />
       </Head>
-      {data ? (
+
+      {router.isFallback ? (
+        <div>Loading...</div>
+      ) : data ? (
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
