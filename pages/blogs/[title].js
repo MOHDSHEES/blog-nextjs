@@ -155,8 +155,8 @@ const BlogDetail = ({ data, imgUrl }) => {
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
-        let seen;
-        if (data.id) seen = sessionStorage.getItem(data.id) || null;
+        let seen = null;
+        if (data && data.id) seen = sessionStorage.getItem(data.id) || null;
         if (id && seen !== currentDate) {
           const { data: da } = await axios.post("/api/blogs/views", {
             id: id,
