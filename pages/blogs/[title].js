@@ -77,7 +77,7 @@ export async function getStaticProps({ params }) {
   } catch (error) {
     return {
       props: {
-        error: { status: 00, message: error.message },
+        error: { status: 0, message: error.message },
       },
     };
   }
