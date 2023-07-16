@@ -19,7 +19,7 @@ const Carousel = ({ data }) => {
     setDa(data);
   }, [data]);
   return (
-    <div className="slider-active nav-a">
+    <div className="slider-active nav-a main-carousel-img-wrapper">
       {data && (
         <OwlCarousel
           className="owl-theme"
@@ -59,6 +59,9 @@ const Carousel = ({ data }) => {
                             className="img-fluid"
                             src={blog.mainImg}
                             alt={blog.category}
+                            // priority={true}
+                            blurDataURL={blog.mainImg}
+                            placeholder="blur"
                             cover
                             fill
                           />
