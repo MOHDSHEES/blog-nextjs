@@ -137,9 +137,9 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
-  // useEffect(() => {
-  //   setUpdatedData(data);
-  // }, [data]);
+  useEffect(() => {
+    setUpdatedData(data);
+  }, [data]);
 
   let flag = 1;
   useEffect(() => {
@@ -147,6 +147,7 @@ const BlogDetail = ({ data, imgUrl }) => {
       flag = 0;
       setUpdatedData(data);
       const { title } = router.query;
+      console.log(title);
       //   const regex = /-([a-zA-Z0-9]+)$/;
       //   const match = title.match(regex);
       let id;
