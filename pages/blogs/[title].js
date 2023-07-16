@@ -56,7 +56,7 @@ export async function getStaticProps({ params }) {
     .lean();
   //   if (data && data._id) data._id = data._id.toString();
 
-  // console.log(data);
+  console.log(data);
   let imgUrl = null;
   if (data && data.mainImg) {
     let urlArray = data.mainImg.split("/");
@@ -155,7 +155,8 @@ const BlogDetail = ({ data, imgUrl }) => {
       (async () => {
         // setloading(true);
         const currentDate = new Date().toLocaleDateString();
-        const seen = sessionStorage.getItem(data.id) || null;
+        let seen;
+        if (data.id) seen = sessionStorage.getItem(data.id) || null;
         if (id && seen !== currentDate) {
           const { data: da } = await axios.post("/api/blogs/views", {
             id: id,
