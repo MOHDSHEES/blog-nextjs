@@ -56,7 +56,6 @@ export async function getStaticProps({ params }) {
       strength: 2,
     })
     .lean();
-  // console.log(data);
   //   if (data && data._id) data._id = data._id.toString();
 
   // console.log(data);
@@ -65,12 +64,6 @@ export async function getStaticProps({ params }) {
     let urlArray = data.mainImg.split("/");
     urlArray.splice(6, 0, "w_0.2,c_scale");
     imgUrl = urlArray.join("/");
-  }
-  if (!data) {
-    // Return notFound: true for 404 page
-    return {
-      data: null,
-    };
   }
 
   return {
@@ -105,7 +98,7 @@ export async function getStaticPaths() {
   // { fallback: 'blocking' } will server-render pages
   // on-demand if the path doesn't exist.
   // fallback: "blocking"
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 // export async function getServerSideProps(context) {
@@ -187,7 +180,7 @@ const BlogDetail = ({ data, imgUrl }) => {
       })();
     }
   }, [flag]);
-  console.log(updatedData);
+  // console.log(updatedData);
   //   console.log(trending);
   // console.log(data);
   // console.log(updatedData);
@@ -207,9 +200,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         />
       </Head>
 
-      {!data ? (
-        <div>Loading...</div>
-      ) : updatedData ? (
+      {updatedData ? (
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
