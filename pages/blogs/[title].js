@@ -99,7 +99,7 @@ export async function getStaticPaths() {
   // { fallback: 'blocking' } will server-render pages
   // on-demand if the path doesn't exist.
   // fallback: "blocking"
-  return { paths };
+  return { paths, fallback: false };
 }
 
 // export async function getServerSideProps(context) {
