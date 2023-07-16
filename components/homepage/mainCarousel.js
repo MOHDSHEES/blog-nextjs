@@ -15,16 +15,6 @@ const MainCarousel = ({ data }) => {
     })();
   }, []);
 
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 200); // Set the desired loading time in milliseconds
-
-    // Clear the timer when the component is unmounted or the loading state changes
-    return () => clearTimeout(timer);
-  }, []);
   // console.log(categories);
   // console.log("carousel");
   // console.log(data);
@@ -35,7 +25,7 @@ const MainCarousel = ({ data }) => {
           <div className="row">
             <div className="col-lg-8">
               {/* Trending Top */}
-              {data && data.recent && !isLoading ? (
+              {!data && data.recent ? (
                 <Carousel data={data.recent} />
               ) : (
                 <div className="slider-active nav-a main-carousel-img-wrapper">
