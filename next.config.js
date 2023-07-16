@@ -2,6 +2,7 @@
 const webpack = require("webpack");
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracing: false,
   images: {
     domains: ["res.cloudinary.com"],
   },
