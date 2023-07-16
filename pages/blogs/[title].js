@@ -123,6 +123,7 @@ const BlogDetail = ({ data, imgUrl }) => {
   const { trending } = useContext(MyContext);
 
   const [updatedData, setUpdatedData] = useState(data);
+  console.log(data);
   // useEffect(() => {
   //   (async () => {
   //     // setloading(true);
