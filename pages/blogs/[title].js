@@ -137,6 +137,9 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
+  useEffect(() => {
+    setUpdatedData(data);
+  }, [data]);
 
   let flag = 1;
   useEffect(() => {
