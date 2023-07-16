@@ -33,54 +33,47 @@ import Post from "../../components/blogDetails/post";
 export async function getStaticProps({ params }) {
   // console.log(params.title);
   // console.log(params);
-  try {
-    await dbConnect();
-    // console.log(params);
-    //   const regex = /-([a-zA-Z0-9]+)$/;
-    //   const match = params.title.match(regex);
-    //   const id = match && match[1];
-    let id = null;
-    if (params.title) id = params.title.slice(-10);
-    //   console.log(id);
-    const data = await uBlogModel
-      .findOne(
-        { id: id },
-        {
-          _id: 0,
-        }
-        // { $inc: { views: 1 } },
-        // { new: true }
-      )
-      .collation({
-        locale: "en",
-        strength: 2,
-      })
-      .lean();
-    // console.log(data);
-    //   if (data && data._id) data._id = data._id.toString();
 
-    // console.log(data);
-    let imgUrl = null;
-    if (data && data.mainImg) {
-      let urlArray = data.mainImg.split("/");
-      urlArray.splice(6, 0, "w_0.2,c_scale");
-      imgUrl = urlArray.join("/");
-    }
+  await dbConnect();
+  // console.log(params);
+  //   const regex = /-([a-zA-Z0-9]+)$/;
+  //   const match = params.title.match(regex);
+  //   const id = match && match[1];
+  let id = null;
+  if (params.title) id = params.title.slice(-10);
+  //   console.log(id);
+  const data = await uBlogModel
+    .findOne(
+      { id: id },
+      {
+        _id: 0,
+      }
+      // { $inc: { views: 1 } },
+      // { new: true }
+    )
+    .collation({
+      locale: "en",
+      strength: 2,
+    })
+    .lean();
+  // console.log(data);
+  //   if (data && data._id) data._id = data._id.toString();
 
-    return {
-      props: {
-        data,
-        imgUrl,
-      },
-      revalidate: 43200, // In sec
-    };
-  } catch (error) {
-    return {
-      props: {
-        error: { status: 0, message: error.message },
-      },
-    };
+  // console.log(data);
+  let imgUrl = null;
+  if (data && data.mainImg) {
+    let urlArray = data.mainImg.split("/");
+    urlArray.splice(6, 0, "w_0.2,c_scale");
+    imgUrl = urlArray.join("/");
   }
+
+  return {
+    props: {
+      data,
+      imgUrl,
+    },
+    revalidate: 43200, // In sec
+  };
 }
 
 export async function getStaticPaths() {
@@ -105,7 +98,8 @@ export async function getStaticPaths() {
   // We'll pre-render only these paths at build time.
   // { fallback: 'blocking' } will server-render pages
   // on-demand if the path doesn't exist.
-  return { paths, fallback: "blocking" };
+  // fallback: "blocking"
+  return { paths };
 }
 
 // export async function getServerSideProps(context) {
@@ -126,8 +120,7 @@ export async function getStaticPaths() {
 //     props: { data, imgUrl },
 //   };
 // }
-const BlogDetail = ({ data, imgUrl, error }) => {
-  console.log(error);
+const BlogDetail = ({ data, imgUrl }) => {
   const router = useRouter();
   // console.log(title);/
   // console.log(data);
@@ -156,7 +149,7 @@ const BlogDetail = ({ data, imgUrl, error }) => {
   useEffect(() => {
     if (flag) {
       flag = 0;
-      setUpdatedData(data);
+      if (data) setUpdatedData(data);
       const { title } = router.query;
       // console.log(title);
       //   const regex = /-([a-zA-Z0-9]+)$/;
@@ -188,6 +181,7 @@ const BlogDetail = ({ data, imgUrl, error }) => {
       })();
     }
   }, [flag]);
+  console.log(updatedData);
   //   console.log(trending);
   // console.log(data);
   // console.log(updatedData);
