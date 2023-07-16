@@ -33,46 +33,54 @@ import Post from "../../components/blogDetails/post";
 export async function getStaticProps({ params }) {
   // console.log(params.title);
   // console.log(params);
-  await dbConnect();
-  // console.log(params);
-  //   const regex = /-([a-zA-Z0-9]+)$/;
-  //   const match = params.title.match(regex);
-  //   const id = match && match[1];
-  let id = null;
-  if (params.title) id = params.title.slice(-10);
-  //   console.log(id);
-  const data = await uBlogModel
-    .findOne(
-      { id: id },
-      {
-        _id: 0,
-      }
-      // { $inc: { views: 1 } },
-      // { new: true }
-    )
-    .collation({
-      locale: "en",
-      strength: 2,
-    })
-    .lean();
-  // console.log(data);
-  //   if (data && data._id) data._id = data._id.toString();
+  try {
+    await dbConnect();
+    // console.log(params);
+    //   const regex = /-([a-zA-Z0-9]+)$/;
+    //   const match = params.title.match(regex);
+    //   const id = match && match[1];
+    let id = null;
+    if (params.title) id = params.title.slice(-10);
+    //   console.log(id);
+    const data = await uBlogModel
+      .findOne(
+        { id: id },
+        {
+          _id: 0,
+        }
+        // { $inc: { views: 1 } },
+        // { new: true }
+      )
+      .collation({
+        locale: "en",
+        strength: 2,
+      })
+      .lean();
+    // console.log(data);
+    //   if (data && data._id) data._id = data._id.toString();
 
-  // console.log(data);
-  let imgUrl = null;
-  if (data && data.mainImg) {
-    let urlArray = data.mainImg.split("/");
-    urlArray.splice(6, 0, "w_0.2,c_scale");
-    imgUrl = urlArray.join("/");
+    // console.log(data);
+    let imgUrl = null;
+    if (data && data.mainImg) {
+      let urlArray = data.mainImg.split("/");
+      urlArray.splice(6, 0, "w_0.2,c_scale");
+      imgUrl = urlArray.join("/");
+    }
+
+    return {
+      props: {
+        data,
+        imgUrl,
+      },
+      revalidate: 43200, // In sec
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: { status: 00, message: error.message },
+      },
+    };
   }
-
-  return {
-    props: {
-      data,
-      imgUrl,
-    },
-    revalidate: 43200, // In sec
-  };
 }
 
 export async function getStaticPaths() {
@@ -118,7 +126,8 @@ export async function getStaticPaths() {
 //     props: { data, imgUrl },
 //   };
 // }
-const BlogDetail = ({ data, imgUrl }) => {
+const BlogDetail = ({ data, imgUrl, error }) => {
+  console.log(error);
   const router = useRouter();
   // console.log(title);/
   // console.log(data);
@@ -198,7 +207,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         />
       </Head>
 
-      {router.isFallback ? (
+      {error ? (
         <div>Loading...</div>
       ) : updatedData ? (
         <section className="blog_area single-post-area section-padding">
