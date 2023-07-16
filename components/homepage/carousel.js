@@ -18,6 +18,7 @@ const Carousel = ({ data }) => {
   useEffect(() => {
     setDa(data);
   }, [data]);
+
   return (
     <div className="slider-active nav-a main-carousel-img-wrapper">
       {data && (
