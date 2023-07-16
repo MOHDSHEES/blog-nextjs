@@ -117,6 +117,7 @@ const BlogDetail = ({ data, imgUrl }) => {
   const { trending } = useContext(MyContext);
 
   const [updatedData, setUpdatedData] = useState(data);
+  // console.log(data);
   // useEffect(() => {
   //   (async () => {
   //     // setloading(true);
@@ -131,6 +132,23 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
+  // useEffect(() => {
+  //   console.log("in");
+  //   const handleRouteChange = () => {
+  //     setUpdatedData(data);
+  //     flag = 1;
+  //   };
+
+  //   router.events.on("routeChangeComplete", handleRouteChange);
+
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     router.events.off("routeChangeComplete", handleRouteChange);
+  //   };
+  // }, []);
+  useEffect(() => {
+    setUpdatedData(data);
+  }, [data]);
 
   let flag = 1;
   useEffect(() => {

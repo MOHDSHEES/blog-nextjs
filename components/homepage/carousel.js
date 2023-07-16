@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Link from "next/link";
+import Image from "next/image";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const Carousel = ({ data }) => {
@@ -53,13 +54,22 @@ const Carousel = ({ data }) => {
                           blog.title.replace(/ /g, "-")
                         }
                       > */}
-                        <img
-                          src={blog.mainImg}
-                          // objectFit="cover"
-                          // width="100%"
-                          alt={blog.category}
-                          loading="lazy"
-                        />
+                        <div className="main-carousel-img-wrapper">
+                          {/* <Image
+                            className="img-fluid"
+                            src={blog.mainImg}
+                            alt={blog.category}
+                            cover
+                            fill
+                          /> */}
+                          <img
+                            src={blog.mainImg}
+                            // objectFit="cover"
+                            // width="100%"
+                            alt={blog.category}
+                            loading="lazy"
+                          />
+                        </div>
                         {/* </Link> */}
                         <div className="trend-top-cap">
                           <span
