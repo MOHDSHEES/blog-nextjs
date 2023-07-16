@@ -71,7 +71,8 @@ export async function getStaticProps({ params }) {
       data,
       imgUrl,
     },
-    revalidate: 43200, // In sec
+    revalidate: 3600,
+    // revalidate: 43200, // In sec
   };
 }
 

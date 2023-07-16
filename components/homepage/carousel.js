@@ -74,17 +74,18 @@ const Carousel = ({ data }) => {
                           /> */}
                         </div>
                         {/* </Link> */}
-                        <div className="trend-top-cap">
-                          <span
-                            className="bgr"
-                            data-animation="fadeInUp"
-                            data-delay=".2s"
-                            data-duration="1000ms"
-                          >
-                            {blog.category}
-                          </span>
-                          <h2 className=" link">
-                            {/* <Link
+                        <div className="image-background-opacity">
+                          <div className="trend-top-cap">
+                            <span
+                              className="bgr"
+                              data-animation="fadeInUp"
+                              data-delay=".2s"
+                              data-duration="1000ms"
+                            >
+                              {blog.category}
+                            </span>
+                            <h2 className=" link">
+                              {/* <Link
                             href={
                               "/blog/" +
                               blog._id +
@@ -95,16 +96,17 @@ const Carousel = ({ data }) => {
                             data-delay=".4s"
                             data-duration="1000ms"
                           > */}
-                            {blog.title}
-                            {/* </Link> */}
-                          </h2>
-                          <p
-                            data-animation="fadeInUp"
-                            data-delay=".6s"
-                            data-duration="1000ms"
-                          >
-                            {blog.createdDate}
-                          </p>
+                              {blog.title}
+                              {/* </Link> */}
+                            </h2>
+                            <p
+                              data-animation="fadeInUp"
+                              data-delay=".6s"
+                              data-duration="1000ms"
+                            >
+                              {blog.createdDate}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </Link>
