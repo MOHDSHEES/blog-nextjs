@@ -25,30 +25,7 @@ const MainCarousel = ({ data }) => {
           <div className="row">
             <div className="col-lg-8">
               {/* Trending Top */}
-              {!data && data.recent ? (
-                <Carousel data={data.recent} />
-              ) : (
-                <div className="slider-active nav-a main-carousel-img-wrapper">
-                  <div className="single-slider">
-                    <div className="trending-top mb-30">
-                      <div className="trend-top-img carousel-img">
-                        <div className="main-carousel-img-wrapper">
-                          <Image
-                            className="img-fluid"
-                            src="https://res.cloudinary.com/domyp6djh/image/upload/v1688630261/technology%20webp/ezgif.com-gif-maker_9_wcnzll.webp"
-                            alt="carousel-img"
-                            // priority={true}
-                            //  blurDataURL={blog.mainImg}
-                            //  placeholder="blur"
-                            cover
-                            fill
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+              {data && data.recent && <Carousel data={data.recent} />}
             </div>
             {/* Right content */}
             {/* <div className=""> */}
