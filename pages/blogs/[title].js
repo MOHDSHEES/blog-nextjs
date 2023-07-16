@@ -201,7 +201,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         />
       </Head>
 
-      {error ? (
+      {!data ? (
         <div>Loading...</div>
       ) : updatedData ? (
         <section className="blog_area single-post-area section-padding">
