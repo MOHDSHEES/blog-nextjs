@@ -146,7 +146,9 @@ const BlogDetail = ({ data, imgUrl }) => {
       const { title } = router.query;
       //   const regex = /-([a-zA-Z0-9]+)$/;
       //   const match = title.match(regex);
-      const id = title.slice(-10);
+      let id;
+      if (title) id = title.slice(-10);
+
       //   console.log(id);
       //   const id = match && match[1];
       // console.log("in");
