@@ -198,7 +198,7 @@ const BlogDetail = ({ data, imgUrl }) => {
 
       {router.isFallback ? (
         <div>Loading...</div>
-      ) : data ? (
+      ) : updatedData ? (
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
