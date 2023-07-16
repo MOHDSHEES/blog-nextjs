@@ -66,6 +66,12 @@ export async function getStaticProps({ params }) {
     urlArray.splice(6, 0, "w_0.2,c_scale");
     imgUrl = urlArray.join("/");
   }
+  if (!data) {
+    // Return notFound: true for 404 page
+    return {
+      data: null,
+    };
+  }
 
   return {
     props: {
