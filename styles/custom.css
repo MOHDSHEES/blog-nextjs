@@ -75,6 +75,9 @@ a {
   .carousel-img img {
     height: 420px;
   }
+  .main-carousel-img-wrapper {
+    height: 420px;
+  }
   .carouselSideCard img {
     height: 300px;
   }
@@ -87,6 +90,9 @@ a {
 }
 @media (max-width: 480px) {
   .carousel-img img {
+    height: 340px;
+  }
+  .main-carousel-img-wrapper {
     height: 340px;
   }
 }

@@ -55,20 +55,20 @@ const Carousel = ({ data }) => {
                         }
                       > */}
                         <div className="main-carousel-img-wrapper">
-                          {/* <Image
+                          <Image
                             className="img-fluid"
                             src={blog.mainImg}
                             alt={blog.category}
                             cover
                             fill
-                          /> */}
-                          <img
+                          />
+                          {/* <img
                             src={blog.mainImg}
                             // objectFit="cover"
                             // width="100%"
                             alt={blog.category}
                             loading="lazy"
-                          />
+                          /> */}
                         </div>
                         {/* </Link> */}
                         <div className="trend-top-cap">
