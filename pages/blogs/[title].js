@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
   // console.log(params.title);
   // console.log(params);
   await dbConnect();
-  console.log(params);
+  // console.log(params);
   //   const regex = /-([a-zA-Z0-9]+)$/;
   //   const match = params.title.match(regex);
   //   const id = match && match[1];
@@ -55,7 +55,7 @@ export async function getStaticProps({ params }) {
       strength: 2,
     })
     .lean();
-  console.log(data);
+  // console.log(data);
   //   if (data && data._id) data._id = data._id.toString();
 
   // console.log(data);
