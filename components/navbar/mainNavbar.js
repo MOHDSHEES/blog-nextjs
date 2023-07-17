@@ -153,7 +153,7 @@ const NavBar = () => {
                     onClick={() => setExpanded(false)}
                     target="_blank"
                     as={Link}
-                    href="https://offtheweb.vercel.app/add"
+                    href="https://offtheweb.vercel.app/edit"
                     className="nav-item"
                   >
                     Add Blog
