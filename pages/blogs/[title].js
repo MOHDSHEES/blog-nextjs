@@ -33,7 +33,6 @@ import Post from "../../components/blogDetails/post";
 export async function getStaticProps({ params }) {
   // console.log(params.title);
   // console.log(params);
-
   await dbConnect();
   // console.log(params);
   //   const regex = /-([a-zA-Z0-9]+)$/;
