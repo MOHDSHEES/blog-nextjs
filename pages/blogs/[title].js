@@ -101,6 +101,7 @@ export async function getStaticPaths() {
 }
 
 // export async function getServerSideProps(context) {
+
 //   const { title, id } = context.query;
 //   await dbConnect();
 //   const data = await blogModel
