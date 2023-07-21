@@ -69,7 +69,7 @@ export async function getStaticProps({ params }) {
       data,
       imgUrl,
     },
-    revalidate: 3600,
+    revalidate: 1,
     // revalidate: 43200, // In sec
   };
 }
@@ -84,7 +84,7 @@ export async function getStaticPaths() {
   // console.log(titles);
   // const posts = [{ id: "6447a13deb22555a15b58185", title: "test 1" }];
   // const posts = await res.json();
-  const regex = /<h1>(.*?)<\/h1>/gi;
+  // const regex = /<h1>(.*?)<\/h1>/gi;
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({

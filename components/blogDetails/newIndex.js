@@ -11,12 +11,14 @@ const NewIndex = ({ blog }) => {
     // Regular expression to match all <h2> tags and capture their content along with child elements
     const matches = [...blog.blog.matchAll(regex)]; // Find all matches of the regular expression in the string
 
-    const extractedTexts = matches.map((match) =>
-      match[1]
+    const extractedTexts = matches.map((match) => {
+      const extractedText = match[1]
         .replace(/<.*?>/g, "")
         .replace(/&nbsp;/g, "")
-        .trim()
-    );
+        .trim();
+      return extractedText !== "" && extractedText;
+    });
+
     setIndex(extractedTexts);
     //   console.log(extractedTexts);
   }, [blog]);
