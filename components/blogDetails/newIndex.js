@@ -10,17 +10,14 @@ const NewIndex = ({ blog }) => {
     //   matches && matches.map((match) => match.replace(/<\/?h2[^>]*>/g, ""));
     // Regular expression to match all <h2> tags and capture their content along with child elements
     const matches = [...blog.blog.matchAll(regex)]; // Find all matches of the regular expression in the string
-
     const extractedTexts = matches.map((match) => {
       const extractedText = match[1]
         .replace(/<.*?>/g, "")
         .replace(/&nbsp;/g, "")
         .trim();
-      return extractedText !== "" && extractedText;
+      if (extractedText !== "" && extractedText !== false) return extractedText;
     });
-
     setIndex(extractedTexts);
-    //   console.log(extractedTexts);
   }, [blog]);
   //   console.log(index);
   //   const handleClickScroll = (id) => {
@@ -61,17 +58,19 @@ const NewIndex = ({ blog }) => {
         {index &&
           index.length !== 0 &&
           index.map((text, idx) => {
-            return (
-              <li key={idx} className="index-ul p-link">
-                <p
-                  onClick={() => scrollToHeading(idx)}
-                  //   href={"#" + blog.text}
-                  className=" mb-2"
-                >
-                  {text}
-                </p>
-              </li>
-            );
+            if (text) {
+              return (
+                <li key={idx} className="index-ul p-link">
+                  <p
+                    onClick={() => scrollToHeading(idx)}
+                    //   href={"#" + blog.text}
+                    className=" mb-2"
+                  >
+                    {text}
+                  </p>
+                </li>
+              );
+            }
           })}
       </ul>
     </div>
