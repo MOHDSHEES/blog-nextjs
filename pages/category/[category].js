@@ -64,8 +64,8 @@ const Category = ({ categories }) => {
   // console.log(homePageData);
   // console.log(homePageData);
 
-  console.log(categories);
-  console.log(categoryData);
+  // console.log(categories);
+  // console.log(categoryData);
   useEffect(() => {
     setCategoryData(categories);
     (async () => {

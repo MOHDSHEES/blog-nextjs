@@ -31,7 +31,7 @@ export async function getStaticProps() {
       data,
       trending,
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 export default function Home({ data, trending }) {
