@@ -57,7 +57,7 @@ const CatMainCard = ({ data }) => {
             }
           > */}{" "}
             <div className="break-line-3">
-              {data && parse(data.description)}
+              {data && data.description && parse(data.description)}
               {/* {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))} */}
             </div>
             {/* </Link> */}
