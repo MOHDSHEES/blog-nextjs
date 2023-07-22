@@ -54,7 +54,7 @@ export async function getServerSideProps({ params }) {
     .lean();
   //   if (data && data._id) data._id = data._id.toString();
 
-  // console.log(data);
+  console.log(data);
   let imgUrl = null;
   if (data && data.mainImg) {
     let urlArray = data.mainImg.split("/");
@@ -111,7 +111,8 @@ export async function getServerSideProps({ params }) {
 //   };
 // }
 const Preview = ({ data, imgUrl }) => {
-  const router = useRouter();
+  console.log(data);
+  //   const router = useRouter();
   // console.log(title);/
   // console.log(data);
   //   const { trending } = useContext(MyContext);
