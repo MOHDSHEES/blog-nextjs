@@ -3,29 +3,27 @@ import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../components/context";
 import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
-import parse from "html-react-parser";
 import Link from "next/link";
-import axios from "axios";
 import { useRouter } from "next/router";
 
-import {
-  WhatsappShareButton,
-  WhatsappIcon,
-  FacebookIcon,
-  FacebookShareButton,
-  LinkedinShareButton,
-  LinkedinIcon,
-  TelegramShareButton,
-  TelegramIcon,
-  TwitterShareButton,
-  TwitterIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  EmailShareButton,
-  EmailIcon,
-  RedditShareButton,
-  RedditIcon,
-} from "react-share";
+// import {
+//   WhatsappShareButton,
+//   WhatsappIcon,
+//   FacebookIcon,
+//   FacebookShareButton,
+//   LinkedinShareButton,
+//   LinkedinIcon,
+//   TelegramShareButton,
+//   TelegramIcon,
+//   TwitterShareButton,
+//   TwitterIcon,
+//   PinterestShareButton,
+//   PinterestIcon,
+//   EmailShareButton,
+//   EmailIcon,
+//   RedditShareButton,
+//   RedditIcon,
+// } from "react-share";
 import uBlogModel from "../../../models/ublogModel";
 import Post from "../../../components/blogDetails/post";
 import TagClouds from "../../../components/blogDetails/tagClouds";
@@ -211,7 +209,7 @@ const Preview = ({ data, imgUrl }) => {
                     >
                       Social Share
                     </h4>
-                    <ul
+                    {/* <ul
                       className="list social-share-ul"
                       style={{ paddingLeft: 0 }}
                     >
@@ -275,7 +273,7 @@ const Preview = ({ data, imgUrl }) => {
                           <RedditIcon size={30} round={true} />
                         </RedditShareButton>
                       </li>
-                    </ul>
+                    </ul> */}
                   </aside>
                   <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Recent Post</h3>
