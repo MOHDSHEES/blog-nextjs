@@ -114,7 +114,7 @@ const Preview = ({ data, imgUrl }) => {
   const router = useRouter();
   // console.log(title);/
   // console.log(data);
-  const { trending } = useContext(MyContext);
+  //   const { trending } = useContext(MyContext);
 
   const [updatedData, setUpdatedData] = useState(data);
   // useEffect(() => {
@@ -277,13 +277,13 @@ const Preview = ({ data, imgUrl }) => {
                   </aside>
                   <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Recent Post</h3>
-                    <div className="trending-sidebar scrollbar-over">
+                    {/* <div className="trending-sidebar scrollbar-over">
                       {trending &&
                         trending.length !== 0 &&
                         trending.map((blog, idx) => {
                           return <Card2 data={blog} key={idx} />;
                         })}
-                    </div>
+                    </div> */}
                   </aside>
                 </div>
               </div>
