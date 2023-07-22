@@ -133,19 +133,21 @@ const Preview = ({ data, imgUrl }) => {
       // flag = 0;
       // if (data) setUpdatedData(data);
       const { title } = router.query;
-      // console.log(title);
+      //   console.log(title);
       //   const regex = /-([a-zA-Z0-9]+)$/;
       //   const match = title.match(regex);
       let id;
       if (title) id = title.slice(-10);
-
+      //   console.log(id);
       //   console.log(id);
       //   const id = match && match[1];
       // console.log("in");
       (async () => {
         const { data: da } = await axios.post("/api/blogs/id", {
           id: id,
+          preview: true,
         });
+        // console.log(da);
         setUpdatedData(da);
         // setloading(true);
         // const currentDate = new Date().toLocaleDateString();
@@ -168,6 +170,7 @@ const Preview = ({ data, imgUrl }) => {
       })();
     }
   }, [router]);
+
   //   console.log(updatedData);
   //     console.log(trending);
   //   console.log(data);

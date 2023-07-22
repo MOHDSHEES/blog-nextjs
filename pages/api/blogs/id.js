@@ -16,19 +16,21 @@ export default async function userAPI(req, res) {
 
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
-      const data = await uBlogModel
-        .findOne(
-          { id: req.body.id, status: "Active" }
-          // { $inc: { views: 1 } },
-          // { new: true }
-        )
-        .collation({
+      if (req.body.preview) {
+        const data = await uBlogModel.findOne({ id: req.body.id }).collation({
           locale: "en",
           strength: 2,
         });
-      //   console.log(homePagedata);
-      //   console.log("FETCHED DOCUMENTS");
-      res.json(data);
+        res.json(data);
+      } else {
+        const data = await uBlogModel
+          .findOne({ id: req.body.id, status: "Active" })
+          .collation({
+            locale: "en",
+            strength: 2,
+          });
+        res.json(data);
+      }
       //   const createdUser = await User.create(req.body);
       // console.log("CREATED DOCUMENT");
       //   res.json({ createdUser });
