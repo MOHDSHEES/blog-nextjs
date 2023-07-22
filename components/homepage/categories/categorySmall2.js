@@ -21,14 +21,17 @@ const CategorySmall2 = ({ data }) => {
           data._id
         }
       > */}
-        <div className="most-recent-images categorySmall2">
+        <div
+          style={{ position: "relative" }}
+          className="most-recent-images categorySmall2"
+        >
           <Image
-            className="img-fluid"
+            className=""
             src={data.mainImg}
             alt={data.category}
-            width={0}
-            height={0}
-            sizes="height:80px "
+            width={100}
+            height={80}
+            // sizes="height:80px width:120px"
             style={{
               objectFit: "cover",
               width: "100px",
