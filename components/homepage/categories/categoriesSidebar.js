@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -20,13 +21,26 @@ const CategoriesSidebar = ({ categories }) => {
               class="position-relative overflow-hidden mb-3 nav-a mt-2"
               style={{ height: "115px" }}
             >
-              <img
+              <Image
+                className="img-fluid"
+                src={c.categoryImg}
+                alt={c.category}
+                width={0}
+                height={0}
+                sizes="height:115px "
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  height: "115px",
+                }}
+              />
+              {/* <img
                 class="img-fluid w-100 h-100"
                 src={c.categoryImg}
                 // src={c.categoryImg}
                 alt={c.category}
                 style={{ objectFit: "cover" }}
-              />
+              /> */}
               <Link
                 href={"/category/" + c.category.replace(/ /g, "-")}
                 class="overlay-text-img align-items-center justify-content-center h4 m-0 text-white text-decoration-none"

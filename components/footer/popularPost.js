@@ -8,7 +8,7 @@ const PopularPost = ({ data }) => {
         <div className="footer-tittle">
           <h4>Popular post</h4>
         </div>
-        {data.slice(3).map((blog, idx) => {
+        {data.slice(0, 3).map((blog, idx) => {
           return <Card4 data={blog} key={idx} />;
         })}
         {/*         

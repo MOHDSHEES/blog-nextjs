@@ -18,7 +18,7 @@ export default async function userAPI(req, res) {
       // console.log("CREATING DOCUMENT");
       const data = await uBlogModel
         .findOne(
-          { id: req.body.id }
+          { id: req.body.id, status: "Active" }
           // { $inc: { views: 1 } },
           // { new: true }
         )

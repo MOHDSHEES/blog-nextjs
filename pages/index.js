@@ -4,18 +4,19 @@ import CategoryTab from "../components/homepage/categories/categoryTab";
 import { useContext, useEffect, useState } from "react";
 import HomepageDataModel from "../models/homepageDataModel";
 import CarouselLast from "../components/homepage/carouselLast";
-import blogModel from "../models/blogModel";
+// import blogModel from "../models/blogModel";
 // import MainFooter from "../components/footer/mainFooter";
 import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 import useFetch from "../components/useFetch";
+import uBlogModel from "../models/ublogModel";
 
 export async function getStaticProps() {
   // let homepageData;
   await dbConnect();
   const homePagedata = await HomepageDataModel.findOne({}, { _id: 0 });
   let data = homePagedata.toObject();
-  const resu = await blogModel
+  const resu = await uBlogModel
     .find({ status: "Active" })
     .sort({ views: -1 })
     .limit(6)
@@ -30,7 +31,7 @@ export async function getStaticProps() {
       data,
       trending,
     },
-    revalidate: 43200,
+    revalidate: 10,
   };
 }
 export default function Home({ data, trending }) {

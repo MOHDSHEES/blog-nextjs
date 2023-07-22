@@ -77,29 +77,31 @@ const categoryTab = ({ data }) => {
                     {/* card one */}
                     {categoryData &&
                       Object.entries(categoryData).map((data, idx) => {
-                        // console.log(data);
-                        return (
-                          <div
-                            key={idx}
-                            className={`tab-pane fade  ${
-                              idx === 0 ? "show active" : ""
-                            }`}
-                            id={idx}
-                            role="tabpanel"
-                            aria-labelledby="nav-home-tab"
-                          >
-                            <div className="row">
-                              <CatMainCard data={data[1][0]} />
-                              <div className="col-xl-6 col-lg-12">
-                                <div className="row">
-                                  {data[1].slice(1, 5).map((blog) => {
-                                    return <CatSmallCard data={blog} />;
-                                  })}
+                        console.log(data);
+                        if (data[1].length) {
+                          return (
+                            <div
+                              key={idx}
+                              className={`tab-pane fade  ${
+                                idx === 0 ? "show active" : ""
+                              }`}
+                              id={idx}
+                              role="tabpanel"
+                              aria-labelledby="nav-home-tab"
+                            >
+                              <div className="row">
+                                <CatMainCard data={data[1][0]} />
+                                <div className="col-xl-6 col-lg-12">
+                                  <div className="row">
+                                    {data[1].slice(1, 5).map((blog) => {
+                                      return <CatSmallCard data={blog} />;
+                                    })}
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        );
+                          );
+                        }
                       })}
                   </div>
                 </div>

@@ -42,7 +42,7 @@ export async function getStaticProps({ params }) {
   //   console.log(id);
   const data = await uBlogModel
     .findOne(
-      { id: id },
+      { id: id, status: "Active" },
       {
         _id: 0,
       }
@@ -77,7 +77,10 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   // const res = await fetch("https://.../posts");
   await dbConnect();
-  const posts = await uBlogModel.find({}).select({ title: 1, id: 1 }).lean();
+  const posts = await uBlogModel
+    .find({ status: "Active" })
+    .select({ title: 1, id: 1 })
+    .lean();
   // console.log(posts);
   // console.log(resu);
   // let titles = resu.map((a) => a.title);
@@ -89,7 +92,10 @@ export async function getStaticPaths() {
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
     params: {
-      title: post.title.replace(/ /g, "-").replace(/\?/g, "") + "-" + post.id,
+      title:
+        post.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+        "-" +
+        post.id,
     },
   }));
   // id: post._id.toString()
@@ -140,9 +146,9 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
-  // useEffect(() => {
-  //   setUpdatedData(data);
-  // }, [data]);
+  useEffect(() => {
+    setUpdatedData(data);
+  }, [data]);
 
   let flag = 1;
   useEffect(() => {

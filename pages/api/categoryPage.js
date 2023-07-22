@@ -1,5 +1,6 @@
 import dbConnect from "../../lib/mongoose";
-import blogModel from "../../models/blogModel";
+// import blogModel from "../../models/blogModel";
+import uBlogModel from "../../models/ublogModel";
 
 // export default function handler(req, res) {
 //     res.status(200).json({ text: "Hello" });
@@ -16,7 +17,7 @@ export default async function userAPI(req, res) {
 
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
-      const resu = await blogModel.find({
+      const resu = await uBlogModel.find({
         category: req.body.category,
         status: "Active",
       });

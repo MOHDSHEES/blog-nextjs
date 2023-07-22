@@ -1,5 +1,6 @@
 import dbConnect from "../../lib/mongoose";
-import blogModel from "../../models/blogModel";
+// import blogModel from "../../models/blogModel";
+import uBlogModel from "../../models/ublogModel";
 
 // export default function handler(req, res) {
 //     res.status(200).json({ text: "Hello" });
@@ -21,7 +22,7 @@ export default async function userAPI(req, res) {
     } else if (req.method === "GET") {
       // console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
-      const resu = await blogModel
+      const resu = await uBlogModel
         .find({ status: "Active" })
         .sort({ views: -1 })
         .limit(6)

@@ -4,7 +4,6 @@ import Carousel from "./carousel";
 import CarouselSideCard from "./carouselSideCard";
 import axios from "axios";
 import CategoriesSidebar from "./categories/categoriesSidebar";
-import Image from "next/image";
 
 const MainCarousel = ({ data }) => {
   const [categories, setcategories] = useState(staticCategories);

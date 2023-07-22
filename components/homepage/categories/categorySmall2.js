@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -5,10 +6,10 @@ const CategorySmall2 = ({ data }) => {
   return (
     <Link
       href={
-        "/blog/" +
-        data.title.replace(/ /g, "-").replace(/\?/g, "") +
-        "/" +
-        data._id
+        "/blogs/" +
+        data.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+        "-" +
+        data.id
       }
     >
       <div className="most-recent-single ">
@@ -21,7 +22,20 @@ const CategorySmall2 = ({ data }) => {
         }
       > */}
         <div className="most-recent-images categorySmall2">
-          <img src={data.mainImg} alt={data.category} loading="lazy" />
+          <Image
+            className="img-fluid"
+            src={data.mainImg}
+            alt={data.category}
+            width={0}
+            height={0}
+            sizes="height:80px "
+            style={{
+              objectFit: "cover",
+              width: "100px",
+              height: "80px",
+            }}
+          />
+          {/* <img src={data.mainImg} alt={data.category} loading="lazy" /> */}
         </div>
         {/* </Link> */}
         <div className="most-recent-capt">

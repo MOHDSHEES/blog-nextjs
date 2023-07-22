@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
-import TagClouds from "../../../components/blogDetails/tagClouds";
 import { MyContext } from "../../../components/context";
 import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
@@ -29,14 +28,21 @@ import {
 } from "react-share";
 import uBlogModel from "../../../models/ublogModel";
 import Post from "../../../components/blogDetails/post";
+import TagClouds from "../../../components/blogDetails/tagClouds";
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   // console.log(params.title);
   // console.log(params);
   await dbConnect();
+  // console.log(params);
+  //   const regex = /-([a-zA-Z0-9]+)$/;
+  //   const match = params.title.match(regex);
+  //   const id = match && match[1];
+  const id = params.title.slice(-10);
+  //   console.log(id);
   const data = await uBlogModel
     .findOne(
-      { id: params.id },
+      { id: id },
       {
         _id: 0,
       }
@@ -52,7 +58,7 @@ export async function getStaticProps({ params }) {
 
   // console.log(data);
   let imgUrl = null;
-  if (data) {
+  if (data && data.mainImg) {
     let urlArray = data.mainImg.split("/");
     urlArray.splice(6, 0, "w_0.2,c_scale");
     imgUrl = urlArray.join("/");
@@ -63,37 +69,32 @@ export async function getStaticProps({ params }) {
       data,
       imgUrl,
     },
-    revalidate: 43200, // In sec
+    // revalidate: 43200, // In sec
   };
 }
 
-export async function getStaticPaths() {
-  // const res = await fetch("https://.../posts");
-  await dbConnect();
-  const posts = await uBlogModel.find({}).select({ title: 1, id: 1 }).lean();
-  // console.log(posts);
-  // console.log(resu);
-  // let titles = resu.map((a) => a.title);
-  // console.log(titles);
-  // const posts = [{ id: "6447a13deb22555a15b58185", title: "test 1" }];
-  // const posts = await res.json();
-  const regex = /<h1>(.*?)<\/h1>/gi;
+// export async function getStaticPaths() {
+//   // const res = await fetch("https://.../posts");
+//   await dbConnect();
+//   const posts = await uBlogModel
+//     .find({ status: "Active" })
+//     .select({ title: 1, id: 1 })
+//     .lean();
 
-  // Get the paths we want to pre-render based on posts
-  const paths = posts.map((post) => ({
-    params: {
-      id: post.id,
-      title: post.title.replace(/ /g, "-").replace(/\?/g, ""),
-    },
-  }));
-  // id: post._id.toString()
-  // We'll pre-render only these paths at build time.
-  // { fallback: 'blocking' } will server-render pages
-  // on-demand if the path doesn't exist.
-  return { paths, fallback: "blocking" };
-}
+//   const paths = posts.map((post) => ({
+//     params: {
+//       title:
+//         post.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+//         "-" +
+//         post.id,
+//     },
+//   }));
+
+//   return { paths, fallback: "blocking" };
+// }
 
 // export async function getServerSideProps(context) {
+
 //   const { title, id } = context.query;
 //   await dbConnect();
 //   const data = await blogModel
@@ -111,7 +112,7 @@ export async function getStaticPaths() {
 //     props: { data, imgUrl },
 //   };
 // }
-const BlogDetail = ({ data, imgUrl }) => {
+const Preview = ({ data, imgUrl }) => {
   const router = useRouter();
   // console.log(title);/
   // console.log(data);
@@ -132,46 +133,67 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
-
-  let flag = 1;
   useEffect(() => {
-    if (flag) {
-      flag = 0;
-      setUpdatedData(data);
-      // console.log("in");
-      (async () => {
-        // setloading(true);
-        const currentDate = new Date().toLocaleDateString();
-        const seen = sessionStorage.getItem(data.id) || null;
-        if (data && data.id && seen !== currentDate) {
-          const { data: da } = await axios.post("/api/blogs/views", {
-            id: data.id,
-          });
-          setUpdatedData(da);
-          sessionStorage.setItem(data.id, currentDate);
-        } else if (data && data.id) {
-          const { data: da } = await axios.post("/api/blogs/id", {
-            id: data.id,
-          });
-          setUpdatedData(da);
-        }
-        // setloading(false);
-      })();
-    }
-  }, [flag]);
+    setUpdatedData(data);
+  }, [data]);
+
+  //   let flag = 1;
+  //   useEffect(() => {
+  //     if (flag) {
+  //       flag = 0;
+  //       if (data) setUpdatedData(data);
+  //       const { title } = router.query;
+  //       // console.log(title);
+  //       //   const regex = /-([a-zA-Z0-9]+)$/;
+  //       //   const match = title.match(regex);
+  //       let id;
+  //       if (title) id = title.slice(-10);
+
+  //       //   console.log(id);
+  //       //   const id = match && match[1];
+  //       // console.log("in");
+  //       (async () => {
+  //         // setloading(true);
+  //         const currentDate = new Date().toLocaleDateString();
+  //         let seen = null;
+  //         if (data && data.id) seen = sessionStorage.getItem(data.id) || null;
+  //         if (id && seen !== currentDate) {
+  //           const { data: da } = await axios.post("/api/blogs/views", {
+  //             id: id,
+  //           });
+  //           setUpdatedData(da);
+  //           sessionStorage.setItem(id, currentDate);
+  //         } else if (id) {
+  //           const { data: da } = await axios.post("/api/blogs/id", {
+  //             id: id,
+  //           });
+  //           setUpdatedData(da);
+  //         }
+  //         // setloading(false);
+  //       })();
+  //     }
+  //   }, [flag]);
+  // console.log(updatedData);
   //   console.log(trending);
+  // console.log(data);
+  // console.log(updatedData);
   return (
     <div className="gray-bg">
       <Head>
         <title>{data && data.title}</title>
         <meta name="keywords" content={data && data.keywords} />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content={"fgfgdfgdf"} />
+        <meta property="og:description" content={data && data.description} />
         <meta property="og:image" content={imgUrl} />
         <meta property="og:title" content={data && data.title} />
-        <meta name="description" content={data && "dfdf"} data-rh="true" />
+        <meta
+          name="description"
+          content={data && data.description}
+          data-rh="true"
+        />
       </Head>
-      {data ? (
+
+      {updatedData ? (
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
@@ -291,4 +313,4 @@ const BlogDetail = ({ data, imgUrl }) => {
   );
 };
 
-export default BlogDetail;
+export default Preview;

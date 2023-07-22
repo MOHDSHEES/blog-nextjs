@@ -40,10 +40,13 @@ const Carousel = ({ data }) => {
                   <div className="trending-top mb-30">
                     <Link
                       href={
-                        "/blog/" +
-                        blog.title.replace(/ /g, "-").replace(/\?/g, "") +
-                        "/" +
-                        blog._id
+                        "/blogs/" +
+                        blog.title
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace(/\?/g, "") +
+                        "-" +
+                        blog.id
                       }
                     >
                       <div className="trend-top-img carousel-img">

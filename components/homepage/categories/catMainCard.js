@@ -1,16 +1,37 @@
 import React from "react";
 import parse from "html-react-parser";
 import Link from "next/link";
+import Image from "next/image";
 
 const CatMainCard = ({ data }) => {
   // console.log(data);
   return (
     <div className="col-xl-6 col-lg-12 nav-a">
-      <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}>
+      <Link
+        href={
+          "/blogs/" +
+          data.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+          "-" +
+          data.id
+        }
+      >
         <div className="whats-news-single mb-40 mb-40">
           {/* <Link href={"/blog/" + data.title.replace(/ /g, "-") + "/" + data._id}> */}
           <div className="whates-img">
-            <img src={data.mainImg} alt={data.category} loading="lazy" />
+            <Image
+              className=""
+              src={data.mainImg}
+              alt={data.category}
+              width={0}
+              height={0}
+              sizes="height:100% "
+              style={{
+                objectFit: "cover",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+            {/* <img src={data.mainImg} alt={data.category} loading="lazy" /> */}
           </div>
           {/* </Link> */}
           <div className="whates-caption" style={{ color: "black" }}>
@@ -35,9 +56,10 @@ const CatMainCard = ({ data }) => {
               data._id
             }
           > */}{" "}
-            <p className="break-line-3">
-              {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))}
-            </p>
+            <div className="break-line-3">
+              {data && parse(data.description)}
+              {/* {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))} */}
+            </div>
             {/* </Link> */}
           </div>
         </div>

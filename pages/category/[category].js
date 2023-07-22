@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import resizeImg from "../../components/functions/resizeImg";
 import CatMainCard from "../../components/homepage/categories/catMainCard";
 import dbConnect from "../../lib/mongoose";
-import blogModel from "../../models/blogModel";
+// import blogModel from "../../models/blogModel";
 import categoriesModel from "../../models/categoryModels";
 import parse from "html-react-parser";
 import TagClouds from "../../components/blogDetails/tagClouds";
@@ -11,12 +11,13 @@ import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
 import Head from "next/head";
 import axios from "axios";
+import uBlogModel from "../../models/ublogModel";
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
   await dbConnect();
 
-  const resu = await blogModel
+  const resu = await uBlogModel
     .find({
       category: params.category.replace("-", " "),
       status: "Active",
@@ -31,7 +32,7 @@ export async function getStaticProps({ params }) {
     props: {
       categories,
     },
-    revalidate: 43200, // In seconds
+    revalidate: 10, // In seconds
   };
 }
 
@@ -117,7 +118,9 @@ const Category = ({ categories }) => {
                   class="d-flex align-items-center justify-content-center  py-2 px-4 mb-3"
                 >
                   <h2 className="">
-                    {categories && categories.length && categories[0].category}{" "}
+                    {categories && categories.length !== 0
+                      ? categories[0].category
+                      : "No blogs found..."}
                   </h2>
                 </div>
               </div>
@@ -130,10 +133,13 @@ const Category = ({ categories }) => {
                     >
                       <Link
                         href={
-                          "/blog/" +
-                          data.title.replace(/ /g, "-").replace(/\?/g, "") +
-                          "/" +
-                          data._id
+                          "/blogs/" +
+                          data.title
+                            .toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/\?/g, "") +
+                          "-" +
+                          data.id
                         }
                       >
                         <img
@@ -141,37 +147,42 @@ const Category = ({ categories }) => {
                           src={data.mainImg}
                           alt={data.category}
                         />
-                      </Link>
-                      <div class="card-body">
-                        <h5 class="card-title">
-                          <Link
+                        {/* </Link> */}
+                        <div class="card-body">
+                          <h5 class="card-title" style={{ color: "black" }}>
+                            {/* <Link
                             href={
                               "/blog/" +
                               data.title.replace(/ /g, "-").replace(/\?/g, "") +
                               "/" +
                               data._id
                             }
-                          >
+                          > */}
                             {data.title}
-                          </Link>
-                        </h5>
-                        <Link
+                            {/* </Link> */}
+                          </h5>
+                          {/* <Link
                           href={
-                            "/blog/" +
-                            data.title.replace(/ /g, "-").replace(/\?/g, "") +
-                            "/" +
-                            data._id
+                            "/blogs/" +
+                            data.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")
+                              .replace(/\?/g, "") +
+                            "-" +
+                            data.id
                           }
                           style={{ color: "#506172" }}
-                        >
+                        > */}
                           <p
                             class="card-text break-line-4"
                             style={{ lineHeight: "25px" }}
                           >
-                            {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))}
+                            {data.description}
+                            {/* {parse(data.blog[0].text.replace(/<[^>]+>/g, ""))} */}
                           </p>
-                        </Link>
-                      </div>
+                          {/* </Link> */}
+                        </div>
+                      </Link>
                     </div>
                   );
                 })}

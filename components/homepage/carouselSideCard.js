@@ -9,10 +9,10 @@ const CarouselSideCard = ({ data }) => {
       <div className="trending-top mb-30">
         <Link
           href={
-            "/blog/" +
-            data.title.replace(/ /g, "-").replace(/\?/g, "") +
-            "/" +
-            data._id
+            "/blogs/" +
+            data.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+            "-" +
+            data.id
           }
         >
           <div className="trend-top-img" style={{ color: "red" }}>

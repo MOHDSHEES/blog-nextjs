@@ -17,20 +17,27 @@ const Post = ({ data }) => {
   return (
     <div>
       <div className="single-post">
-        <div className="feature-img mb-4 ">
-          {/* <Image
-            className="img-fluid blog-detail-img"
+        <div className="feature-img mb-4">
+          <Image
+            className="img-fluid"
             src={data.mainImg}
             alt={data.category}
-            cover
-            fill
-          /> */}
-          <img
+            width={0}
+            height={0}
+            sizes="(max-width: 768px) height:200px "
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "auto",
+              maxHeight: "500px",
+            }}
+          />
+          {/* <img
             className="img-fluid blog-detail-img"
             src={data.mainImg}
             alt={data.category}
             loading="lazy"
-          />
+          /> */}
         </div>
         <NewIndex blog={data} />
         <div className="blog_details">

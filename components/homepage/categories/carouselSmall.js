@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Link from "next/link";
+import Image from "next/image";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
@@ -36,21 +37,39 @@ const CarouselSmall = ({ trending }) => {
                     <Link
                       className="color-white "
                       href={
-                        "/blog/" +
-                        blog.title.replace(/ /g, "-").replace(/\?/g, "") +
-                        "/" +
-                        blog._id
+                        "/blogs/" +
+                        blog.title
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace(/\?/g, "") +
+                        "-" +
+                        blog.id
                       }
                       data-animation="fadeInUp"
                       data-delay=".4s"
                       data-duration="1000ms"
                     >
                       <div className="trend-top-img carouselSmall">
-                        <img
+                        <div>
+                          <Image
+                            className=""
+                            src={blog.mainImg}
+                            alt={blog.category}
+                            width={0}
+                            height={0}
+                            sizes="height:290px"
+                            style={{
+                              objectFit: "cover",
+                              width: "100%",
+                              height: "290px",
+                            }}
+                          />
+                        </div>
+                        {/* <img
                           src={blog.mainImg}
                           alt={blog.title}
                           loading="lazy"
-                        />
+                        /> */}
                         <div
                           className="trend-top-cap"
                           style={{ width: "80%", fontSize: "20px" }}

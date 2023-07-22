@@ -16,9 +16,6 @@ const TopBar = () => {
   const { trending, setTrending } = useContext(MyContext);
   const [trend, setTrend] = useState([]);
   const { data } = useFetch("trending", true);
-
-  // console.log(data);
-  // console.log(data);
   // const { data} = useSWR("/api/recent", fetcher);
   useEffect(() => {
     // console.log(trending);
@@ -60,10 +57,13 @@ const TopBar = () => {
                       <div class="item nav-a" key={blog._id}>
                         <Link
                           href={
-                            "/blog/" +
-                            blog.title.replace(/ /g, "-").replace(/\?/g, "") +
-                            "/" +
-                            blog._id
+                            "/blogs/" +
+                            blog.title
+                              .toLowerCase()
+                              .replace(/ /g, "-")
+                              .replace(/\?/g, "") +
+                            "-" +
+                            blog.id
                           }
                         >
                           <li

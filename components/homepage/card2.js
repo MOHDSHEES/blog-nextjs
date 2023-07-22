@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -5,10 +6,10 @@ const Card2 = ({ data }) => {
   return (
     <Link
       href={
-        "/blog/" +
-        data.title.replace(/\?/g, "").replace(/ /g, "-") +
-        "/" +
-        data._id
+        "/blogs/" +
+        data.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+        "-" +
+        data.id
       }
     >
       <div
@@ -26,14 +27,27 @@ const Card2 = ({ data }) => {
       > */}
         <div
           classname="weekly2-img"
-          style={{ marginBottom: "20px", color: "red" }}
+          style={{ marginBottom: "20px", color: "red", position: "relative" }}
         >
-          <img
+          <Image
+            className=""
+            src={data.mainImg}
+            alt={data.category}
+            width={0}
+            height={0}
+            sizes="height:150px "
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "150px",
+            }}
+          />
+          {/* <img
             className="card2-img"
             src={data.mainImg}
             alt={data.category}
             loading="lazy"
-          />
+          /> */}
         </div>
         {/* </Link> */}
         <div classname="weekly2-caption ">
