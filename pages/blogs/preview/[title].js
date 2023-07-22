@@ -5,71 +5,62 @@ import Card2 from "../../../components/homepage/card2";
 import dbConnect from "../../../lib/mongoose";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import axios from "axios";
 
-// import {
-//   WhatsappShareButton,
-//   WhatsappIcon,
-//   FacebookIcon,
-//   FacebookShareButton,
-//   LinkedinShareButton,
-//   LinkedinIcon,
-//   TelegramShareButton,
-//   TelegramIcon,
-//   TwitterShareButton,
-//   TwitterIcon,
-//   PinterestShareButton,
-//   PinterestIcon,
-//   EmailShareButton,
-//   EmailIcon,
-//   RedditShareButton,
-//   RedditIcon,
-// } from "react-share";
+import {
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  EmailShareButton,
+  EmailIcon,
+  RedditShareButton,
+  RedditIcon,
+} from "react-share";
 import uBlogModel from "../../../models/ublogModel";
 import Post from "../../../components/blogDetails/post";
 import TagClouds from "../../../components/blogDetails/tagClouds";
 
-export async function getServerSideProps({ params }) {
-  // console.log(params.title);
-  // console.log(params);
-  await dbConnect();
-  // console.log(params);
-  //   const regex = /-([a-zA-Z0-9]+)$/;
-  //   const match = params.title.match(regex);
-  //   const id = match && match[1];
-  const id = params.title.slice(-10);
-  //   console.log(id);
-  const data = await uBlogModel
-    .findOne(
-      { id: id },
-      {
-        _id: 0,
-      }
-      // { $inc: { views: 1 } },
-      // { new: true }
-    )
-    .collation({
-      locale: "en",
-      strength: 2,
-    })
-    .lean();
-  //   if (data && data._id) data._id = data._id.toString();
+// export async function getServerSideProps({ params }) {
+//   await dbConnect();
+//   const id = params.title.slice(-10);
+//   //   console.log(id);
+//   const data = await uBlogModel
+//     .findOne(
+//       { id: id },
+//       {
+//         _id: 0,
+//       }
 
-  console.log(data);
-  let imgUrl = null;
-  if (data && data.mainImg) {
-    let urlArray = data.mainImg.split("/");
-    urlArray.splice(6, 0, "w_0.2,c_scale");
-    imgUrl = urlArray.join("/");
-  }
+//     )
+//     .collation({
+//       locale: "en",
+//       strength: 2,
+//     })
+//     .lean();
 
-  return {
-    props: {
-      data,
-      imgUrl,
-    },
-    // revalidate: 43200, // In sec
-  };
-}
+//   let imgUrl = null;
+//   if (data && data.mainImg) {
+//     let urlArray = data.mainImg.split("/");
+//     urlArray.splice(6, 0, "w_0.2,c_scale");
+//     imgUrl = urlArray.join("/");
+//   }
+
+//   return {
+//     props: {
+//       data,
+//       imgUrl,
+//     },
+//   };
+// }
 
 // export async function getStaticPaths() {
 //   // const res = await fetch("https://.../posts");
@@ -111,13 +102,13 @@ export async function getServerSideProps({ params }) {
 //   };
 // }
 const Preview = ({ data, imgUrl }) => {
-  console.log(data);
-  //   const router = useRouter();
+  //   console.log(data);
+  const router = useRouter();
   // console.log(title);/
   // console.log(data);
-  //   const { trending } = useContext(MyContext);
+  const { trending } = useContext(MyContext);
 
-  const [updatedData, setUpdatedData] = useState(data);
+  const [updatedData, setUpdatedData] = useState(null);
   // useEffect(() => {
   //   (async () => {
   //     // setloading(true);
@@ -132,50 +123,55 @@ const Preview = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
-  useEffect(() => {
-    setUpdatedData(data);
-  }, [data]);
+  //   useEffect(() => {
+  //     setUpdatedData(data);
+  //   }, [data]);
 
   //   let flag = 1;
-  //   useEffect(() => {
-  //     if (flag) {
-  //       flag = 0;
-  //       if (data) setUpdatedData(data);
-  //       const { title } = router.query;
-  //       // console.log(title);
-  //       //   const regex = /-([a-zA-Z0-9]+)$/;
-  //       //   const match = title.match(regex);
-  //       let id;
-  //       if (title) id = title.slice(-10);
+  useEffect(() => {
+    if (!updatedData) {
+      // flag = 0;
+      // if (data) setUpdatedData(data);
+      const { title } = router.query;
+      // console.log(title);
+      //   const regex = /-([a-zA-Z0-9]+)$/;
+      //   const match = title.match(regex);
+      let id;
+      if (title) id = title.slice(-10);
 
-  //       //   console.log(id);
-  //       //   const id = match && match[1];
-  //       // console.log("in");
-  //       (async () => {
-  //         // setloading(true);
-  //         const currentDate = new Date().toLocaleDateString();
-  //         let seen = null;
-  //         if (data && data.id) seen = sessionStorage.getItem(data.id) || null;
-  //         if (id && seen !== currentDate) {
-  //           const { data: da } = await axios.post("/api/blogs/views", {
-  //             id: id,
-  //           });
-  //           setUpdatedData(da);
-  //           sessionStorage.setItem(id, currentDate);
-  //         } else if (id) {
-  //           const { data: da } = await axios.post("/api/blogs/id", {
-  //             id: id,
-  //           });
-  //           setUpdatedData(da);
-  //         }
-  //         // setloading(false);
-  //       })();
-  //     }
-  //   }, [flag]);
-  // console.log(updatedData);
-  //   console.log(trending);
-  // console.log(data);
-  // console.log(updatedData);
+      //   console.log(id);
+      //   const id = match && match[1];
+      // console.log("in");
+      (async () => {
+        const { data: da } = await axios.post("/api/blogs/id", {
+          id: id,
+        });
+        setUpdatedData(da);
+        // setloading(true);
+        // const currentDate = new Date().toLocaleDateString();
+        // let seen = null;
+        // if (data && data.id) seen = sessionStorage.getItem(data.id) || null;
+        // if (id && seen !== currentDate) {
+        //   const { data: da } = await axios.post("/api/blogs/views", {
+        //     id: id,
+        //   });
+        //   setUpdatedData(da);
+        //   sessionStorage.setItem(id, currentDate);
+        // } else if (id) {
+
+        //   const { data: da } = await axios.post("/api/blogs/id", {
+        //     id: id,
+        //   });
+        //   setUpdatedData(da);
+        // }
+        // setloading(false);
+      })();
+    }
+  }, [router]);
+  //   console.log(updatedData);
+  //     console.log(trending);
+  //   console.log(data);
+  //   console.log(updatedData);
   return (
     <div className="gray-bg">
       <Head>
@@ -210,7 +206,7 @@ const Preview = ({ data, imgUrl }) => {
                     >
                       Social Share
                     </h4>
-                    {/* <ul
+                    <ul
                       className="list social-share-ul"
                       style={{ paddingLeft: 0 }}
                     >
@@ -274,17 +270,17 @@ const Preview = ({ data, imgUrl }) => {
                           <RedditIcon size={30} round={true} />
                         </RedditShareButton>
                       </li>
-                    </ul> */}
+                    </ul>
                   </aside>
                   <aside className="single_sidebar_widget popular_post_widget">
                     <h3 className="widget_title">Recent Post</h3>
-                    {/* <div className="trending-sidebar scrollbar-over">
+                    <div className="trending-sidebar scrollbar-over">
                       {trending &&
                         trending.length !== 0 &&
                         trending.map((blog, idx) => {
                           return <Card2 data={blog} key={idx} />;
                         })}
-                    </div> */}
+                    </div>
                   </aside>
                 </div>
               </div>
@@ -300,12 +296,7 @@ const Preview = ({ data, imgUrl }) => {
             marginTop: "90px",
           }}
         >
-          Oops, page you're looking has been moved to another URL or has been
-          completely removed.
-          <br />
-          <Link href="/" className="btn btn-secondary mt-3">
-            Home
-          </Link>
+          loading...
         </div>
       )}
     </div>
