@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
     props: {
       categories,
     },
-    revalidate: 10, // In seconds
+    revalidate: 1, // In seconds
   };
 }
 
@@ -64,6 +64,8 @@ const Category = ({ categories }) => {
   // console.log(homePageData);
   // console.log(homePageData);
 
+  console.log(categories);
+  console.log(categoryData);
   useEffect(() => {
     setCategoryData(categories);
     (async () => {

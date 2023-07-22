@@ -77,7 +77,7 @@ const categoryTab = ({ data }) => {
                     {/* card one */}
                     {categoryData &&
                       Object.entries(categoryData).map((data, idx) => {
-                        console.log(data);
+                        // console.log(data);
                         if (data[1].length) {
                           return (
                             <div
