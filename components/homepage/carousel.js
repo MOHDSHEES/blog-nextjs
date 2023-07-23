@@ -19,7 +19,7 @@ const Carousel = ({ data }) => {
     setDa(data);
   }, [data]);
 
-  console.log(data);
+  // console.log(data);
   return (
     <div className="slider-active nav-a main-carousel-img-wrapper">
       {data && (

@@ -37,6 +37,7 @@ export async function getStaticProps() {
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
   console.log(data);
+  console.log(trending);
   const [home, setHome] = useState(data);
   // console.log("index");
   // console.log(home);
@@ -54,13 +55,12 @@ export default function Home({ data, trending }) {
 
   // useEffect(() => {
   //   setTrending(trending);
-
   //   if (homePageData) setHome(homePageData);
   // }, [trending, data, homePageData]);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
-  //   console.log("in");
+  //   // console.log("in");
   //   fetch("/api/homePage")
   //     .then((response) => response.json())
   //     .then((data) => console.log(data))
