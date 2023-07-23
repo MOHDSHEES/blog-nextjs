@@ -36,7 +36,7 @@ export async function getStaticProps() {
 }
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
-
+  console.log(data);
   const [home, setHome] = useState(data);
   // console.log("index");
   // console.log(home);

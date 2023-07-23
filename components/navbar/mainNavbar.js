@@ -31,7 +31,7 @@ const NavBar = () => {
     // console.log(search);
     setDisabled(true);
     setExpanded(false);
-    const { data } = await axios.post("/api/blog/title", {
+    const { data } = await axios.post("/api/blogs/title", {
       title: search,
     });
     setDisabled(false);
@@ -39,13 +39,13 @@ const NavBar = () => {
     if (!data) {
       closeMessage(messageApi, "Blog Not Found", "error");
     } else {
-      closeMessage(messageApi, "Blog Found", "success", 1);
       router.push(
-        "/blog/" +
-          data.title.replace(/ /g, "-").replace(/\?/g, "") +
-          "/" +
-          data._id
+        "/blogs/" +
+          data.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+          "-" +
+          data.id
       );
+      closeMessage(messageApi, "Searching...", "success", 1);
     }
   }
   // const { titles: title, employeeData } = useContext(globalContext);
