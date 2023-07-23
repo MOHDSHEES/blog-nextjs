@@ -43,7 +43,7 @@ function generateSiteMap(posts) {
                  <loc>${`${URL}/blogs/${post.title
                    .toLowerCase()
                    .replace(/ /g, "-")
-                   .replace(/\?/g, "")}-${post.id}`}</loc>
+                   .replace(/\?/g, "")}-${post._id}`}</loc>
              </url>
            `;
          })
