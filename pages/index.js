@@ -36,15 +36,15 @@ export async function getStaticProps() {
 }
 export default function Home({ data, trending }) {
   const { setTrending, setData } = useContext(MyContext);
-  console.log(data);
-  console.log(trending);
+  // console.log(data);
+  // console.log(trending);
   const [home, setHome] = useState(data);
   // console.log("index");
   // console.log(home);
   // console.log(data);
   // console.log(trend);
   // console.log(dat);
-  // const { data: homePageData } = useFetch("homePage", true);
+  const { data: homePageData } = useFetch("homePage", true);
   // console.log(data);
   // console.log(homePageData);
   // console.log(homePageData);
@@ -53,10 +53,10 @@ export default function Home({ data, trending }) {
     setTrending(trending);
   }, [data]);
 
-  // useEffect(() => {
-  //   setTrending(trending);
-  //   if (homePageData) setHome(homePageData);
-  // }, [trending, data, homePageData]);
+  useEffect(() => {
+    setTrending(trending);
+    if (homePageData) setHome(homePageData);
+  }, [trending, data, homePageData]);
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {
