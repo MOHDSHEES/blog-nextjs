@@ -81,7 +81,7 @@ const Category = ({ categories }) => {
   // console.log(categories);
   return (
     <div>
-      <section className="blog_area single-post-area section-padding gray-bg">
+      <section className=" single-post-area section-padding gray-bg">
         <Head>
           <title>
             {categories && categories.length
@@ -146,6 +146,7 @@ const Category = ({ categories }) => {
                       >
                         <img
                           class="card-img-top"
+                          loading="lazy"
                           src={data.mainImg}
                           alt={data.category}
                         />
