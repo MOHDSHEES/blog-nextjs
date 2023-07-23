@@ -1,8 +1,7 @@
 // import { getSortedPostsData } from "../lib/posts";
-
 import { generateSiteMap } from "../components/functions/sitemap";
 import dbConnect from "../lib/mongoose";
-import blogModel from "../models/blogModel";
+// import blogModel from "../models/blogModel";
 import uBlogModel from "../models/ublogModel";
 
 export async function getServerSideProps({ res }) {
