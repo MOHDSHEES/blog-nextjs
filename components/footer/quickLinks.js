@@ -21,10 +21,10 @@ const QuickLinks = () => {
         <a
           class=" mb-2"
           target="_blank"
-          href="https://offtheweb.vercel.app/edit"
+          href="https://offtheweb.vercel.app/add"
         >
           <p className="color-white">
-            <i class="fa fa-angle-right text-dark mr-2"></i>Add Blog
+            <i class="fa fa-angle-right text-dark mr-2"></i>Old Editor
           </p>
         </a>
         <Link class=" mb-2" href="/policies/privacyPolicy">

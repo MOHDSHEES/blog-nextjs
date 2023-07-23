@@ -4426,7 +4426,7 @@ hr {
 }
 .blog_details h2 {
   font-size: 18px;
-  /* font-weight: 600; */
+  font-weight: 600;
   margin-bottom: 8px;
 }
 @media (min-width: 768px) {
