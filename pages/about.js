@@ -367,10 +367,10 @@ const AboutUs = () => {
               items={2}
               dots={false}
               margin={30}
-              // autoplay
+              autoplay
               // key={data.length}
-              // autoplayTimeout={3000}
-              // autoplayHoverPause
+              autoplayTimeout={3000}
+              autoplayHoverPause
               responsive={{
                 0: {
                   items: 1,
