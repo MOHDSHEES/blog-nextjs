@@ -346,6 +346,67 @@ const AboutUs = () => {
           </div> */}
         </div>
       </div>
+
+      <div className="team-area pb-20 pt-20">
+        <div className="container">
+          <div className="row">
+            {/* <div className="cl-xl-7 col-lg-8 col-md-10"> */}
+            {/* Section Tittle */}
+            <div className="section-tittles mb-30">
+              {/* <span>Our Professional members </span> */}
+              <h3 style={{ textAlign: "center", fontWeight: "700" }}>
+                Social Media Management Team
+              </h3>
+            </div>
+            {/* </div> */}
+          </div>
+          <div className="about-employeeimg-carousel">
+            <OwlCarousel
+              className="owl-theme"
+              loop
+              items={2}
+              dots={false}
+              margin={30}
+              // autoplay
+              // key={data.length}
+              // autoplayTimeout={3000}
+              // autoplayHoverPause
+              responsive={{
+                0: {
+                  items: 1,
+                },
+                480: {
+                  items: 1,
+                },
+                767: {
+                  items: 2,
+                },
+                992: {
+                  items: 2,
+                },
+                1280: {
+                  items: 2,
+                },
+              }}
+            >
+              <MemberCard
+                name={"JACKLINE MBUYA"}
+                src={
+                  "https://res.cloudinary.com/domyp6djh/image/upload/v1690227751/employees/Image_-_Jackline_Mbuya_v2tj5t.webp"
+                }
+                post={"Social Media Management"}
+              />
+              <MemberCard
+                name={"DIPIKA SONI"}
+                src={
+                  "https://res.cloudinary.com/domyp6djh/image/upload/v1690227751/employees/IMG-20211230-WA0032_-_Dipika_Soni_i2dzhb.webp"
+                }
+                post={"Social Media Management"}
+              />
+            </OwlCarousel>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

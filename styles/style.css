@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
 @import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900|Roboto:100,300,400,500,700&display=swap");
+
 .colorb {
   color: #0077b5;
 }
@@ -4425,13 +4426,13 @@ hr {
   color: #ff2143;
 }
 .blog_details h2 {
-  font-size: 18px;
-  font-weight: 600;
+  /* font-size: 18px; */
+  /* font-weight: 600; */
   margin-bottom: 8px;
 }
 @media (min-width: 768px) {
   .blog_details h2 {
-    font-size: 24px;
+    /* font-size: 24px; */
     margin-bottom: 15px;
   }
 }
