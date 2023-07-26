@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-
+import Script from "next/script";
 class MyDocument extends Document {
   render() {
     return (
@@ -20,6 +20,12 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+          />
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_CLIENT_ID}`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
           />
         </Head>
         <body>
