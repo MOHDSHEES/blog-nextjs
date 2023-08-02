@@ -79,6 +79,7 @@ const Category = ({ categories }) => {
     })();
   }, [categories]);
   // console.log(categories);
+
   return (
     <div>
       <section className=" single-post-area section-padding gray-bg">
@@ -111,6 +112,7 @@ const Category = ({ categories }) => {
         <div className="container category-container">
           <div className="row">
             <div
+              // onScroll={(e) => handleScroll(e)}
               className="col-lg-8 posts-list"
               style={{ marginBottom: "20px" }}
             >
@@ -127,9 +129,10 @@ const Category = ({ categories }) => {
                 </div>
               </div>
               <div className="categories-container row">
-                {categoryData.map((data) => {
+                {categoryData.map((data, idx) => {
                   return (
                     <div
+                      key={idx}
                       class="card categories-card col-lg-5"
                       style={{ padding: 0, margin: "10px" }}
                     >

@@ -573,6 +573,7 @@ a {
 
 .new-editor-post img {
   max-height: 350px;
+  height: auto;
   object-fit: cover;
   padding: 10px;
   padding-bottom: 0;

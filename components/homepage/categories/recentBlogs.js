@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../context";
 import CarouselSmall from "./carouselSmall";
 import CategorySmall2 from "./categorySmall2";
+import Link from "next/link";
 // import Card4 from "../card4";
 
 const RecentBlogs = () => {
@@ -40,7 +41,20 @@ const RecentBlogs = () => {
         </div>
       </div>
       {trending.slice(-2).map((blog) => {
-        return <CategorySmall2 data={blog} />;
+        return (
+          <Link
+            href={
+              "/blogs/" +
+              blog.title.toLowerCase().replace(/ /g, "-").replace(/\?/g, "") +
+              "-" +
+              blog.id
+            }
+          >
+            <div className="most-recent-single ">
+              <CategorySmall2 data={blog} />
+            </div>
+          </Link>
+        );
       })}
 
       {/* <CategorySmall2 /> */}

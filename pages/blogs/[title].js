@@ -8,7 +8,9 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/router";
-
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import dynamic from "next/dynamic";
 import {
   WhatsappShareButton,
   WhatsappIcon,
@@ -29,6 +31,8 @@ import {
 } from "react-share";
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
+import CategorySmall2 from "../../components/homepage/categories/categorySmall2";
+const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 export async function getStaticProps({ params }) {
   // console.log(params.title);
@@ -213,6 +217,52 @@ const BlogDetail = ({ data, imgUrl }) => {
               <div className="col-lg-8 posts-list">
                 {/* <SinglePost data={updatedData} /> */}
                 <Post data={updatedData} />
+
+                {/* <section className="whats-news-area pt-10 pb-20 gray-bg mt-50">
+                  <div className="container">
+                    <div className="row">
+                      <div
+                        className="most-recent-area"
+                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                      >
+                   
+                        <div className="small-tittle mb-20">
+                          <h4>Similar Topics</h4>
+                        </div>
+                        <OwlCarousel
+                          className="owl-theme"
+                          loop
+                          autoplayHoverPause
+                          autoplayTimeout={2000}
+                          autoplay
+                          margin={10}
+                          responsive={{
+                            0: {
+                              items: 1,
+                            },
+                            480: {
+                              items: 1,
+                            },
+                            767: {
+                              items: 2,
+                            },
+                            992: {
+                              items: 2,
+                            },
+                            1280: {
+                              items: 2,
+                            },
+                          }}
+                        >
+                          <div className="most-recent-single ">
+                            <CategorySmall2 data={updatedData} />
+                          </div>
+                        
+                        </OwlCarousel>
+                      </div>
+                    </div>
+                  </div>
+                </section> */}
               </div>
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
