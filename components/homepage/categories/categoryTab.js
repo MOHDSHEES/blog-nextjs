@@ -4,6 +4,7 @@ import CatSmallCard from "./catSmallCard";
 import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
 import Link from "next/link";
+import HorizontalAds from "../../ads/horizontalAds";
 
 const categoryTab = ({ data }) => {
   // console.log("categoryTb");
@@ -21,6 +22,7 @@ const categoryTab = ({ data }) => {
       document.getElementById(prevActive).classList.remove("active", "show");
     setPrevActive(id);
   }
+
   return (
     <section className="whats-news-area pt-10 pb-20 gray-bg">
       <div className="container">
@@ -109,9 +111,24 @@ const categoryTab = ({ data }) => {
             </div>
             {/* Banner */}
             <div className="banner-one mt-20 mb-30">
-              <Link href="/policies/advertise">
+              {/* <ins
+              class="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-2361244068228403"
+             
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            ></ins> */}
+
+              <HorizontalAds
+                data-ad-slot="6105584909"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              />
+
+              {/* <Link href="/policies/advertise">
                 <img src="/ad/adGif.gif" alt="ad" loading="lazy" />
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="col-lg-4">
