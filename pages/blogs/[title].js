@@ -275,10 +275,13 @@ const BlogDetail = ({ data, imgUrl }) => {
                       data-full-width-responsive="true"
                     />
                   </div>
-                  <aside className="single_sidebar_widget tag_cloud_widget">
+                  <aside
+                    className="single_sidebar_widget tag_cloud_widget"
+                    style={{ marginTop: "15px" }}
+                  >
                     <h4
                       className="widget_title"
-                      style={{ marginBottom: "15px", marginTop: "15px" }}
+                      style={{ marginBottom: "15px" }}
                     >
                       Social Share
                     </h4>
