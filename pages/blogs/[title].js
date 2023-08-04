@@ -32,6 +32,7 @@ import {
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
 import CategorySmall2 from "../../components/homepage/categories/categorySmall2";
+import HorizontalAds from "../../components/ads/horizontalAds";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 export async function getStaticProps({ params }) {
@@ -267,6 +268,11 @@ const BlogDetail = ({ data, imgUrl }) => {
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
                   <TagClouds keywords={updatedData && updatedData.keywords} />
+                  <HorizontalAds
+                    data-ad-slot="6105584909"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                  />
                   <aside className="single_sidebar_widget tag_cloud_widget">
                     <h4
                       className="widget_title"
