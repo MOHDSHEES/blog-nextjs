@@ -65,10 +65,12 @@ const CatMainCard = ({ data }) => {
           </div>
         </div>
       </Link>
+
       <HorizontalAds
-        data-ad-format="fluid"
+        data-full-width-responsive="true"
+        data-ad-format="auto"
         data-ad-layout-key="-e8+7m+2l-ev+hk"
-        data-ad-slot="8757784502"
+        data-ad-slot="6105584909"
       />
     </div>
   );
