@@ -93,6 +93,11 @@ const categoryTab = ({ data }) => {
                             >
                               <div className="row">
                                 <CatMainCard data={data[1][0]} />
+                                <HorizontalAds
+                                  data-ad-format="fluid"
+                                  data-ad-layout-key="-e8+7m+2l-ev+hk"
+                                  data-ad-slot="8757784502"
+                                />
                                 <div className="col-xl-6 col-lg-12">
                                   <div className="row">
                                     {data[1].slice(1, 5).map((blog) => {
