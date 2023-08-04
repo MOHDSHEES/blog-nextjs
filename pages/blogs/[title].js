@@ -32,6 +32,7 @@ import {
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
 import HorizontalAds from "../../components/ads/horizontalAds";
+import ReactDOM from "react-dom";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 export async function getStaticProps({ params }) {
@@ -157,13 +158,21 @@ const BlogDetail = ({ data, imgUrl }) => {
   let ad = 1;
   useEffect(() => {
     if (ad && data) {
+      ad = 0;
       const h2ElementsToInsertBefore = document.querySelectorAll("h2");
       h2ElementsToInsertBefore.forEach((h2Element) => {
         const newElement = document.createElement("div");
-        newElement.innerHTML =
-          '<HorizontalAds  data-ad-layout="in-article" data-ad-format="fluid"  data-ad-slot="8469191657"/>';
+
+        ReactDOM.createPortal(
+          <HorizontalAds
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-slot="8469191657"
+          />,
+          newElement
+        );
+
         h2Element.parentNode.insertBefore(newElement, h2Element);
-        ad = 0;
       });
     }
   }, [ad, data]);
