@@ -61,7 +61,7 @@ const RecentBlogs = () => {
       {/* <div className="most-recent-single "> */}
       <HorizontalAds
         data-ad-format="fluid"
-        data-ad-layout-key="-h3+17-5e-g4+1ds"
+        data-ad-layout-key="-h3+11-4n-df+163"
         data-ad-slot="7929301453"
       />
       {/* </div> */}
