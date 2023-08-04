@@ -3,6 +3,7 @@ import { MyContext } from "../../context";
 import CarouselSmall from "./carouselSmall";
 import CategorySmall2 from "./categorySmall2";
 import Link from "next/link";
+import HorizontalAds from "../../ads/horizontalAds";
 // import Card4 from "../card4";
 
 const RecentBlogs = () => {
@@ -56,6 +57,19 @@ const RecentBlogs = () => {
           </Link>
         );
       })}
+
+      <div className="most-recent-single ">
+        <div
+          style={{ position: "relative" }}
+          className="most-recent-images categorySmall2"
+        >
+          <HorizontalAds
+            data-ad-format="fluid"
+            data-ad-layout-key="-h3+17-5e-g4+1ds"
+            data-ad-slot="7929301453"
+          />
+        </div>
+      </div>
 
       {/* <CategorySmall2 /> */}
     </div>

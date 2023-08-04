@@ -96,19 +96,6 @@ const categoryTab = ({ data }) => {
                                 <div className="col-xl-6 col-lg-12">
                                   <div className="row">
                                     {data[1].slice(1, 5).map((blog, idx) => {
-                                      if (idx === 1) {
-                                        return (
-                                          <div className="col-xl-12 col-lg-6 col-md-6 col-sm-10 nav-a ">
-                                            <div className="whats-right-single mb-20">
-                                              <HorizontalAds
-                                                data-ad-format="fluid"
-                                                data-ad-layout-key="-h3+17-5e-g4+1ds"
-                                                data-ad-slot="7929301453"
-                                              />
-                                            </div>
-                                          </div>
-                                        );
-                                      }
                                       return (
                                         <CatSmallCard key={idx} data={blog} />
                                       );
