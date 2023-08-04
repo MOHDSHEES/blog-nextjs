@@ -268,11 +268,13 @@ const BlogDetail = ({ data, imgUrl }) => {
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
                   <TagClouds keywords={updatedData && updatedData.keywords} />
-                  <HorizontalAds
-                    data-ad-slot="6105584909"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                  />
+                  <div style={{ textAlign: "center" }}>
+                    <HorizontalAds
+                      data-ad-slot="6105584909"
+                      data-ad-format="auto"
+                      data-full-width-responsive="true"
+                    />
+                  </div>
                   <aside className="single_sidebar_widget tag_cloud_widget">
                     <h4
                       className="widget_title"
