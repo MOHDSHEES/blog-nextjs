@@ -2,6 +2,7 @@ import React from "react";
 import parse from "html-react-parser";
 import Link from "next/link";
 import Image from "next/image";
+import HorizontalAds from "../../ads/horizontalAds";
 
 const CatMainCard = ({ data }) => {
   // console.log(data);
@@ -64,6 +65,11 @@ const CatMainCard = ({ data }) => {
           </div>
         </div>
       </Link>
+      <HorizontalAds
+        data-ad-format="fluid"
+        data-ad-layout-key="-e8+7m+2l-ev+hk"
+        data-ad-slot="8757784502"
+      />
     </div>
   );
 };
