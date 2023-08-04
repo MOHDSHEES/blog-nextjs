@@ -58,18 +58,13 @@ const RecentBlogs = () => {
         );
       })}
 
-      <div className="most-recent-single ">
-        <div
-          style={{ position: "relative" }}
-          className="most-recent-images categorySmall2"
-        >
-          <HorizontalAds
-            data-ad-format="fluid"
-            data-ad-layout-key="-h3+17-5e-g4+1ds"
-            data-ad-slot="7929301453"
-          />
-        </div>
-      </div>
+      {/* <div className="most-recent-single "> */}
+      <HorizontalAds
+        data-ad-format="fluid"
+        data-ad-layout-key="-h3+17-5e-g4+1ds"
+        data-ad-slot="7929301453"
+      />
+      {/* </div> */}
 
       {/* <CategorySmall2 /> */}
     </div>
