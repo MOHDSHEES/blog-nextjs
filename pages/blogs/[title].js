@@ -31,7 +31,6 @@ import {
 } from "react-share";
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
-import CategorySmall2 from "../../components/homepage/categories/categorySmall2";
 import HorizontalAds from "../../components/ads/horizontalAds";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
@@ -157,17 +156,17 @@ const BlogDetail = ({ data, imgUrl }) => {
 
   let ad = 1;
   useEffect(() => {
-    if (ad) {
+    if (ad && data) {
       const h2ElementsToInsertBefore = document.querySelectorAll("h2");
       h2ElementsToInsertBefore.forEach((h2Element) => {
         const newElement = document.createElement("div");
         newElement.innerHTML =
-          '<div><HorizontalAds  data-ad-layout="in-article" data-ad-format="fluid"  data-ad-slot="8469191657"/></div>';
+          '<HorizontalAds  data-ad-layout="in-article" data-ad-format="fluid"  data-ad-slot="8469191657"/>';
         h2Element.parentNode.insertBefore(newElement, h2Element);
         ad = 0;
       });
     }
-  }, [ad]);
+  }, [ad, data]);
 
   let flag = 1;
   useEffect(() => {
