@@ -162,17 +162,17 @@ const BlogDetail = ({ data, imgUrl }) => {
       const h2ElementsToInsertBefore = document.querySelectorAll("h2");
       h2ElementsToInsertBefore.forEach((h2Element) => {
         const newElement = document.createElement("div");
-
-        ReactDOM.createPortal(
+        // Render the MyCustomComponent inside the newElement using JSX
+        const customComponent = (
           <HorizontalAds
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-slot="8469191657"
-          />,
-          newElement
+          />
         );
+        ReactDOM.render(customComponent, newElement);
 
-        h2Element.parentNode.insertBefore(newElement, h2Element);
+        h2Element.insertAdjacentElement("beforebegin", newElement);
       });
     }
   }, [ad, data]);
