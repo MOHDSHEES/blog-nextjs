@@ -155,25 +155,40 @@ const BlogDetail = ({ data, imgUrl }) => {
     setUpdatedData(data);
   }, [data]);
 
+  function getRandomIndexes(max, count) {
+    const indexes = new Set();
+    while (indexes.size < count) {
+      const randomIndex = Math.floor(Math.random() * max);
+      indexes.add(randomIndex);
+    }
+    return Array.from(indexes);
+  }
+
   let ad = 1;
   useEffect(() => {
     if (ad && data) {
       ad = 0;
-      const h2ElementsToInsertBefore = document.querySelectorAll("h2");
-      h2ElementsToInsertBefore.forEach((h2Element) => {
-        const newElement = document.createElement("div");
-        // Render the MyCustomComponent inside the newElement using JSX
-        const customComponent = (
-          <HorizontalAds
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-slot="8469191657"
-          />
-        );
-        ReactDOM.render(customComponent, newElement);
+      const container = document.querySelector(".blog-details-container");
+      if (container) {
+        const h2Elements = container.querySelectorAll("h2");
+        const randomIndexes = getRandomIndexes(h2Elements.length, 2);
 
-        h2Element.insertAdjacentElement("beforebegin", newElement);
-      });
+        randomIndexes.forEach((index) => {
+          const h2Element = h2Elements[index];
+          const newElement = document.createElement("div");
+          // Render the MyCustomComponent inside the newElement using JSX
+          const customComponent = (
+            <HorizontalAds
+              data-ad-layout="in-article"
+              data-ad-format="fluid"
+              data-ad-slot="8469191657"
+            />
+          );
+          ReactDOM.render(customComponent, newElement);
+
+          h2Element.insertAdjacentElement("beforebegin", newElement);
+        });
+      }
     }
   }, [ad, data]);
 
@@ -237,7 +252,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
-              <div className="col-lg-8 posts-list">
+              <div className="col-lg-8 posts-list blog-details-container">
                 {/* <SinglePost data={updatedData} /> */}
                 <Post data={updatedData} />
 
