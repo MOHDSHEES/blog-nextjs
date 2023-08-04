@@ -155,6 +155,20 @@ const BlogDetail = ({ data, imgUrl }) => {
     setUpdatedData(data);
   }, [data]);
 
+  let ad = 1;
+  useEffect(() => {
+    if (ad) {
+      const h2ElementsToInsertBefore = document.querySelectorAll("h2");
+      h2ElementsToInsertBefore.forEach((h2Element) => {
+        const newElement = document.createElement("div");
+        newElement.innerHTML =
+          '<div><HorizontalAds  data-ad-layout="in-article" data-ad-format="fluid"  data-ad-slot="8469191657"/></div>';
+        h2Element.parentNode.insertBefore(newElement, h2Element);
+        ad = 0;
+      });
+    }
+  }, [ad]);
+
   let flag = 1;
   useEffect(() => {
     if (flag) {
