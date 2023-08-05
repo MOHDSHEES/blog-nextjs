@@ -92,7 +92,7 @@ export default function Home({ data, trending }) {
         />
       </Head>
       <div
-        style={{ maxHeight: "100px", textAlign: "center", overflow: "hidden" }}
+        style={{ maxHeight: "130px", textAlign: "center", overflow: "hidden" }}
       >
         <HorizontalAds
           data-ad-format="fluid"
