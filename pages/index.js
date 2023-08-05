@@ -96,8 +96,8 @@ export default function Home({ data, trending }) {
       >
         <HorizontalAds
           data-ad-format="fluid"
-          data-ad-layout-key="-e8+7m+2l-ev+hk"
-          data-ad-slot="8757784502"
+          data-ad-layout-key="-h3+11-4n-df+163"
+          data-ad-slot="7929301453"
         />
       </div>
       <MainCarousel data={home} />
