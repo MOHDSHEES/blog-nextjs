@@ -32,7 +32,7 @@ import {
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
 import HorizontalAds from "../../components/ads/horizontalAds";
-import ReactDOM from "react-dom";
+
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 export async function getStaticProps({ params }) {
@@ -164,54 +164,56 @@ const BlogDetail = ({ data, imgUrl }) => {
   //   return Array.from(indexes);
   // }
 
-  let ad = 1;
-  const [createdElements, setCreatedElements] = useState([]);
-  useEffect(() => {
-    const createDivs = () => {
-      const container = document.querySelector(".blog-details-container");
-      if (container) {
-        const h2Elements = container.querySelectorAll("h2");
-        const elementsToCreate = [0, h2Elements.length - 1].map(
-          (index, idx) => {
-            if (index !== 0 || idx === 0) {
-              const h2Element = h2Elements[index];
-              const newElement = document.createElement("div");
-              const customComponent = (
-                <HorizontalAds
-                  data-ad-layout="in-article"
-                  data-ad-format="fluid"
-                  data-ad-slot="8469191657"
-                />
-              );
-              ReactDOM.render(customComponent, newElement);
-              h2Element.insertAdjacentElement("beforebegin", newElement);
-              return newElement;
-            }
-          }
-        );
-        setCreatedElements(elementsToCreate);
-      }
-    };
+  // let ad = 1;
+  // const [createdElements, setCreatedElements] = useState([]);
+  // useEffect(() => {
+  //   console.log("in");
+  //   const createDivs = () => {
+  //     const container = document.querySelector(".blog-details-container");
+  //     if (container && data) {
+  //       const h2Elements = container.querySelectorAll("h2");
+  //       console.log(h2Elements);
+  //       const elementsToCreate = [0, h2Elements.length - 1].map(
+  //         (index, idx) => {
+  //           if (index !== 0 || idx === 0) {
+  //             const h2Element = h2Elements[index];
+  //             const newElement = document.createElement("div");
+  //             const customComponent = (
+  //               <HorizontalAds
+  //                 data-ad-layout="in-article"
+  //                 data-ad-format="fluid"
+  //                 data-ad-slot="8469191657"
+  //               />
+  //             );
+  //             ReactDOM.render(customComponent, newElement);
+  //             h2Element.insertAdjacentElement("beforebegin", newElement);
+  //             return newElement;
+  //           }
+  //         }
+  //       );
+  //       setCreatedElements(elementsToCreate);
+  //     }
+  //   };
 
-    if (ad && data) {
-      ad = 0;
-      createDivs();
-    }
-    const handleRouteChange = () => {
-      // Remove the dynamically created divs when the route changes
-      createdElements.forEach((element) => {
-        ReactDOM.unmountComponentAtNode(element);
-        element.parentNode.removeChild(element);
-      });
-      setCreatedElements([]); // Clear the state of created elements
-    };
+  //   if (ad && updatedData) {
+  //     ad = 0;
+  //     createDivs();
+  //   }
+  //   const handleRouteChange = () => {
+  //     // Remove the dynamically created divs when the route changes
+  //     createdElements.forEach((element) => {
+  //       ReactDOM.unmountComponentAtNode(element);
+  //       element.parentNode.removeChild(element);
+  //     });
+  //     setCreatedElements([]); // Clear the state of created elements
+  //   };
 
-    router.events.on("routeChangeStart", handleRouteChange);
+  //   router.events.on("routeChangeStart", handleRouteChange);
 
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
+  //   return () => {
+  //     router.events.off("routeChangeStart", handleRouteChange);
+  //   };
+  // }, [router.query]);
   // useEffect(() => {
   //   const createdElements = [];
   //   if (ad && data) {
@@ -310,7 +312,7 @@ const BlogDetail = ({ data, imgUrl }) => {
         <section className="blog_area single-post-area section-padding">
           <div className="container">
             <div className="row">
-              <div className="col-lg-8 posts-list blog-details-container">
+              <div className="col-lg-8 posts-list ">
                 {/* <SinglePost data={updatedData} /> */}
                 <Post data={updatedData} />
 
