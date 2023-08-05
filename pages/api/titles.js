@@ -23,8 +23,8 @@ export default async function userAPI(req, res) {
       //   console.log("in get");
       //   console.log("FETCHING DOCUMENTS");
       const resu = await uBlogModel
-        .find({})
-        .select({ title: 1, status: "Active", _id: 0 });
+        .find({ status: "Active" })
+        .select({ title: 1, _id: 0 });
       // console.log(resu);
       let titles = resu.map((a) => a.title);
       // console.log(titles);
