@@ -10,6 +10,7 @@ import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 import useFetch from "../components/useFetch";
 import uBlogModel from "../models/ublogModel";
+import HorizontalAds from "../components/ads/horizontalAds";
 
 export async function getStaticProps() {
   // let homepageData;
@@ -90,6 +91,15 @@ export default function Home({ data, trending }) {
           content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending"
         />
       </Head>
+      <div
+        style={{ maxHeight: "100px", textAlign: "center", overflow: "hidden" }}
+      >
+        <HorizontalAds
+          data-ad-format="fluid"
+          data-ad-layout-key="-e8+7m+2l-ev+hk"
+          data-ad-slot="8757784502"
+        />
+      </div>
       <MainCarousel data={home} />
       <CategoryTab data={home} />
       <CarouselLast />
