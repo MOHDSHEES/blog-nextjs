@@ -165,34 +165,90 @@ const BlogDetail = ({ data, imgUrl }) => {
   // }
 
   let ad = 1;
+  const [createdElements, setCreatedElements] = useState([]);
   useEffect(() => {
-    if (ad && data) {
-      ad = 0;
+    const createDivs = () => {
       const container = document.querySelector(".blog-details-container");
       if (container) {
         const h2Elements = container.querySelectorAll("h2");
-        // const randomIndexes = getRandomIndexes(h2Elements.length, 2);
-        console.log(h2Elements.length);
-        [0, h2Elements.length - 1].forEach((index, idx) => {
-          if (index !== 0 || idx === 0) {
-            const h2Element = h2Elements[index];
-            const newElement = document.createElement("div");
-            // Render the MyCustomComponent inside the newElement using JSX
-            const customComponent = (
-              <HorizontalAds
-                data-ad-layout="in-article"
-                data-ad-format="fluid"
-                data-ad-slot="8469191657"
-              />
-            );
-            ReactDOM.render(customComponent, newElement);
-
-            h2Element.insertAdjacentElement("beforebegin", newElement);
+        const elementsToCreate = [0, h2Elements.length - 1].map(
+          (index, idx) => {
+            if (index !== 0 || idx === 0) {
+              const h2Element = h2Elements[index];
+              const newElement = document.createElement("div");
+              const customComponent = (
+                <HorizontalAds
+                  data-ad-layout="in-article"
+                  data-ad-format="fluid"
+                  data-ad-slot="8469191657"
+                />
+              );
+              ReactDOM.render(customComponent, newElement);
+              h2Element.insertAdjacentElement("beforebegin", newElement);
+              return newElement;
+            }
           }
-        });
+        );
+        setCreatedElements(elementsToCreate);
       }
+    };
+
+    if (ad && data) {
+      ad = 0;
+      createDivs();
     }
-  }, [ad, data]);
+    const handleRouteChange = () => {
+      // Remove the dynamically created divs when the route changes
+      createdElements.forEach((element) => {
+        ReactDOM.unmountComponentAtNode(element);
+        element.parentNode.removeChild(element);
+      });
+      setCreatedElements([]); // Clear the state of created elements
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
+  // useEffect(() => {
+  //   const createdElements = [];
+  //   if (ad && data) {
+  //     ad = 0;
+  //     const container = document.querySelector(".blog-details-container");
+  //     if (container) {
+  //       const h2Elements = container.querySelectorAll("h2");
+
+  //       // const randomIndexes = getRandomIndexes(h2Elements.length, 2);
+  //       [0, h2Elements.length - 1].forEach((index, idx) => {
+  //         if (index !== 0 || idx === 0) {
+  //           const h2Element = h2Elements[index];
+
+  //           const newElement = document.createElement("div");
+  //           createdElements.push(newElement);
+  //           // Render the MyCustomComponent inside the newElement using JSX
+  //           const customComponent = (
+  //             <HorizontalAds
+  //               data-ad-layout="in-article"
+  //               data-ad-format="fluid"
+  //               data-ad-slot="8469191657"
+  //             />
+  //           );
+  //           ReactDOM.render(customComponent, newElement);
+
+  //           h2Element.insertAdjacentElement("beforebegin", newElement);
+  //         }
+  //       });
+  //     }
+  //   }
+  //   return () => {
+  //     // Cleanup function to remove the created components when MyComponent is unmounted
+  //     createdElements.forEach((element) => {
+  //       ReactDOM.unmountComponentAtNode(element);
+  //     });
+  //   };
+  // }, [ad, data]);
 
   let flag = 1;
   useEffect(() => {
