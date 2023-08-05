@@ -23,11 +23,11 @@ const CategorySmall2 = ({ data }) => {
           src={data.mainImg}
           alt={data.category}
           width={100}
-          height={80}
+          height={100}
           style={{
             objectFit: "cover",
             width: "100px",
-            height: "80px",
+            height: "100px",
           }}
         />
       </div>
