@@ -1,3 +1,12 @@
+:root {
+  --bs-code-color: white;
+}
+p:has(code) {
+  padding: 5px 10px;
+  background-color: #807c7c;
+  border-radius: 3px;
+}
+
 h1,
 h2,
 h3,
