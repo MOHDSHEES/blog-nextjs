@@ -239,6 +239,13 @@ const AboutUs = () => {
               post={"Content Writer"}
             />
             <MemberCard
+              name={"AKHIL KUMAR"}
+              src={
+                "https://res.cloudinary.com/domyp6djh/image/upload/v1691879403/employees/image1_-_akhil_pl3say.webp"
+              }
+              post={"Content Writer"}
+            />
+            <MemberCard
               name={"PANKAJ KUMAR"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688831046/employees/Teamboy_zqv9yx.webp"
