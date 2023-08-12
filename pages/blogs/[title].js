@@ -32,6 +32,7 @@ import {
 import uBlogModel from "../../models/ublogModel";
 import Post from "../../components/blogDetails/post";
 import HorizontalAds from "../../components/ads/horizontalAds";
+import CategorySmall2 from "../../components/homepage/categories/categorySmall2";
 
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
@@ -151,106 +152,31 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
+  const [keywords, setKeywords] = useState(data.keywords);
   useEffect(() => {
     setUpdatedData(data);
+    setKeywords(data.keywords);
   }, [data]);
 
-  // function getRandomIndexes(max, count) {
-  //   const indexes = new Set();
-  //   while (indexes.size < count) {
-  //     const randomIndex = Math.floor(Math.random() * max);
-  //     indexes.add(randomIndex);
-  //   }
-  //   return Array.from(indexes);
-  // }
+  const [similarBlogs, setSimilarBlogs] = useState(null);
+  let keyFlag = 1;
+  useEffect(() => {
+    if (keyFlag) {
+      setKeywords(updatedData.keywords);
+      (async () => {
+        const { data } = await axios.post("/api/blogs/similarBlogs", {
+          keywords: keywords.split(","),
+        });
+        if (data && data.length) {
+          const bl = data.filter((blog) => blog.id !== updatedData.id);
+          setSimilarBlogs(bl);
+        }
+      })();
 
-  // let ad = 1;
-  // const [createdElements, setCreatedElements] = useState([]);
-  // useEffect(() => {
-  //   console.log("in");
-  //   const createDivs = () => {
-  //     const container = document.querySelector(".blog-details-container");
-  //     if (container && data) {
-  //       const h2Elements = container.querySelectorAll("h2");
-  //       console.log(h2Elements);
-  //       const elementsToCreate = [0, h2Elements.length - 1].map(
-  //         (index, idx) => {
-  //           if (index !== 0 || idx === 0) {
-  //             const h2Element = h2Elements[index];
-  //             const newElement = document.createElement("div");
-  //             const customComponent = (
-  //               <HorizontalAds
-  //                 data-ad-layout="in-article"
-  //                 data-ad-format="fluid"
-  //                 data-ad-slot="8469191657"
-  //               />
-  //             );
-  //             ReactDOM.render(customComponent, newElement);
-  //             h2Element.insertAdjacentElement("beforebegin", newElement);
-  //             return newElement;
-  //           }
-  //         }
-  //       );
-  //       setCreatedElements(elementsToCreate);
-  //     }
-  //   };
-
-  //   if (ad && updatedData) {
-  //     ad = 0;
-  //     createDivs();
-  //   }
-  //   const handleRouteChange = () => {
-  //     // Remove the dynamically created divs when the route changes
-  //     createdElements.forEach((element) => {
-  //       ReactDOM.unmountComponentAtNode(element);
-  //       element.parentNode.removeChild(element);
-  //     });
-  //     setCreatedElements([]); // Clear the state of created elements
-  //   };
-
-  //   router.events.on("routeChangeStart", handleRouteChange);
-
-  //   return () => {
-  //     router.events.off("routeChangeStart", handleRouteChange);
-  //   };
-  // }, [router.query]);
-  // useEffect(() => {
-  //   const createdElements = [];
-  //   if (ad && data) {
-  //     ad = 0;
-  //     const container = document.querySelector(".blog-details-container");
-  //     if (container) {
-  //       const h2Elements = container.querySelectorAll("h2");
-
-  //       // const randomIndexes = getRandomIndexes(h2Elements.length, 2);
-  //       [0, h2Elements.length - 1].forEach((index, idx) => {
-  //         if (index !== 0 || idx === 0) {
-  //           const h2Element = h2Elements[index];
-
-  //           const newElement = document.createElement("div");
-  //           createdElements.push(newElement);
-  //           // Render the MyCustomComponent inside the newElement using JSX
-  //           const customComponent = (
-  //             <HorizontalAds
-  //               data-ad-layout="in-article"
-  //               data-ad-format="fluid"
-  //               data-ad-slot="8469191657"
-  //             />
-  //           );
-  //           ReactDOM.render(customComponent, newElement);
-
-  //           h2Element.insertAdjacentElement("beforebegin", newElement);
-  //         }
-  //       });
-  //     }
-  //   }
-  //   return () => {
-  //     // Cleanup function to remove the created components when MyComponent is unmounted
-  //     createdElements.forEach((element) => {
-  //       ReactDOM.unmountComponentAtNode(element);
-  //     });
-  //   };
-  // }, [ad, data]);
+      // console.log(updatedData.keywords);
+    }
+    keyFlag = 0;
+  }, [keywords, keyFlag]);
 
   let flag = 1;
   useEffect(() => {
@@ -276,12 +202,20 @@ const BlogDetail = ({ data, imgUrl }) => {
           const { data: da } = await axios.post("/api/blogs/views", {
             id: id,
           });
-          setUpdatedData(da);
+          setKeywords(da.keywords);
+          if (da.keywords !== keywords) {
+            keyFlag = 1;
+            setUpdatedData(da);
+          }
           sessionStorage.setItem(id, currentDate);
         } else if (id) {
           const { data: da } = await axios.post("/api/blogs/id", {
             id: id,
           });
+          if (da.keywords !== keywords) {
+            keyFlag = 1;
+            setKeywords(da.keywords);
+          }
           setUpdatedData(da);
         }
         // setloading(false);
@@ -316,51 +250,71 @@ const BlogDetail = ({ data, imgUrl }) => {
                 {/* <SinglePost data={updatedData} /> */}
                 <Post data={updatedData} />
 
-                {/* <section className="whats-news-area pt-10 pb-20 gray-bg mt-50">
-                  <div className="container">
-                    <div className="row">
-                      <div
-                        className="most-recent-area"
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
-                      >
-                   
-                        <div className="small-tittle mb-20">
-                          <h4>Similar Topics</h4>
-                        </div>
-                        <OwlCarousel
-                          className="owl-theme"
-                          loop
-                          autoplayHoverPause
-                          autoplayTimeout={2000}
-                          autoplay
-                          margin={10}
-                          responsive={{
-                            0: {
-                              items: 1,
-                            },
-                            480: {
-                              items: 1,
-                            },
-                            767: {
-                              items: 2,
-                            },
-                            992: {
-                              items: 2,
-                            },
-                            1280: {
-                              items: 2,
-                            },
-                          }}
+                {similarBlogs && similarBlogs.length !== 0 && (
+                  <section className="whats-news-area pt-10 pb-20 gray-bg mt-50">
+                    <div className="container">
+                      <div className="row">
+                        <div
+                          className="most-recent-area"
+                          style={{ paddingBottom: "10px", paddingTop: "10px" }}
                         >
-                          <div className="most-recent-single ">
-                            <CategorySmall2 data={updatedData} />
+                          <div
+                            className="small-tittle mb-20"
+                            style={{ padding: "5px", paddingLeft: "10px" }}
+                          >
+                            <h4>Similar Topics</h4>
                           </div>
-                        
-                        </OwlCarousel>
+                          <OwlCarousel
+                            className="owl-theme"
+                            loop
+                            autoplayHoverPause
+                            autoplayTimeout={2000}
+                            autoplay
+                            margin={10}
+                            responsive={{
+                              0: {
+                                items: 1,
+                              },
+                              480: {
+                                items: 1,
+                              },
+                              767: {
+                                items: 2,
+                              },
+                              992: {
+                                items: 2,
+                              },
+                              1280: {
+                                items: 2,
+                              },
+                            }}
+                          >
+                            {similarBlogs.map((blog) => {
+                              return (
+                                <Link
+                                  key={blog.id}
+                                  href={
+                                    "/blogs/" +
+                                    blog.title
+                                      .toLowerCase()
+                                      .replace(/ /g, "-")
+                                      .replace(/\?/g, "") +
+                                    "-" +
+                                    blog.id
+                                  }
+                                >
+                                  <div className="most-recent-single ">
+                                    <CategorySmall2 data={blog} />
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </OwlCarousel>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </section> */}
+                  </section>
+                )}
               </div>
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
