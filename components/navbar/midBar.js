@@ -23,7 +23,7 @@ const MidBar = () => {
           <div className="col-xl-9 col-lg-9 col-md-9">
             <Link href="/policies/advertise">
               <div className="header-banner f-right ">
-                <img src="/ad/ad.png" alt="ad" loading="lazy" />
+                <img src="/ad/AD.gif" alt="ad" loading="lazy" />
               </div>
             </Link>
           </div>
