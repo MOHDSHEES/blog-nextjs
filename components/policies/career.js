@@ -334,6 +334,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
+      <HorizontalAds
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-slot="1227331152"
+      />
     </div>
   );
 };
