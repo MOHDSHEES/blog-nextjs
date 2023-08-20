@@ -421,7 +421,6 @@ const BlogDetail = ({ data, imgUrl }) => {
                                   data-ad-layout-key="-7q+f1-x-5f+d4"
                                   data-ad-slot="2644107188"
                                 />
-                                ;
                               </div>
                             );
                           }
