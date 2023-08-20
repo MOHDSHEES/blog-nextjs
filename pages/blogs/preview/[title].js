@@ -125,19 +125,18 @@ const Preview = ({ data, imgUrl }) => {
   // }, [data]);
   //   useEffect(() => {
   //     setUpdatedData(data);
+  const [id, setId] = useState(null);
   //   }, [data]);
-
-  let flag = 1;
   useEffect(() => {
-    if (!updatedData && flag) {
-      flag = 0;
+    const { title } = router.query;
+    let id;
+    if (title) setId(title.slice(-10));
+  }, [router]);
+
+  useEffect(() => {
+    if (!updatedData && id) {
       // if (data) setUpdatedData(data);
-      const { title } = router.query;
-      //   console.log(title);
-      //   const regex = /-([a-zA-Z0-9]+)$/;
-      //   const match = title.match(regex);
-      let id;
-      if (title) id = title.slice(-10);
+
       //   console.log(id);
       console.log(id);
       //   const id = match && match[1];
@@ -169,7 +168,7 @@ const Preview = ({ data, imgUrl }) => {
         // setloading(false);
       })();
     }
-  }, []);
+  }, [id]);
 
   //     console.log(trending);
   //   console.log(data);
