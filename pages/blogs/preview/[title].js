@@ -169,7 +169,7 @@ const Preview = ({ data, imgUrl }) => {
         // setloading(false);
       })();
     }
-  }, [router]);
+  }, []);
 
   //     console.log(trending);
   //   console.log(data);
