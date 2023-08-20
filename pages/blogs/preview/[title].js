@@ -171,7 +171,6 @@ const Preview = ({ data, imgUrl }) => {
     }
   }, [router]);
 
-  console.log(updatedData);
   //     console.log(trending);
   //   console.log(data);
   //   console.log(updatedData);

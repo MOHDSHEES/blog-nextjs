@@ -24,7 +24,7 @@ export default async function userAPI(req, res) {
             locale: "en",
             strength: 2,
           });
-        if (data) res.json(data);
+        if (data && data.id) res.json(data);
         else {
           const data = await uBlogModel.findOne({ id: req.body.id }).collation({
             locale: "en",
