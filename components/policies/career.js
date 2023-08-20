@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HorizontalAds from "../ads/horizontalAds";
 
 const CareerComponent = () => {
   const [active, setActive] = useState({
@@ -21,6 +22,7 @@ const CareerComponent = () => {
         <h2 className=" mt-4">Career Opportunities </h2>
         <h3 className="mb-5"> Current Openings</h3>
       </div>
+
       <div class="accordion-item" style={{ position: "relative" }}>
         <h2 class="accordion-header">
           <button
@@ -112,6 +114,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
+      <HorizontalAds
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-slot="1227331152"
+      />
       <div class="accordion-item mt-2  " style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button
@@ -220,6 +227,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
+      <HorizontalAds
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-slot="1227331152"
+      />
       <div class="accordion-item mt-2 mb-5" style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button

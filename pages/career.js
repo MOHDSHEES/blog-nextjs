@@ -3,6 +3,7 @@ import CareerComponent from "../components/policies/career";
 import { MyContext } from "../components/context";
 import Card2 from "../components/homepage/card2";
 import Head from "next/head";
+import HorizontalAds from "../components/ads/horizontalAds";
 
 const Career = () => {
   const { trending } = useContext(MyContext);
@@ -45,6 +46,15 @@ const Career = () => {
                   {trending &&
                     trending.length !== 0 &&
                     trending.map((blog, idx) => {
+                      if (idx === 1) {
+                        return (
+                          <HorizontalAds
+                            data-ad-format="fluid"
+                            data-ad-layout-key="-7q+f1-x-5f+d4"
+                            data-ad-slot="2644107188"
+                          />
+                        );
+                      }
                       return <Card2 data={blog} key={idx} />;
                     })}
                 </div>
