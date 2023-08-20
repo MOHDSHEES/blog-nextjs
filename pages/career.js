@@ -48,11 +48,13 @@ const Career = () => {
                     trending.map((blog, idx) => {
                       if (idx === 1) {
                         return (
-                          <HorizontalAds
-                            data-ad-format="fluid"
-                            data-ad-layout-key="-7q+f1-x-5f+d4"
-                            data-ad-slot="2644107188"
-                          />
+                          <div style={{ textAlign: "center" }}>
+                            <HorizontalAds
+                              data-ad-format="fluid"
+                              data-ad-layout-key="-7q+f1-x-5f+d4"
+                              data-ad-slot="2644107188"
+                            />
+                          </div>
                         );
                       }
                       return <Card2 data={blog} key={idx} />;
