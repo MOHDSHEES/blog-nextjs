@@ -127,10 +127,10 @@ const Preview = ({ data, imgUrl }) => {
   //     setUpdatedData(data);
   //   }, [data]);
 
-  //   let flag = 1;
+  let flag = 1;
   useEffect(() => {
-    if (!updatedData) {
-      // flag = 0;
+    if (!updatedData && flag) {
+      flag = 0;
       // if (data) setUpdatedData(data);
       const { title } = router.query;
       //   console.log(title);
