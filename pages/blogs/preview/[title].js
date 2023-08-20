@@ -139,7 +139,7 @@ const Preview = ({ data, imgUrl }) => {
       let id;
       if (title) id = title.slice(-10);
       //   console.log(id);
-      //   console.log(id);
+      console.log(id);
       //   const id = match && match[1];
       // console.log("in");
       (async () => {

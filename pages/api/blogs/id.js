@@ -18,7 +18,7 @@ export default async function userAPI(req, res) {
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
       if (req.body.preview) {
-        console.log("in");
+        // console.log("in");
         const data = await tempBlogModel
           .findOne({ id: req.body.id })
           .collation({
@@ -27,14 +27,14 @@ export default async function userAPI(req, res) {
           });
         if (data && data.id) {
           res.json(data);
-          console.log("in -in");
+          // console.log("in -in");
         } else {
           const data = await uBlogModel.findOne({ id: req.body.id }).collation({
             locale: "en",
             strength: 2,
           });
           res.json(data);
-          console.log("in -else");
+          // console.log("in -else");
         }
       } else {
         const data = await uBlogModel
@@ -44,7 +44,7 @@ export default async function userAPI(req, res) {
             strength: 2,
           });
         res.json(data);
-        console.log("else");
+        // console.log("else");
       }
       //   const createdUser = await User.create(req.body);
       // console.log("CREATED DOCUMENT");
