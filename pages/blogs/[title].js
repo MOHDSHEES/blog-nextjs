@@ -408,6 +408,13 @@ const BlogDetail = ({ data, imgUrl }) => {
                       {trending &&
                         trending.length !== 0 &&
                         trending.map((blog, idx) => {
+                          if (idx === 1) {
+                            <HorizontalAds
+                              data-ad-format="fluid"
+                              data-ad-layout-key="-7q+f1-x-5f+d4"
+                              data-ad-slot="2644107188"
+                            />;
+                          }
                           return <Card2 data={blog} key={idx} />;
                         })}
                     </div>
