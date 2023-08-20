@@ -147,7 +147,7 @@ const Preview = ({ data, imgUrl }) => {
           id: id,
           preview: true,
         });
-        // console.log(da);
+        console.log(da);
         setUpdatedData(da);
         // setloading(true);
         // const currentDate = new Date().toLocaleDateString();
