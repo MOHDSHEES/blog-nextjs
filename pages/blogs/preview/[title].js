@@ -138,7 +138,7 @@ const Preview = ({ data, imgUrl }) => {
       // if (data) setUpdatedData(data);
 
       //   console.log(id);
-      console.log(id);
+      // console.log(id);
       //   const id = match && match[1];
       // console.log("in");
       (async () => {
@@ -146,7 +146,7 @@ const Preview = ({ data, imgUrl }) => {
           id: id,
           preview: true,
         });
-        console.log(da);
+        // console.log(da);
         setUpdatedData(da);
         // setloading(true);
         // const currentDate = new Date().toLocaleDateString();
