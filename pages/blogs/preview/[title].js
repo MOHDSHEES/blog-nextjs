@@ -171,7 +171,7 @@ const Preview = ({ data, imgUrl }) => {
     }
   }, [router]);
 
-  //   console.log(updatedData);
+  console.log(updatedData);
   //     console.log(trending);
   //   console.log(data);
   //   console.log(updatedData);
@@ -197,7 +197,7 @@ const Preview = ({ data, imgUrl }) => {
             <div className="row">
               <div className="col-lg-8 posts-list">
                 {/* <SinglePost data={updatedData} /> */}
-                <Post data={updatedData} />
+                <Post data={updatedData} preview={true} />
               </div>
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">

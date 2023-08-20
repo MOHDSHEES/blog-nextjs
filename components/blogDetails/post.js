@@ -12,7 +12,7 @@ import ReactDOM from "react-dom";
 // import { useRouter } from "next/router";
 import { createPortal } from "react-dom";
 
-const Post = ({ data }) => {
+const Post = ({ data, preview = false }) => {
   // .match(`/<h1>(.*?)<\/h1>/gi`)
   // .map((match) => match.replace(/<\/?h1>/g, ""))
   // console.log(data);
@@ -28,33 +28,35 @@ const Post = ({ data }) => {
   let flag = 1;
   useEffect(() => {
     // Indexes of the target h2 elements
-    const container = blogContainerRef.current;
+    if (!preview) {
+      const container = blogContainerRef.current;
 
-    const h2Elements = container.querySelectorAll("h2");
-    const targetH2Indexes = [0, h2Elements.length - 1];
-    // console.log(h2Elements);
-    if (h2Elements.length && flag) {
-      flag = 0;
-      // Create new div elements for each target h2 element
-      targetH2Indexes.forEach((index, idx) => {
-        if (index !== 0 || idx === 0) {
-          const h2Element = h2Elements[index];
-          const newDiv = document.createElement("div");
+      const h2Elements = container.querySelectorAll("h2");
+      const targetH2Indexes = [0, h2Elements.length - 1];
+      // console.log(h2Elements);
+      if (h2Elements.length && flag) {
+        flag = 0;
+        // Create new div elements for each target h2 element
+        targetH2Indexes.forEach((index, idx) => {
+          if (index !== 0 || idx === 0) {
+            const h2Element = h2Elements[index];
+            const newDiv = document.createElement("div");
 
-          // Render the MyCustomComponent inside the new div using createPortal
-          const customComponent = (
-            <HorizontalAds
-              data-ad-layout="in-article"
-              data-ad-format="fluid"
-              data-ad-slot="8469191657"
-            />
-          );
-          ReactDOM.render(createPortal(customComponent, newDiv), newDiv);
+            // Render the MyCustomComponent inside the new div using createPortal
+            const customComponent = (
+              <HorizontalAds
+                data-ad-layout="in-article"
+                data-ad-format="fluid"
+                data-ad-slot="8469191657"
+              />
+            );
+            ReactDOM.render(createPortal(customComponent, newDiv), newDiv);
 
-          // Insert the new div before the target h2 element
-          h2Element.insertAdjacentElement("beforebegin", newDiv);
-        }
-      });
+            // Insert the new div before the target h2 element
+            h2Element.insertAdjacentElement("beforebegin", newDiv);
+          }
+        });
+      }
     }
   }, [blogContent]);
 
