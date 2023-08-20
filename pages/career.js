@@ -48,7 +48,9 @@ const Career = () => {
                     trending.map((blog, idx) => {
                       if (idx === 1) {
                         return (
-                          <div style={{ textAlign: "center" }}>
+                          <div
+                            style={{ textAlign: "center", padding: "10px 0" }}
+                          >
                             <HorizontalAds
                               data-ad-format="fluid"
                               data-ad-layout-key="-7q+f1-x-5f+d4"
