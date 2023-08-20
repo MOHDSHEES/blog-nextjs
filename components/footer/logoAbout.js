@@ -9,10 +9,7 @@ const LogoAbout = () => {
           {/* logo */}
           <div className="footer-logo nav-a">
             <Link href="/">
-              <h2
-                class="mb-2 mt-n2  text-uppercase "
-                style={{ color: "white" }}
-              >
+              <h2 class="mb-2 mt-n2  text-uppercase" style={{ color: "white" }}>
                 <span style={{ color: "red" }}>OFF</span>THE
                 <span style={{ color: "red" }}>WEB</span>
               </h2>

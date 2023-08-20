@@ -1,4 +1,5 @@
 import dbConnect from "../../../lib/mongoose";
+import tempBlogModel from "../../../models/tempBlogModel";
 import uBlogModel from "../../../models/ublogModel";
 
 // export default function handler(req, res) {
@@ -17,11 +18,20 @@ export default async function userAPI(req, res) {
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
       if (req.body.preview) {
-        const data = await uBlogModel.findOne({ id: req.body.id }).collation({
-          locale: "en",
-          strength: 2,
-        });
-        res.json(data);
+        const data = await tempBlogModel
+          .findOne({ id: req.body.id })
+          .collation({
+            locale: "en",
+            strength: 2,
+          });
+        if (data) res.json(data);
+        else {
+          const data = await uBlogModel.findOne({ id: req.body.id }).collation({
+            locale: "en",
+            strength: 2,
+          });
+          res.json(data);
+        }
       } else {
         const data = await uBlogModel
           .findOne({ id: req.body.id, status: "Active" })
