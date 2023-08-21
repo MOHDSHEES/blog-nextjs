@@ -410,6 +410,13 @@ const AboutUs = () => {
                 }
                 post={"Social Media Management"}
               />
+              <MemberCard
+                name={"ALI ZIA"}
+                src={
+                  "https://res.cloudinary.com/domyp6djh/image/upload/v1692649669/employees/20230605_132603_2_gq1wfu.webp"
+                }
+                post={"Social Media Management"}
+              />
             </OwlCarousel>
           </div>
         </div>
