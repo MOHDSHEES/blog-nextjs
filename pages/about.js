@@ -142,7 +142,7 @@ const AboutUs = () => {
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688926452/employees/Anas_Adnan_rkbyn9.webp"
               }
-              post={"Project Manager"}
+              post={"Managing Director"}
             />
             <MemberCard
               name={"RAMSHA FARHEEN"}
