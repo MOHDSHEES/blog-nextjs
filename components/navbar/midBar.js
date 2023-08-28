@@ -21,11 +21,11 @@ const MidBar = () => {
             </div>
           </div>
           <div className="col-xl-9 col-lg-9 col-md-9">
-            <Link href="/policies/advertise">
+            <a href="https://www.technboost.com/" target="_blank">
               <div className="header-banner f-right ">
                 <img src="/ad/AD.gif" alt="ad" loading="lazy" />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
