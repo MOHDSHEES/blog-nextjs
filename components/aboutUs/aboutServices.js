@@ -28,16 +28,20 @@ const AboutServices = () => {
               <p className="mb-4">
                 OFFTHEWEB is a blog website that aims to provide a refreshing
                 break from the online world that surrounds us. In a world where
-                we are constantly connected to the internet, Off The Web offers
-                a space for readers to disconnect and explore topics that are
+                we are constantly connected to the internet, OffTheWeb offers a
+                space for readers to disconnect and explore topics that are
                 often overlooked in the digital realm. From lifestyle and travel
                 to personal growth and well-being.
               </p>
               <p className="">
-                Off The Web provides a wide range of content that encourages
+                OffTheWeb provides a wide range of content that encourages
                 readers to step away from their screens and engage with the
                 world around them. Join us on a journey of discovery and
-                self-reflection as we explore the world Off The Web.
+                self-reflection as we explore the world OffTheWeb.
+              </p>
+              <p>
+                <span style={{ color: "#eb566c" }}>Reg.no:</span>{" "}
+                UDYAM-UP-17-0017152
               </p>
             </div>
           </div>
