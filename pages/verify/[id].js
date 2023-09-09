@@ -1,25 +1,53 @@
-import React from "react";
-import dbConnect from "../../lib/mongoose";
-import employeeModel from "../../models/employeeModel";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import axios from "axios";
+// import dbConnect from "../../lib/mongoose";
+// import employeeModel from "../../models/employeeModel";
 
-export async function getServerSideProps({ params }) {
-  await dbConnect();
-  const id = params.id;
-  //   console.log(id);
-  const data = await employeeModel
-    .findOne({ "certificate.certificateNo": id }, { _id: 0, tasks: 0 })
-    .lean();
+// export async function getServerSideProps({ params }) {
+//   await dbConnect();
+//   const id = params.id;
+//   //   console.log(id);
+//   const data = await employeeModel
+//     .findOne({ "certificate.certificateNo": id }, { _id: 0, tasks: 0 })
+//     .lean();
 
-  return {
-    props: {
-      data,
-    },
-  };
-}
-const Id = ({ data }) => {
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
+const Id = () => {
+  const [data, setData] = useState(null);
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  async function verify(id) {
+    // console.log(id);
+    setLoading(true);
+    const { data } = await axios.post("/api/verify/id", {
+      id: id,
+    });
+    if (data.status) setData(data.data);
+    setLoading(false);
+    // console.log(data);
+  }
+  useEffect(() => {
+    const id = router.query.id;
+    if (id) verify(id);
+  }, [router]);
+
   return (
     <div>
-      {data && data.certificate ? (
+      {loading ? (
+        <div
+          class="alert alert-primary"
+          style={{ margin: "50px 10px", textAlign: "center" }}
+          role="alert"
+        >
+          Verifying...
+        </div>
+      ) : data && data.certificate ? (
         <div
           class="alert alert-primary"
           style={{ margin: "50px 10px", textAlign: "center" }}
@@ -30,7 +58,7 @@ const Id = ({ data }) => {
           OFFTHEWEB.
           <br />
           The certificate is issued to : <b>' {data.certificate.name} '</b> on
-          <b>' {data.certificate.issueDate} '</b> as per our records.
+          <b> ' {data.certificate.issueDate} '</b> as per our records.
           <br />
           <br /> If you have any questions or require additional assistance,
           please do not hesitate to{" "}
