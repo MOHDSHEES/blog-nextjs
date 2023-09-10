@@ -14,6 +14,10 @@ class MyDocument extends Document {
             content="bd52b26a-2a95-4bdc-b090-da3954c81044"
           />
           <meta
+            name="p:domain_verify"
+            content="c1e7c16e8e3985f1282cd82df1e1e64f"
+          />
+          <meta
             name="google-site-verification"
             content="KDX93825cyhwPt5qrouMT2SW88-urVI4NOO5zpJjEmc"
           />

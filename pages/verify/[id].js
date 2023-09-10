@@ -77,7 +77,7 @@ const Id = () => {
           role="alert"
         >
           We regret to inform you that the certificate provided does not appear
-          to have been issued by our organization.
+          to have been issued by OFFTHEWEB.
           <br /> If you have any questions or require additional assistance,
           please do not hesitate to{" "}
           <a

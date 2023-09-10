@@ -16,7 +16,7 @@ export default async function userAPI(req, res) {
 
     if (req.method === "POST") {
       // console.log("CREATING DOCUMENT");
-      console.log(req.body.id);
+      // console.log(req.body.id);
       // console.log("in");
       const data = await employeeModel
         .findOne(
