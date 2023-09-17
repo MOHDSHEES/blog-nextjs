@@ -2,6 +2,12 @@ import React, { useContext } from "react";
 import { MyContext } from "../components/context";
 import Card2 from "../components/homepage/card2";
 import Head from "next/head";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faBriefcase,
+  faClock,
+} from "@fortawesome/free-solid-svg-icons";
 const Jobs = () => {
   const { trending } = useContext(MyContext);
   return (
@@ -73,7 +79,7 @@ const Jobs = () => {
                           <img
                             class="card-img-top"
                             loading="lazy"
-                            src="https://res.cloudinary.com/domyp6djh/image/upload/v1694244435/technology%20webp/1_5_xp68dc.webp"
+                            src="https://upload.wikimedia.org/wikipedia/en/2/2a/Nucleus_Logo.png"
                             //   alt={data.category}
                           />
                           <h5 class="card-title">
@@ -83,13 +89,23 @@ const Jobs = () => {
                         </div>
                         <div className="job-meta ">
                           <small>
-                            <b>Location:</b> WFH
+                            <b>
+                              <FontAwesomeIcon icon={faLocationDot} />
+                            </b>{" "}
+                            WFH
+                          </small>
+
+                          <small>
+                            <b>
+                              <FontAwesomeIcon icon={faBriefcase} />
+                            </b>{" "}
+                            1-2 yrs
                           </small>
                           <small>
-                            <b>Last Date:</b> 20-08-2025
-                          </small>
-                          <small>
-                            <b>Exp:</b> 1-2 yrs
+                            <b>
+                              <FontAwesomeIcon icon={faClock} />
+                            </b>{" "}
+                            20-08-2025
                           </small>
                         </div>
 
