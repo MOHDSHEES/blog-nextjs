@@ -67,7 +67,7 @@ function JobDescription({ show, setShow }) {
                 <td>lorem</td>
               </tr>
               <tr>
-                <th>Exp.</th>
+                <th>Experience</th>
                 <td>lorem</td>
               </tr>
               <tr>

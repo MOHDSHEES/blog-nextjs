@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { MyContext } from "../components/context";
-import Card2 from "../components/homepage/card2";
+import { MyContext } from "../../components/context";
+import Card2 from "../../components/homepage/card2";
 import Head from "next/head";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,7 +8,7 @@ import {
   faBriefcase,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
-import JobDescription from "../components/modal/jobDescription";
+import JobDescription from "../../components/modal/jobDescription";
 const Jobs = () => {
   const [show, setShow] = useState(false);
   const { trending } = useContext(MyContext);
