@@ -1993,8 +1993,8 @@ hr {
   }
 }
 .footer-padding {
-  padding-top: 140px;
-  padding-bottom: 80px;
+  padding-top: 80px;
+  padding-bottom: 30px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .footer-padding {
@@ -3984,7 +3984,7 @@ hr {
   background: #000000;
 }
 .footer-bottom-area .footer-border {
-  padding: 33px 0px 33px;
+  padding: 10px 0px 20px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .footer-bottom-area .footer-border {

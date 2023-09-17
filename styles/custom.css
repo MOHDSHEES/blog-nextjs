@@ -671,6 +671,23 @@ h4 {
   object-fit: contain;
   margin-right: 10px;
 }
+.apply-now-btn {
+  position: sticky;
+  float: right;
+  bottom: 30px;
+
+  /* right: 20px; */
+}
+.primary-1 {
+  background-color: #0d6efd;
+}
+.primary-1:hover {
+  background-color: #5796f4;
+}
+
+.job-table tbody tr th:first-child {
+  width: 20%;
+}
 /* .job-meta small {
   background-color: aqua;
   border-radius: 2px;
