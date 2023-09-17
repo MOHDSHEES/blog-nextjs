@@ -53,8 +53,13 @@ const Post = () => {
             <Accordion.Item eventKey="0">
               <Accordion.Header>Company Details</Accordion.Header>
               <Accordion.Body style={{ paddingBottom: "10px" }}>
-                <Row className="mb-3">
-                  <Form.Group as={Col} md="4" controlId="validationCustom01">
+                <Row>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom01"
+                  >
                     <Form.Label>Company Name *</Form.Label>
                     <Form.Control
                       required
@@ -68,7 +73,12 @@ const Post = () => {
                       Enter the Company Name
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom02"
+                  >
                     <Form.Label>Website *</Form.Label>
                     <Form.Control
                       required
@@ -86,6 +96,7 @@ const Post = () => {
                   <Form.Group
                     as={Col}
                     md="4"
+                    className="mb-3"
                     controlId="validationCustomUsername"
                   >
                     <Form.Label>Logo *</Form.Label>
@@ -105,8 +116,12 @@ const Post = () => {
                     </InputGroup>
                   </Form.Group>
                 </Row>
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="validationCustom06">
+                <Row>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    controlId="validationCustom06"
+                  >
                     <Form.Label>About *</Form.Label>
                     <Form.Control
                       required
@@ -127,8 +142,13 @@ const Post = () => {
             <Accordion.Item eventKey="1">
               <Accordion.Header>Job Details</Accordion.Header>
               <Accordion.Body style={{ paddingBottom: "15px" }}>
-                <Row className="mb-3">
-                  <Form.Group as={Col} md="8" controlId="validationCustom01">
+                <Row>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="8"
+                    controlId="validationCustom01"
+                  >
                     <Form.Label>Job Title *</Form.Label>
                     <Form.Control
                       required
@@ -146,6 +166,7 @@ const Post = () => {
                   <Form.Group
                     as={Col}
                     md="4"
+                    className="mb-3"
                     controlId="validationCustomUsername"
                   >
                     <Form.Label>Experience *</Form.Label>
@@ -165,8 +186,13 @@ const Post = () => {
                     </InputGroup>
                   </Form.Group>
                 </Row>
-                <Row className="mb-3">
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
+                <Row>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom02"
+                  >
                     <Form.Label>Location *</Form.Label>
                     <Form.Control
                       required
@@ -187,7 +213,12 @@ const Post = () => {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  <Form.Group as={Col} md="4" controlId="validationCustom04">
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom04"
+                  >
                     <Form.Label>Salary *</Form.Label>
                     <Form.Control
                       type="text"
@@ -201,8 +232,13 @@ const Post = () => {
                       Enter the salary (i.e Unpaid/3.5 LPA)
                     </Form.Control.Feedback>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom03">
-                    <Form.Label>Last Date *</Form.Label>
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom03"
+                  >
+                    <Form.Label>Last Date</Form.Label>
                     <Form.Control
                       type="date"
                       name="lastDate"
