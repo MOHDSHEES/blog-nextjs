@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { MyContext } from "../components/context";
 import Card2 from "../components/homepage/card2";
 import Head from "next/head";
-const Test = () => {
+const Jobs = () => {
   const { trending } = useContext(MyContext);
   return (
     <div>
@@ -53,7 +53,7 @@ const Test = () => {
                   return (
                     <div
                       key={idx}
-                      class="card categories-card col-lg-5"
+                      class="card categories-card col-lg-5 job-cards"
                       style={{ padding: 0, margin: "10px" }}
                     >
                       {/* <Link
@@ -74,16 +74,33 @@ const Test = () => {
                         //   alt={data.category}
                       />
                       <div class="card-body">
-                        <h5 class="card-title" style={{ color: "black" }}>
-                          Midjourney: Generative AI program and tool
+                        <h5 class="card-title">
+                          Nucleus Software Off Campus Drive 2023 for Assistant
+                          Software Engineer | B.E/B.Tech | Noida
                         </h5>
+                        <div className="job-meta ">
+                          <small>
+                            <b>Location:</b> WFH
+                          </small>
+                          <small>
+                            <b>Last Date:</b> 20-08-2025
+                          </small>
+                          <small>
+                            <b>Exp:</b> 1-2 yrs
+                          </small>
+                        </div>
 
                         <p
-                          class="card-text break-line-4"
+                          class="card-text break-line-3 mt-2"
                           style={{ lineHeight: "25px" }}
                         >
-                          In this blog, we will discuss about Midjourney, its
-                          various features and applications, and how to use it.
+                          We are looking for young creative technologists who
+                          are proud of their creations be it code, design,
+                          architecture or solution. Professionals who wish to be
+                          part of our mission and help us build and evolve world
+                          class software products. The role is in the Product
+                          Engineering team. Following are some expectations from
+                          the role:
                           {/* {data.description} */}
                         </p>
                       </div>
@@ -117,4 +134,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Jobs;

@@ -633,3 +633,32 @@ h3 {
 h4 {
   font-size: 20px;
 }
+
+/* job cards */
+.job-cards {
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+}
+.job-cards img {
+  width: 80px;
+  margin: 10px;
+  object-fit: contain;
+}
+.job-meta {
+  display: flex;
+  padding: 5px;
+
+  justify-content: space-between;
+  background-color: #e3e0e0;
+  border-radius: 3px;
+}
+.job-cards :hover .card-title {
+  color: #ff2143;
+}
+/* .job-meta small {
+  background-color: aqua;
+  border-radius: 2px;
+  padding: ;
+} */
