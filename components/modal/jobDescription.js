@@ -48,7 +48,7 @@ function JobDescription({ show, setShow }) {
             <tbody>
               <tr>
                 <th>Company</th>
-                <td colSpan={2}>lorem</td>
+                <td>lorem</td>
               </tr>
               <tr>
                 <th>website</th>
@@ -59,23 +59,23 @@ function JobDescription({ show, setShow }) {
                 <td>lorem</td>
               </tr>
               <tr>
-                <td>Qualification</td>
+                <th>Qualification</th>
                 <td>lorem</td>
               </tr>
               <tr>
-                <td>Location</td>
+                <th>Location</th>
                 <td>lorem</td>
               </tr>
               <tr>
-                <td>Exp.</td>
+                <th>Exp.</th>
                 <td>lorem</td>
               </tr>
               <tr>
-                <td>Salary</td>
+                <th>Salary</th>
                 <td>lorem</td>
               </tr>
               <tr>
-                <td>Last date</td>
+                <th>Last date</th>
                 <td>lorem</td>
               </tr>
 
