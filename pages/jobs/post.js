@@ -28,7 +28,7 @@ const Post = () => {
     });
   };
 
-  console.log(state);
+  // console.log(state);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -46,13 +46,16 @@ const Post = () => {
             style={{ background: "white" }}
             class="d-flex align-items-center justify-content-center  py-2 px-4 mb-3"
           >
-            <h2 className="">Post Free Job</h2>
+            <h2 className="">Post Free Jobs</h2>
           </div>
         </div>
-        <Accordion defaultActiveKey="0">
+        <small style={{ color: "red" }}>
+          <b>Note</b>: Please fill out the complete form to post a Job.{" "}
+        </small>
+        <Accordion className="mt-2" defaultActiveKey="0">
           <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Accordion.Item eventKey="0">
-              <Accordion.Header>Company Details</Accordion.Header>
+              <Accordion.Header>1) Company Details</Accordion.Header>
               <Accordion.Body style={{ paddingBottom: "10px" }}>
                 <Row>
                   <Form.Group
@@ -141,7 +144,7 @@ const Post = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
-              <Accordion.Header>Job Details</Accordion.Header>
+              <Accordion.Header>2) Job Details</Accordion.Header>
               <Accordion.Body style={{ paddingBottom: "15px" }}>
                 <Row>
                   <Form.Group
@@ -252,7 +255,7 @@ const Post = () => {
               </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
-              <Accordion.Header>Addition Details</Accordion.Header>
+              <Accordion.Header>3) Addition Details</Accordion.Header>
               <Accordion.Body style={{ paddingBottom: "15px" }}>
                 <Edit />
                 <Button className="primary-1 mt-3" type="submit">
