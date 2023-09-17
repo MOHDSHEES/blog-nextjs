@@ -251,10 +251,15 @@ const Post = () => {
                 </Row>
               </Accordion.Body>
             </Accordion.Item>
-            <Edit />
-            <Button className="primary-1 mt-3" type="submit">
-              Save
-            </Button>
+            <Accordion.Item eventKey="2">
+              <Accordion.Header>Addition Details</Accordion.Header>
+              <Accordion.Body style={{ paddingBottom: "15px" }}>
+                <Edit />
+                <Button className="primary-1 mt-3" type="submit">
+                  Save
+                </Button>
+              </Accordion.Body>
+            </Accordion.Item>
           </Form>
         </Accordion>
       </div>

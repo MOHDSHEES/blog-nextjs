@@ -43,7 +43,7 @@ const Edit = () => {
     <div className="body">
       {/* {contextHolder} */}
 
-      <div className="text-editor mt-5">
+      <div className="text-editor ">
         {/* <form
         > */}
         <Editor
