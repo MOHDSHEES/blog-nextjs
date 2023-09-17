@@ -641,11 +641,11 @@ h4 {
   max-width: 100%;
   cursor: pointer;
 }
-.job-cards img {
+/* .job-cards img {
   width: 80px;
   margin: 10px;
   object-fit: contain;
-}
+} */
 .job-meta {
   display: flex;
   padding: 5px;
@@ -656,6 +656,16 @@ h4 {
 }
 .job-cards :hover .card-title {
   color: #ff2143;
+}
+.job-title {
+  display: flex;
+  min-height: 100px;
+  align-items: center;
+}
+.job-title img {
+  width: 80px;
+  object-fit: contain;
+  margin-right: 10px;
 }
 /* .job-meta small {
   background-color: aqua;

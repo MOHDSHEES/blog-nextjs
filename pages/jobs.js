@@ -53,7 +53,7 @@ const Jobs = () => {
                   return (
                     <div
                       key={idx}
-                      class="card categories-card col-lg-5 job-cards"
+                      class="card categories-card  job-cards"
                       style={{ padding: 0, margin: "10px" }}
                     >
                       {/* <Link
@@ -67,17 +67,20 @@ const Jobs = () => {
                           data.id
                         }
                       > */}
-                      <img
-                        class="card-img-top"
-                        loading="lazy"
-                        src="https://res.cloudinary.com/domyp6djh/image/upload/v1694244435/technology%20webp/1_5_xp68dc.webp"
-                        //   alt={data.category}
-                      />
+
                       <div class="card-body">
-                        <h5 class="card-title">
-                          Nucleus Software Off Campus Drive 2023 for Assistant
-                          Software Engineer | B.E/B.Tech | Noida
-                        </h5>
+                        <div className="job-title">
+                          <img
+                            class="card-img-top"
+                            loading="lazy"
+                            src="https://res.cloudinary.com/domyp6djh/image/upload/v1694244435/technology%20webp/1_5_xp68dc.webp"
+                            //   alt={data.category}
+                          />
+                          <h5 class="card-title">
+                            Nucleus Software Off Campus Drive 2023 for Assistant
+                            Software Engineer | B.E/B.Tech | Noida
+                          </h5>
+                        </div>
                         <div className="job-meta ">
                           <small>
                             <b>Location:</b> WFH
