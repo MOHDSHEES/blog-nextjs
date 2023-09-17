@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Accordion from "react-bootstrap/Accordion";
+import Edit from "../../components/editor/editor";
 
 const Post = () => {
   const [validated, setValidated] = useState(false);
@@ -248,12 +249,12 @@ const Post = () => {
                     />
                   </Form.Group>
                 </Row>
-
-                <Button className="primary-1" type="submit">
-                  Save
-                </Button>
               </Accordion.Body>
             </Accordion.Item>
+            <Edit />
+            <Button className="primary-1 mt-3" type="submit">
+              Save
+            </Button>
           </Form>
         </Accordion>
       </div>
