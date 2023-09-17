@@ -17,9 +17,11 @@ const Post = () => {
     jobTitle: "",
     experience: "",
     location: "",
+    applyLink: "",
     salary: "",
     lastDate: "",
   });
+  // console.log(state);
   const Inputchange = (event) => {
     const { name, value } = event.target;
     setstate({
@@ -150,7 +152,7 @@ const Post = () => {
                   <Form.Group
                     className="mb-3"
                     as={Col}
-                    md="8"
+                    md="4"
                     controlId="validationCustom01"
                   >
                     <Form.Label>Job Title *</Form.Label>
@@ -166,7 +168,25 @@ const Post = () => {
                       Enter job title
                     </Form.Control.Feedback>
                   </Form.Group>
-
+                  <Form.Group
+                    className="mb-3"
+                    as={Col}
+                    md="4"
+                    controlId="validationCustom02"
+                  >
+                    <Form.Label>Apply Link *</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      name="applyLink"
+                      value={state.applyLink}
+                      onChange={Inputchange}
+                      placeholder="Enter apply link"
+                    />
+                    <Form.Control.Feedback type="invalid">
+                      Enter a valid URL for the Job application page.
+                    </Form.Control.Feedback>
+                  </Form.Group>
                   <Form.Group
                     as={Col}
                     md="4"
