@@ -51,7 +51,9 @@ function JobDescription({ show, setShow, data }) {
                   </tr>
                   <tr>
                     <th>website</th>
-                    <td>{data.website}</td>
+                    <td>
+                      <a href={data.website}>{data.website}</a>
+                    </td>
                   </tr>
                   <tr>
                     <th>Location</th>
@@ -83,9 +85,14 @@ function JobDescription({ show, setShow, data }) {
                 {data.jobSummary}
               </p>
               <p className="job-additional">{parse(data.additional)}</p>
-              <Button className="apply-now-btn primary-1" variant="primary">
+              <a
+                href={data.applyLink}
+                target="_blank"
+                className="apply-now-btn primary-1"
+                variant="primary"
+              >
                 Apply Now
-              </Button>
+              </a>
             </>
           )}
         </Modal.Body>

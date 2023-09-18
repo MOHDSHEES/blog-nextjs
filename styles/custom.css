@@ -675,6 +675,8 @@ h4 {
   position: sticky;
   float: right;
   bottom: 30px;
+  padding: 10px 15px;
+  border-radius: 5px;
 
   /* right: 20px; */
 }
