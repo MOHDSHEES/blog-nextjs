@@ -14,8 +14,13 @@ import axios from "axios";
 const Jobs = () => {
   const [show, setShow] = useState(false);
   const { trending } = useContext(MyContext);
-
+  const [data, setData] = useState(null);
   const [jobs, setJobs] = useState(null);
+
+  function openModal(job) {
+    setData(job);
+    setShow(true);
+  }
   async function getJobs() {
     const { data } = await axios.post("api/getJobs");
     setJobs(data);
@@ -74,7 +79,7 @@ const Jobs = () => {
                     return (
                       <div
                         key={idx}
-                        onClick={() => setShow(true)}
+                        onClick={() => openModal(data)}
                         class="card categories-card  job-cards"
                         style={{ padding: 0, margin: "10px" }}
                       >
@@ -156,7 +161,7 @@ const Jobs = () => {
           </div>
         </div>
       </section>
-      <JobDescription show={show} setShow={setShow} />
+      <JobDescription show={show} setShow={setShow} data={data} />
     </div>
   );
 };

@@ -12,6 +12,7 @@ import { message } from "antd";
 
 const Post = () => {
   const [validated, setValidated] = useState(false);
+
   const [messageApi, contextHolder] = message.useMessage();
   const [char, setChar] = useState(300);
   const [disabled, setDisabled] = useState(false);
