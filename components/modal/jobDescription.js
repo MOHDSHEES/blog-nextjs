@@ -43,7 +43,7 @@ function JobDescription({ show, setShow, data }) {
                 <br />
                 <p class="card-title">{data.about}</p>
               </p>
-              <Table striped bordered hover className="job-table">
+              <Table striped bordered className="job-table">
                 <tbody>
                   <tr>
                     <th>Company</th>
