@@ -691,7 +691,7 @@ h4 {
 .job-additional strong {
   color: black;
 }
-.job-additional {
+.job-additional * {
   font-size: 16px;
 }
 /* .job-meta small {
