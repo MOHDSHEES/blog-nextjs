@@ -47,7 +47,7 @@ function JobDescription({ show, setShow, data }) {
                 <tbody>
                   <tr>
                     <th>Company</th>
-                    <td>{data.company}</td>
+                    <td>{data.companyName}</td>
                   </tr>
                   <tr>
                     <th>website</th>
