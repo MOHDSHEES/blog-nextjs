@@ -52,7 +52,9 @@ function JobDescription({ show, setShow, data }) {
                   <tr>
                     <th>website</th>
                     <td>
-                      <a href={data.website}>{data.website}</a>
+                      <a href={data.website} target="_blank">
+                        {data.website}
+                      </a>
                     </td>
                   </tr>
                   <tr>

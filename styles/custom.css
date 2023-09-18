@@ -697,6 +697,9 @@ h4 {
   font-size: 16px;
   font-family: roboto, sans-serif;
 }
+.job-table a {
+  color: #0d6efd;
+}
 /* .job-meta small {
   background-color: aqua;
   border-radius: 2px;
