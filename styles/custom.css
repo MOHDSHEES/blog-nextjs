@@ -693,6 +693,7 @@ h4 {
 }
 .job-additional * {
   font-size: 16px;
+  font-family: roboto, sans-serif;
 }
 /* .job-meta small {
   background-color: aqua;
