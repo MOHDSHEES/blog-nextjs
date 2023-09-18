@@ -3,12 +3,8 @@ import { Editor } from "@tinymce/tinymce-react";
 
 // import { message } from "antd";
 
-const Edit = () => {
+const Edit = ({ additional, setAdditional }) => {
   const editorRef = useRef(null);
-
-  const [state, setState] = useState(
-    "<p><strong>Job Description</strong></p><p>[Give brief description about job role]</p><p><strong>Responsibilities</strong></p><p>[Be specific when describing each of the responsibilities. Use gender-neutral, inclusive language.]</p><p>Example: Determine and develop user requirements for systems in production, to ensure maximum usability</p><p><strong>Qualifications</strong></p><p>[Some qualifications you may want to include are Skills, Education, Experience, or Certifications.]</p><p><strong>Selection Process</strong></p><p>[Selection process you may want to include i.e Assessment, Interview or Technical round.]</p>"
-  );
 
   //   const [messageApi, contextHolder] = message.useMessage();
 
@@ -49,8 +45,8 @@ const Edit = () => {
           apiKey="cxf2qo25od9zprfi6zjjx6nxqa6xdm3c4b9h3uyq1981iunr"
           onInit={(evt, editor) => (editorRef.current = editor)}
           //   initialValue="Start writing..."
-          value={state}
-          onEditorChange={(content) => setState(content)}
+          value={additional}
+          onEditorChange={(content) => setAdditional(content)}
           onExecCommand={handleExecCommand}
           init={{
             height: 300,

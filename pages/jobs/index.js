@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../components/context";
 import Card2 from "../../components/homepage/card2";
 import Head from "next/head";
@@ -9,9 +9,21 @@ import {
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import JobDescription from "../../components/modal/jobDescription";
+import axios from "axios";
+
 const Jobs = () => {
   const [show, setShow] = useState(false);
   const { trending } = useContext(MyContext);
+
+  const [jobs, setJobs] = useState(null);
+  async function getJobs() {
+    const { data } = await axios.post("api/getJobs");
+    setJobs(data);
+  }
+  console.log(jobs);
+  useEffect(() => {
+    getJobs();
+  }, []);
   return (
     <div>
       <section className=" single-post-area section-padding gray-bg">
@@ -57,15 +69,16 @@ const Jobs = () => {
                 </div>
               </div>
               <div className="categories-container row">
-                {[0, 1, 2, 3, 4].map((data, idx) => {
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => setShow(true)}
-                      class="card categories-card  job-cards"
-                      style={{ padding: 0, margin: "10px" }}
-                    >
-                      {/* <Link
+                {jobs &&
+                  jobs.map((data, idx) => {
+                    return (
+                      <div
+                        key={idx}
+                        onClick={() => setShow(true)}
+                        class="card categories-card  job-cards"
+                        style={{ padding: 0, margin: "10px" }}
+                      >
+                        {/* <Link
                         href={
                           "/blogs/" +
                           data.title
@@ -77,59 +90,50 @@ const Jobs = () => {
                         }
                       > */}
 
-                      <div class="card-body">
-                        <div className="job-title">
-                          <img
-                            class="card-img-top"
-                            loading="lazy"
-                            src="https://upload.wikimedia.org/wikipedia/en/2/2a/Nucleus_Logo.png"
-                            //   alt={data.category}
-                          />
-                          <h5 class="card-title">
-                            Nucleus Software Off Campus Drive 2023 for Assistant
-                            Software Engineer | B.E/B.Tech | Noida
-                          </h5>
-                        </div>
-                        <div className="job-meta ">
-                          <small>
-                            <b>
-                              <FontAwesomeIcon icon={faLocationDot} />
-                            </b>
-                            WFH
-                          </small>
+                        <div class="card-body">
+                          <div className="job-title">
+                            <img
+                              class="card-img-top"
+                              loading="lazy"
+                              src={data.logo}
+                              //   alt={data.category}
+                            />
+                            <h5 class="card-title">{data.jobTitle}</h5>
+                          </div>
+                          <div className="job-meta ">
+                            <small>
+                              <b>
+                                <FontAwesomeIcon icon={faLocationDot} />
+                              </b>
+                              {data.location}
+                            </small>
 
-                          <small>
-                            <b>
-                              <FontAwesomeIcon icon={faBriefcase} />
-                            </b>{" "}
-                            1-2 yrs
-                          </small>
-                          <small>
-                            <b>
-                              <FontAwesomeIcon icon={faClock} />
-                            </b>{" "}
-                            20-08-2025
-                          </small>
-                        </div>
+                            <small>
+                              <b>
+                                <FontAwesomeIcon icon={faBriefcase} />
+                              </b>{" "}
+                              {data.experience}
+                            </small>
+                            <small>
+                              <b>
+                                <FontAwesomeIcon icon={faClock} />
+                              </b>{" "}
+                              {data.lastDate === "" ? "ASAP" : data.lastDate}
+                            </small>
+                          </div>
 
-                        <p
-                          class="card-text break-line-3 mt-2"
-                          style={{ lineHeight: "25px" }}
-                        >
-                          We are looking for young creative technologists who
-                          are proud of their creations be it code, design,
-                          architecture or solution. Professionals who wish to be
-                          part of our mission and help us build and evolve world
-                          class software products. The role is in the Product
-                          Engineering team. Following are some expectations from
-                          the role:
-                          {/* {data.description} */}
-                        </p>
+                          <p
+                            class="card-text break-line-3 mt-2"
+                            style={{ lineHeight: "25px" }}
+                          >
+                            {data.jobSummary}
+                            {/* {data.description} */}
+                          </p>
+                        </div>
+                        {/* </Link> */}
                       </div>
-                      {/* </Link> */}
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
             </div>
 
