@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import JobDescription from "../../components/modal/jobDescription";
 import axios from "axios";
+import HorizontalAds from "../../components/ads/horizontalAds";
 
 const Jobs = () => {
   const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ const Jobs = () => {
     const { data } = await axios.post("api/getJobs");
     setJobs(data);
   }
-  console.log(jobs);
+  // console.log(jobs);
   useEffect(() => {
     getJobs();
   }, []);
@@ -74,6 +75,13 @@ const Jobs = () => {
                 </div>
               </div>
               <div className="categories-container row">
+                <div style={{ textAlign: "center", padding: "10px 0" }}>
+                  <HorizontalAds
+                    data-ad-format="fluid"
+                    data-ad-layout-key="-7q+f1-x-5f+d4"
+                    data-ad-slot="2644107188"
+                  />
+                </div>
                 {jobs &&
                   jobs.map((data, idx) => {
                     return (
