@@ -7,7 +7,7 @@ const staticCategories = [
   {
     category: "Cyber Security",
     categoryImg:
-      "https://res.cloudinary.com/domyp6djh/image/upload/v1685356423/cyber%20security/dnoewfdakcah2jvekdbl.jpg",
+      "https://res.cloudinary.com/domyp6djh/image/upload/v1688543670/cyber%20security%20webp/ezgif.com-gif-maker_5_cmtvd9.webp",
   },
   {
     category: "Business",
@@ -17,7 +17,7 @@ const staticCategories = [
   {
     category: "Sports",
     categoryImg:
-      "https://res.cloudinary.com/domyp6djh/image/upload/v1685354989/sports/moon-4919501__340_qnq5yz.jpg",
+      "https://res.cloudinary.com/domyp6djh/image/upload/v1695922456/common/Untitled_design_4_aoflfq.webp",
   },
 ];
 

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 const LogoAbout = () => {
   return (
@@ -34,6 +36,7 @@ const LogoAbout = () => {
                   rel="noreferrer"
                 >
                   <i class="bx bxl-twitter"></i>
+                  {/* <FontAwesomeIcon icon={faXTwitter} /> */}
                 </a>
                 <a
                   class="btn btn-outline-secondary text-center mr-2 px-0 icons"
