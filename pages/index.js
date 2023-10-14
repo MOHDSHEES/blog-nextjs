@@ -73,7 +73,7 @@ export default function Home({ data, trending }) {
         <title>OFFTHEWEB</title>
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/domyp6djh/image/upload/v1688851669/common/ezgif.com-gif-maker_xrbea2.webp"
+          content="https://res.cloudinary.com/domyp6djh/image/upload/v1697286123/common/offtheweb_kenlou.jpg"
         />
         <meta
           name="description"
