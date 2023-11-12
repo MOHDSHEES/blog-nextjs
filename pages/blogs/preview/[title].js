@@ -195,6 +195,35 @@ const Preview = ({ data, imgUrl }) => {
             <div className="row">
               <div className="col-lg-8 posts-list">
                 {/* <SinglePost data={updatedData} /> */}
+                {updatedData.status === "Rejected" && updatedData.message && (
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Oops! Blog got Rejected.</h4>
+                    <p style={{ color: "#58151c" }}>
+                      <strong>Reason:</strong> {updatedData.message}
+                    </p>
+                    <p style={{ color: "#58151c" }}>
+                      Make sure all the above specified criteria are met before
+                      trying to submit your application again.
+                    </p>
+                    <hr
+                      style={{
+                        borderBottom: "1px solid #58151c",
+                        margin: "10px 0",
+                      }}
+                    />
+
+                    <p style={{ color: "#58151c" }} className="mb-0">
+                      If you have any questions or require additional
+                      assistance, please do not hesitate to{" "}
+                      <a
+                        href="https://www.offtheweb.in/contact"
+                        class="alert-link"
+                      >
+                        contact us.
+                      </a>
+                    </p>
+                  </div>
+                )}
                 <Post data={updatedData} preview={true} />
               </div>
               <div className="col-lg-4">

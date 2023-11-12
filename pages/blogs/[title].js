@@ -152,17 +152,18 @@ const BlogDetail = ({ data, imgUrl }) => {
   //     // setloading(false);
   //   })();
   // }, [data]);
-  const [keywords, setKeywords] = useState(data.keywords);
+  const [keywords, setKeywords] = useState(data && data.keywords);
   useEffect(() => {
     setUpdatedData(data);
-    setKeywords(data.keywords);
+    if (data && data.keywords) setKeywords(data.keywords);
   }, [data]);
 
   const [similarBlogs, setSimilarBlogs] = useState(null);
   let keyFlag = 1;
   useEffect(() => {
     if (keyFlag) {
-      setKeywords(updatedData.keywords);
+      if (updatedData && updatedData.keywords)
+        setKeywords(updatedData.keywords);
       (async () => {
         const { data } = await axios.post("/api/blogs/similarBlogs", {
           keywords: keywords.split(","),
