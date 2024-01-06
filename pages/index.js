@@ -91,7 +91,7 @@ export default function Home({ data, trending }) {
           content="OFFTHEWEB,OFF THE WEB, THE WEB, OFF WEB, technology trends,trending"
         />
       </Head>
-      <div
+      {/* <div
         style={{ maxHeight: "130px", textAlign: "center", overflow: "hidden" }}
         className="pt-10 gray-bg"
       >
@@ -100,7 +100,7 @@ export default function Home({ data, trending }) {
           data-ad-layout-key="-h3+11-4n-df+163"
           data-ad-slot="7929301453"
         />
-      </div>
+      </div> */}
       <MainCarousel data={home} />
       <CategoryTab data={home} />
       <CarouselLast />

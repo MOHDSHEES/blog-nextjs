@@ -114,11 +114,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
-      <HorizontalAds
+      {/* <HorizontalAds
         data-ad-format="fluid"
         data-ad-layout-key="-fb+5w+4e-db+86"
         data-ad-slot="1227331152"
-      />
+      /> */}
       <div class="accordion-item mt-2  " style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button
@@ -227,11 +227,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
-      <HorizontalAds
+      {/* <HorizontalAds
         data-ad-format="fluid"
         data-ad-layout-key="-fb+5w+4e-db+86"
         data-ad-slot="1227331152"
-      />
+      /> */}
       <div class="accordion-item mt-2 mb-5" style={{ position: "relative" }}>
         <h2 class="accordion-header ">
           <button
@@ -334,11 +334,11 @@ const CareerComponent = () => {
           </div>
         </div>
       </div>
-      <HorizontalAds
+      {/* <HorizontalAds
         data-ad-format="fluid"
         data-ad-layout-key="-fb+5w+4e-db+86"
         data-ad-slot="1227331152"
-      />
+      /> */}
     </div>
   );
 };

@@ -113,27 +113,11 @@ const categoryTab = ({ data }) => {
             </div>
             {/* Banner */}
             <div className="banner-one mt-20 mb-30">
-              {/* <ins
-              class="adsbygoogle"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-2361244068228403"
-             
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins> */}
-
-              {/* <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-format="fluid"
-     data-ad-layout-key="-e8+7m+2l-ev+hk"
-     data-ad-client="ca-pub-2361244068228403"
-     data-ad-slot="8757784502"></ins> */}
-
-              <HorizontalAds
+              {/* <HorizontalAds
                 data-ad-format="fluid"
                 data-ad-layout-key="-e8+7m+2l-ev+hk"
                 data-ad-slot="8757784502"
-              />
+              /> */}
 
               {/* <Link href="/policies/advertise">
                 <img src="/ad/adGif.gif" alt="ad" loading="lazy" />

@@ -23,6 +23,10 @@ const blogSchema = new mongoose.Schema({
   blog: { type: String, required: true },
   status: { type: String, default: "Inactive" },
   user: { type: String, required: true },
+  activationDetails: {
+    activatedBy: { type: String },
+    activatedDate: { type: String },
+  },
   message: { type: String },
 });
 

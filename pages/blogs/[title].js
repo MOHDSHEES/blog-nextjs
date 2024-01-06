@@ -320,13 +320,13 @@ const BlogDetail = ({ data, imgUrl }) => {
               <div className="col-lg-4">
                 <div className="blog_right_sidebar">
                   <TagClouds keywords={updatedData && updatedData.keywords} />
-                  <div style={{ textAlign: "center" }}>
+                  {/* <div style={{ textAlign: "center" }}>
                     <HorizontalAds
                       data-ad-slot="6105584909"
                       data-ad-format="auto"
                       data-full-width-responsive="true"
                     />
-                  </div>
+                  </div> */}
                   <aside
                     className="single_sidebar_widget tag_cloud_widget"
                     style={{ marginTop: "15px" }}
@@ -409,22 +409,22 @@ const BlogDetail = ({ data, imgUrl }) => {
                       {trending &&
                         trending.length !== 0 &&
                         trending.map((blog, idx) => {
-                          if (idx === 1) {
-                            return (
-                              <div
-                                style={{
-                                  textAlign: "center",
-                                  padding: "10px 0",
-                                }}
-                              >
-                                <HorizontalAds
-                                  data-ad-format="fluid"
-                                  data-ad-layout-key="-7q+f1-x-5f+d4"
-                                  data-ad-slot="2644107188"
-                                />
-                              </div>
-                            );
-                          }
+                          // if (idx === 1) {
+                          //   return (
+                          //     <div
+                          //       style={{
+                          //         textAlign: "center",
+                          //         padding: "10px 0",
+                          //       }}
+                          //     >
+                          //       <HorizontalAds
+                          //         data-ad-format="fluid"
+                          //         data-ad-layout-key="-7q+f1-x-5f+d4"
+                          //         data-ad-slot="2644107188"
+                          //       />
+                          //     </div>
+                          //   );
+                          // }
                           return <Card2 data={blog} key={idx} />;
                         })}
                     </div>
