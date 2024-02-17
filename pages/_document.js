@@ -25,12 +25,18 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
           />
-          <Script
+          <script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_CLIENT_ID}`}
             strategy="lazyOnload"
             crossOrigin="anonymous"
-          />
+          ></script>
+          {/* <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_CLIENT_ID}`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
+          /> */}
         </Head>
         <body>
           <Main />
