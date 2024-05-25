@@ -9,8 +9,8 @@ import NewIndex from "./newIndex";
 import Image from "next/image";
 import HorizontalAds from "../ads/horizontalAds";
 import ReactDOM from "react-dom";
+import SafeHtml from "./safeHtml";
 // import { useRouter } from "next/router";
-import { createPortal } from "react-dom";
 
 const Post = ({ data, preview = false }) => {
   // .match(`/<h1>(.*?)<\/h1>/gi`)
@@ -19,6 +19,7 @@ const Post = ({ data, preview = false }) => {
   const { data: user } = useFetch(`userData/${data.user}`, true);
   // const router = useRouter();
   const [blogContent, setBlogContent] = useState(data.blog);
+
   // const blogContentHTML = `<div><h2>Heading 1</h2><p>Content for Heading 1</p><h2>Heading 2</h2><p>Content for Heading 2</p></div>`;
   const blogContainerRef = useRef(null);
   // console.log(router.query);
@@ -165,10 +166,11 @@ const Post = ({ data, preview = false }) => {
           </ul>
           <div id="blog-1" className="new-editor-post">
             {/* {data && parse(data.blog)} */}
-            <div
+            <SafeHtml htmlString={blogContent} />
+            {/* <div
               ref={blogContainerRef}
               dangerouslySetInnerHTML={{ __html: blogContent }}
-            />
+            /> */}
           </div>
         </div>
         {/* <i className="fa fa-user">
