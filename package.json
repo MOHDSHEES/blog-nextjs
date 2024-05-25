@@ -19,6 +19,7 @@
     "eslint-config-next": "^13.4.12",
     "gray-matter": "^4.0.3",
     "html-react-parser": "^4.2.2",
+    "isomorphic-dompurify": "^2.11.0",
     "jquery": "^3.7.0",
     "mongoose": "^7.3.1",
     "next": "^13.4.12",
