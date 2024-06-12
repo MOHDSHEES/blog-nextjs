@@ -10,7 +10,7 @@ const BottomArea = () => {
               <div className="footer-copy-right text-center">
                 <p>
                   {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                  Copyright © 2023 OFFTHEWEB All rights reserved
+                  Copyright © 2024 OFFTHEWEB All rights reserved
                   {/* | This template is made with
                   <i className="fa fa-heart" aria-hidden="true" /> */}
                   {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
