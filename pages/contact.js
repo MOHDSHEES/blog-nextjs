@@ -95,8 +95,8 @@ const Contact = () => {
               <div class="media-body nav-a a-red ">
                 <span>
                   Email:{" "}
-                  <a className="mt-3" href="mailTo:info@offtheweb.com">
-                    info@offtheweb.com
+                  <a className="mt-3" href="mailTo:info@offtheweb.in">
+                    info@offtheweb.in
                     {/* official.offtheweb@gmail.com */}
                   </a>
                 </span>
