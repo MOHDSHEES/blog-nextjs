@@ -142,14 +142,14 @@ const AboutUs = () => {
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688926452/employees/Anas_Adnan_rkbyn9.webp"
               }
-              post={"Managing Director"}
+              post={"Human Resource"}
             />
             <MemberCard
               name={"RAMSHA FARHEEN"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688921858/employees/Ramsha_farheen_dbjanl.webp"
               }
-              post={"Human Resource Manager"}
+              post={"HR Assitant"}
             />
           </OwlCarousel>
           {/* <div className="row">
