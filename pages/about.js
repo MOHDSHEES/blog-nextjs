@@ -78,6 +78,7 @@ const AboutUs = () => {
           <div className="row">
             {/* <div className="cl-xl-7 col-lg-8 col-md-10"> */}
             {/* Section Tittle */}
+
             <div className="section-tittles section-title-2 mb-30">
               <span
                 style={{
@@ -123,13 +124,13 @@ const AboutUs = () => {
               },
             }}
           >
-            <MemberCard
+            {/* <MemberCard
               name={"MOHD SHEES"}
               src={
                 "https://res.cloudinary.com/domyp6djh/image/upload/v1688824318/employees/ceo_owuczd.jpg"
               }
               post={"Founder and CEO"}
-            />
+            /> */}
             <MemberCard
               name={"DEEPAK KUMAR"}
               src={
