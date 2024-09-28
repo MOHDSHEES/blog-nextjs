@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import formatViews from "../../functions/formatViews";
 
 const CategorySmall2 = ({ data }) => {
   return (
@@ -34,7 +35,7 @@ const CategorySmall2 = ({ data }) => {
       <div className="most-recent-capt">
         <h4>{data.title}</h4>
         <p>
-          {data.createdDate} | Views: {data.views}
+          {data.createdDate} | Views: {formatViews(data.views)}
         </p>
       </div>
     </>

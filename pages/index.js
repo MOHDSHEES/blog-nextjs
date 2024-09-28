@@ -10,7 +10,7 @@ import { MyContext } from "../components/context";
 import dbConnect from "../lib/mongoose";
 import useFetch from "../components/useFetch";
 import uBlogModel from "../models/ublogModel";
-import HorizontalAds from "../components/ads/horizontalAds";
+// import HorizontalAds from "../components/ads/horizontalAds";
 
 export async function getStaticProps() {
   // let homepageData;
@@ -58,6 +58,7 @@ export default function Home({ data, trending }) {
     setTrending(trending);
     if (homePageData) setHome(homePageData);
   }, [trending, data, homePageData]);
+
   // console.log(data);
   // console.log(homepageData);
   // useEffect(() => {

@@ -8,6 +8,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Link from "next/link";
 import Image from "next/image";
+import formatViews from "../../functions/formatViews";
 const OwlCarousel = dynamic(import("react-owl-carousel"), { ssr: false });
 
 const CarouselSmall = ({ trending }) => {
@@ -99,7 +100,8 @@ const CarouselSmall = ({ trending }) => {
                             {/* </Link> */}
                           </div>
                           <p>
-                            Views: {blog.views} | {blog.createdDate}
+                            Views: {formatViews(blog.views)} |{" "}
+                            {blog.createdDate}
                           </p>
                         </div>
                       </div>

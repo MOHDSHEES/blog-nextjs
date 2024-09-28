@@ -10,6 +10,7 @@ import Image from "next/image";
 import HorizontalAds from "../ads/horizontalAds";
 import ReactDOM from "react-dom";
 import SafeHtml from "./safeHtml";
+import formatViews from "../functions/formatViews";
 // import { useRouter } from "next/router";
 
 const Post = ({ data, preview = false }) => {
@@ -157,7 +158,10 @@ const Post = ({ data, preview = false }) => {
             <i className="fa fa-user">
               <li>
                 <a href="#">
-                  <i className="fa fa-comments"> Views: {data.views}</i>
+                  <i className="fa fa-comments">
+                    {" "}
+                    Views: {formatViews(data.views)}
+                  </i>
                 </a>
                 {/* <i className="fa fa-comments"></i> */}
               </li>

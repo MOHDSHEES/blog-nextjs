@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import formatViews from "../functions/formatViews";
 
 const Card2 = ({ data }) => {
   return (
@@ -72,7 +73,7 @@ const Card2 = ({ data }) => {
             {/* </Link> */}
           </h4>
           <p style={{ fontSize: "12px" }}>
-            {data.createdDate} | Views: {data.views}
+            {data.createdDate} | Views: {formatViews(data.views)}
           </p>
         </div>
       </div>
