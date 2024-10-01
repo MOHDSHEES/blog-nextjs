@@ -3,7 +3,7 @@ import CatMainCard from "./catMainCard";
 import CatSmallCard from "./catSmallCard";
 import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
-import Link from "next/link";
+// import Link from "next/link";
 import HorizontalAds from "../../ads/horizontalAds";
 import HomepageBanner from "../../ads/HomepageBanner";
 
@@ -99,10 +99,10 @@ const categoryTab = ({ data }) => {
                                     {data[1].slice(1, 5).map((blog, idx) => {
                                       if (idx === 1)
                                         return (
-                                          <HomepageBanner
-                                            data-ad-slot="3952189110"
-                                            data-ad-format="auto"
-                                            data-full-width-responsive="true"
+                                          <HorizontalAds
+                                            data-ad-format="fluid"
+                                            data-ad-layout-key="-gv+y-4n-c7+13y"
+                                            data-ad-slot="9281171870"
                                           />
                                         );
                                       return (
