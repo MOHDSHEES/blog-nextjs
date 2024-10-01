@@ -59,11 +59,12 @@ const RecentBlogs = () => {
       })}
 
       {/* <div className="most-recent-single "> */}
-      {/* <HorizontalAds
+      <HorizontalAds
         data-ad-format="fluid"
-        data-ad-layout-key="-h3+11-4n-df+163"
-        data-ad-slot="7929301453"
-      /> */}
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-slot="6922601847"
+      />
+
       {/* </div> */}
 
       {/* <CategorySmall2 /> */}

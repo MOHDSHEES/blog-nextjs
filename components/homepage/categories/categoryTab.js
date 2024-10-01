@@ -121,8 +121,8 @@ const categoryTab = ({ data }) => {
               /> */}
               <HomepageBanner
                 data-ad-slot="3952189110"
-                data-ad-format="fluid"
-                // data-full-width-responsive="true"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
               />
 
               {/* <Link href="/policies/advertise">
