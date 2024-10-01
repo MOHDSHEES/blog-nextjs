@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const HorizontalAds = (props) => {
+const HomepageBanner = (props) => {
   useEffect(() => {
     const pushAd = () => {
       try {
@@ -38,4 +38,4 @@ const HorizontalAds = (props) => {
     />
   );
 };
-export default HorizontalAds;
+export default HomepageBanner;

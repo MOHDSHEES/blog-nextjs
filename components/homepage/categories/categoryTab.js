@@ -5,6 +5,7 @@ import SocialFollow from "./socialFollow";
 import RecentBlogs from "./recentBlogs";
 import Link from "next/link";
 import HorizontalAds from "../../ads/horizontalAds";
+import HomepageBanner from "../../ads/HomepageBanner";
 
 const categoryTab = ({ data }) => {
   // console.log("categoryTb");
@@ -118,6 +119,11 @@ const categoryTab = ({ data }) => {
                 data-ad-layout-key="-e8+7m+2l-ev+hk"
                 data-ad-slot="8757784502"
               /> */}
+              <HomepageBanner
+                data-ad-slot="3952189110"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              />
 
               {/* <Link href="/policies/advertise">
                 <img src="/ad/adGif.gif" alt="ad" loading="lazy" />
