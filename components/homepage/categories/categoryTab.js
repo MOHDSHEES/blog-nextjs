@@ -97,6 +97,14 @@ const categoryTab = ({ data }) => {
                                 <div className="col-xl-6 col-lg-12">
                                   <div className="row">
                                     {data[1].slice(1, 5).map((blog, idx) => {
+                                      if (idx === 1)
+                                        return (
+                                          <HomepageBanner
+                                            data-ad-slot="3952189110"
+                                            data-ad-format="auto"
+                                            data-full-width-responsive="true"
+                                          />
+                                        );
                                       return (
                                         <CatSmallCard key={idx} data={blog} />
                                       );
